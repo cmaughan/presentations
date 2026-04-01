@@ -1,0 +1,647 @@
+---
+title: "Going Agentic"
+subtitle: "What I've Learned So Far"
+author: "Chris Maughan"
+date: last-modified
+---
+
+## The Starting Point: ~/.config/nvim {background-color="#161b22"}
+
+Before Draxul, I needed a development environment.\
+This Neovim config was itself built and maintained by AI agents.
+
+![Windows: Neovim + btop + tmux (psmux)](screenshots/nvim-config-pc.png){.slide-image width="85%"}
+
+
+## The Config: Cross-Platform, Agent-Maintained
+
+::: {.columns}
+::: {.column width="50%"}
+
+### What it is
+
+- Cross-platform Neovim config (Mac + Windows)
+- 40+ plugins managed by lazy.nvim
+- Shell templates: zsh, PowerShell, Starship, tmux
+- One-command bootstrap: `install.sh` / `install.bat`
+
+:::
+::: {.column width="50%"}
+
+### Agent-optimized
+
+- `CLAUDE.md` describes the full config for agents
+- All keymaps centralized in one file (`keymaps.lua`)
+- Duplicate keymap guard catches agent conflicts
+- Mason auto-installs LSP servers, formatters, linters
+
+:::
+:::
+
+
+## The Plugin Stack
+
+::: {.columns}
+::: {.column width="33%"}
+
+### Navigation
+
+- Telescope (fuzzy finder)
+- Harpoon (file bookmarks)
+- Mini Files (explorer)
+- Leap (motion)
+- Zoxide (smart `cd`)
+
+:::
+::: {.column width="33%"}
+
+### Coding
+
+- LSP: lua_ls, rust_analyzer, clangd
+- Treesitter (syntax, textobjects)
+- nvim-cmp + Copilot completions
+- conform.nvim + nvim-lint
+- DAP debugger (codelldb)
+
+:::
+::: {.column width="33%"}
+
+### Workflow
+
+- Gitsigns + Fugitive + Diffview
+- Which-key (discoverability)
+- Neotest (test runner)
+- Obsidian (notes vault)
+- Aerial (code outline)
+
+:::
+:::
+
+All installed, configured, and kept in sync by agents.
+
+
+## Why This Matters
+
+- The config **is** a CLAUDE.md-driven project -- agents read it, modify it, test it
+- `install.sh` and `doctor.sh` were written by agents to bootstrap new machines
+- The duplicate keymap guard was added *because* agents kept creating conflicts
+- Cross-platform parity is maintained by agents -- they test both paths
+
+> My Neovim config was the training ground for the agentic workflow\
+> that later built Draxul.
+
+
+## KeyViewer: A Side Project in an Afternoon {background-color="#161b22"}
+
+Too many keybindings to remember? Build a viewer.
+
+![KeyViewer -- all shortcuts at a glance](screenshots/keyviewer.png){.slide-image width="85%"}
+
+
+## KeyViewer: 3 Files, Pure Rust, 100% Agentic
+
+::: {.columns}
+::: {.column width="50%"}
+
+### What it is
+
+- One-shot overlay: launch `kv`, see all bindings, Escape to close
+- Parses a `keys.md` (compiled into the binary)
+- Dracula dark theme, 4-column grid layout
+- Cross-platform: Windows + macOS
+
+:::
+::: {.column width="50%"}
+
+### How it was built
+
+- 3 source files, ~440 lines of Rust
+- `eframe`/`egui` for immediate-mode GUI
+- Entire project was a single agentic session
+- [github.com/cmaughan/keyviewer](https://github.com/cmaughan/keyviewer)
+
+:::
+:::
+
+> "Read my `~/.tmux.conf` and `keymaps.lua` and generate a `keys.md`."
+>
+> That's the whole prompt. The agent wrote the parser, the renderer, and the keybinding file.
+
+
+## Obrain: A Second Brain {background-color="#161b22"}
+
+Post a thought to Slack. AI enriches it. It lands in my Obsidian vault.\
+No manual filing. No context switching. Just capture.
+
+```
+Slack message → AI Enrichment → Obsidian vault
+   (me)          (Claude API)     (organized)
+```
+
+~3,300 lines of Python. Runs as a macOS daemon. Entirely agent-written.
+
+
+## Obrain: The Pipeline
+
+::: {.columns}
+::: {.column width="33%"}
+
+### 1. Capture
+
+- Polls a Slack channel every 30s
+- Text, images, PDFs, audio, tweets
+- Links fetched and content extracted
+- Audio transcribed locally (Whisper)
+
+:::
+::: {.column width="33%"}
+
+### 2. Enrich
+
+- Claude classifies each thought
+- Title, summary, type, topics, folder
+- Event detection (dates, venues)
+- Haiku default, `<high>` for Opus
+
+:::
+::: {.column width="33%"}
+
+### 3. File
+
+- Routed to the right vault folder
+- Tagged with frontmatter metadata
+- Linked to Maps of Content
+- Summary posted back to Slack thread
+
+:::
+:::
+
+
+## Obrain: Beyond Capture
+
+::: {.columns}
+::: {.column width="50%"}
+
+### Morning Brief
+
+- Daily at 06:00 via launchd
+- Calendar events, stock data, news feeds
+- Personalized to my interests
+- Sleep-aware: fires on next wake
+
+:::
+::: {.column width="50%"}
+
+### Vault Query
+
+- Prefix a Slack message with `?`
+- Claude searches my vault with tool use
+- Iterative exploration, not keyword search
+- Notes become a queryable knowledge base
+
+:::
+:::
+
+> The best second brain is one you never have to think about.
+
+
+## Obrain: Why It Matters
+
+- An **agentic system built by agents** -- meta-recursion
+- Daemon design (sleep-aware, lockfile, orchestration) came from agent sessions
+- Vault query uses Claude's **tool use API** -- searches like a colleague
+- Morning brief aggregates 6 news feeds, market data, and calendar -- zero manual code
+
+> I just post to Slack and it handles the rest.
+
+
+---
+
+## {.section-divider background-color="#161b22"}
+
+::: {style="text-align: center; padding-top: 2em;"}
+## What I Built With It
+:::
+
+
+# Draxul {background-color="#0d1117"}
+
+A GPU-accelerated Neovim GUI + 3D code-city visualizer,\
+**100% agentically coded** across Claude, Codex, and Gemini.
+
+::: {.columns}
+::: {.column width="33%"}
+::: {.stat-box}
+[3]{.number}
+[weeks]{.label}
+:::
+:::
+::: {.column width="33%"}
+::: {.stat-box}
+[125+]{.number}
+[learnings]{.label}
+:::
+:::
+::: {.column width="33%"}
+::: {.stat-box}
+[0]{.number}
+[human-written lines]{.label}
+:::
+:::
+:::
+
+::: {.notes}
+Draxul is a Neovim GUI frontend and 3D code visualizer. Every line of code was written by AI agents over roughly three weeks.
+:::
+
+
+## What Is Draxul?
+
+::: {.columns}
+::: {.column width="50%"}
+- Spawns `nvim --embed`, communicates via msgpack-RPC
+- Renders terminal grid on GPU (Vulkan/Metal)
+- Multi-host: Neovim, Bash, Zsh, PowerShell
+- MegaCity: 3D code-city with live perf/coverage overlays
+:::
+::: {.column width="50%"}
+![Draxul rendering](screenshots/draxul-hero.png){.slide-image}
+:::
+:::
+
+::: {.notes}
+Hero shot: MegaCity 3D code-city with tooltip inspection panel alongside the Neovim editor.
+:::
+
+
+## Architecture at a Glance
+
+```
+                draxul-types (header-only)
+               /      |       |       \
+      window   renderer   font    grid
+        |         |        |       |
+        └────┬────┘        └───┬───┘
+             |                 |
+          draxul-nvim ---------┘
+             |
+    draxul-app-support
+             |
+            app (executable)
+```
+
+Small focused libraries wired together by a thin app layer.
+
+::: {.notes}
+The library split paid off immediately once multiple agents were working in parallel -- each agent could own a library boundary without stepping on the others.
+:::
+
+
+## MegaCity: Code as a City
+
+![Dependency connections routed through a 3D code city](screenshots/megacity-connections.png){.slide-image width="90%"}
+
+Buildings = classes. Height = function mass. Roads = dependencies.\
+Live performance heat and LCOV test coverage overlays.
+
+
+## Multi-Host Split Panes
+
+::: {.columns}
+::: {.column width="50%"}
+![Split panes: MegaCity + terminal + editor](screenshots/split-panes.png){.slide-image}
+:::
+::: {.column width="50%"}
+- Neovim, Bash, Zsh, PowerShell hosts
+- PTY-based terminal emulation
+- Side-by-side 3D city + code editing
+- Each pane is an independent host instance
+:::
+:::
+
+
+## Test Coverage Overlay
+
+![Coverage-lit code city](screenshots/coverage-overlay.png){.slide-image width="90%"}
+
+LCOV coverage imported from CI lights up function layers.\
+Covered = hot, uncovered = base color.
+
+
+---
+
+## {.section-divider background-color="#161b22"}
+
+::: {style="text-align: center; padding-top: 2em;"}
+## How I Built It
+The agentic development workflow
+:::
+
+
+## The Agent Toolchain
+
+::: {.columns}
+::: {.column width="50%"}
+
+### Agents Used
+
+- [Claude Code]{.highlight-blue} -- primary development agent
+- [Codex]{.highlight-green} -- parallel worktree tasks
+- [Gemini]{.highlight-orange} -- code review + alternative perspectives
+
+:::
+::: {.column width="50%"}
+
+### Key Infrastructure
+
+- `CLAUDE.md` as persistent system prompt
+- Work items as markdown specs
+- Multi-agent reviews with consensus synthesis
+- `do.py` as the single entry point
+
+:::
+:::
+
+
+## CLAUDE.md: The System Prompt
+
+The project instructions file that every agent reads on startup:
+
+```markdown
+## Build Commands
+cmake --preset mac-debug
+cmake --build build --target draxul
+
+## Architecture
+[dependency graph, data flow, key abstractions]
+
+## Validation Expectations
+- Always build and run smoke test before committing
+- If you touch renderer code, verify startup
+
+## Known Pitfalls
+- Do not include backend-private renderer headers from app/
+- Font-size changes must relayout before Neovim acknowledges
+```
+
+[This is the most important file in the repo.]{.highlight-green}
+
+
+## Work Items as Agent Specs
+
+Each task is a markdown file an agent can read and execute:
+
+```
+plans/work-items/
+├── 00 rpc-shutdown-hardening -bug.md
+├── 01 mouse-modifier-drag -bug.md
+├── 02 render-pass-refactor -refactor.md
+└── 03 chord-keybindings -feature.md
+```
+
+- Investigation checkboxes for the agent to tick off
+- Fix strategy with specific files and line numbers
+- Acceptance criteria that can be verified mechanically
+- Appended with which model wrote the spec
+
+
+## Multi-Agent Code Reviews
+
+Three agents review the same codebase independently:
+
+```
+plans/reviews/
+├── review-latest.claude.md
+├── review-latest.gemini.md
+├── review-latest.gpt.md
+└── review-consensus.md       ← synthesized
+```
+
+- Each agent finds different classes of issues
+- The consensus step is synthesis, not concatenation
+- Agreements reinforce confidence; disagreements surface real tradeoffs
+
+
+## Parallel Agents via Worktrees
+
+```bash
+# Each agent gets an isolated git worktree
+Agent(isolation: "worktree", prompt: "Fix the PTY EINTR bug...")
+Agent(isolation: "worktree", prompt: "Refactor render passes...")
+Agent(isolation: "worktree", prompt: "Add chord keybindings...")
+```
+
+- Each agent works on an isolated copy of the repo
+- No conflicts during execution
+- The integrating agent merges all diffs with full context
+- Even overlapping changes can be reconciled intelligently
+
+
+## The Integration Moment
+
+> Agent A moved a block of code to a different module.\
+> Agent B independently modified that same code at its original location.\
+> Neither agent knew what the other was doing.
+
+I reviewed all outputs, applied Agent A's move first, then
+**transplanted** Agent B's modification to the new location automatically.
+
+::: {.fragment}
+[Don't be afraid to assign overlapping work to parallel agents.]{.highlight-green}\
+The integration step is where the orchestrating agent earns its keep.
+:::
+
+
+---
+
+## {.section-divider background-color="#161b22"}
+
+::: {style="text-align: center; padding-top: 2em;"}
+## What I Learned
+125 lessons distilled
+:::
+
+
+## Lesson: Validation Infrastructure Pays for Itself
+
+::: {.columns}
+::: {.column width="50%"}
+
+### What I built
+
+- Swapchain readback for pixel-accurate captures
+- Platform-specific reference images
+- Diff + bless workflow via `do.py`
+
+:::
+::: {.column width="50%"}
+
+### What it caught
+
+- Overlay cell packing bugs
+- Font fallback regressions
+- Debug overlay interference
+
+:::
+:::
+
+> Once a UI project has reliable capture, diff, and bless mechanics,\
+> even small regressions become **cheap to spot and cheap to repair**.
+
+
+## Lesson: Agent Patterns to Watch For
+
+::: {.columns}
+::: {.column width="50%"}
+
+### Anti-patterns
+
+- Suggest features in stages, then criticize the result
+- Duplicate logic across consumers
+- Leave diagnostic logs at INFO level
+- Over-abstract for hypothetical requirements
+
+:::
+::: {.column width="50%"}
+
+### What works
+
+- Explicit scope upfront prevents suggest-then-criticize
+- Compute values once in the data model
+- Use DEBUG level -- adding/removing logs is trivial
+- Store effective prompts for repeatable generation
+
+:::
+:::
+
+
+## Lesson: The Debugger Wins
+
+> A renderer change caused a startup crash.\
+> The agent chose on its own to stop speculating and launch `lldb`.
+
+```
+(lldb) run
+Process stopped: EXC_BAD_ACCESS
+  frame #0: libdispatch semaphore_dispose
+```
+
+The debugger immediately showed the crash was in semaphore disposal,\
+pointing straight at the new Metal frame-semaphore shutdown logic.
+
+::: {.fragment}
+[If a rendering change begins crashing, start the debugger early.]{.highlight-green}\
+Get the first real stack trace before iterating further.
+:::
+
+
+## Lesson: User-Supplied Logs Beat Agent Guessing
+
+For renderer bugs, me driving the real interaction path\
+and handing over the log is faster than agent-generated reproduction.
+
+- I can drive timing-sensitive UI behavior
+- A single log captures the whole failing sequence
+- Extra validation output makes logs useful to AI
+- The agent maps failures back to concrete code, not vibes
+
+[Invest in targeted logging -- it gives the agent real evidence.]{.highlight-green}
+
+
+---
+
+## {.section-divider background-color="#161b22"}
+
+::: {style="text-align: center; padding-top: 2em;"}
+## The Numbers
+:::
+
+
+## By the Numbers
+
+::: {.columns}
+::: {.column width="25%"}
+::: {.stat-box}
+[8]{.number}
+[libraries]{.label}
+:::
+:::
+::: {.column width="25%"}
+::: {.stat-box}
+[2]{.number}
+[GPU backends]{.label}
+:::
+:::
+::: {.column width="25%"}
+::: {.stat-box}
+[6]{.number}
+[host types]{.label}
+:::
+:::
+::: {.column width="25%"}
+::: {.stat-box}
+[3]{.number}
+[AI models]{.label}
+:::
+:::
+:::
+
+::: {.columns style="margin-top: 1em;"}
+::: {.column width="25%"}
+::: {.stat-box}
+[125+]{.number}
+[learnings]{.label}
+:::
+:::
+::: {.column width="25%"}
+::: {.stat-box}
+[50+]{.number}
+[work items]{.label}
+:::
+:::
+::: {.column width="25%"}
+::: {.stat-box}
+[10]{.number}
+[render tests]{.label}
+:::
+:::
+::: {.column width="25%"}
+::: {.stat-box}
+[0]{.number}
+[human LOC]{.label}
+:::
+:::
+:::
+
+
+---
+
+## {.section-divider background-color="#161b22"}
+
+::: {style="text-align: center; padding-top: 2em;"}
+## Practical Takeaways
+:::
+
+
+## If You Try Agentic Development
+
+::: {.incremental}
+1. **Write a `CLAUDE.md`** -- it's the most leveraged file in the repo
+2. **Split into small libraries** -- agents work better with clear boundaries
+3. **Work items as markdown specs** -- investigation, strategy, acceptance criteria
+4. **Multi-agent reviews** -- different models find different bugs
+5. **Parallel worktrees** -- don't serialize what can be parallelized
+6. **Validation infrastructure early** -- smoke tests, render snapshots, `do.py`
+:::
+
+
+## Thank You {background-color="#0d1117"}
+
+::: {style="text-align: center; font-size: 1.4em; margin-top: 1em;"}
+[github.com/cmaughan/Draxul](https://github.com/cmaughan/Draxul)
+:::
+
+::: {style="text-align: center; margin-top: 2em; color: #8b949e;"}
+Built with Claude Code, Codex, and Gemini\
+100% agentically coded
+:::

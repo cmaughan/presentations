@@ -1,0 +1,21 @@
+project:
+  type: default
+  output-dir: _output
+
+format:
+  revealjs:
+    theme: [dark, custom.scss]
+    transition: fade
+    slide-number: true
+    code-line-numbers: true
+    highlight-style: monokai
+    footer: "Agentic Development -- Building Draxul"
+    width: 1920
+    height: 1080
+    margin: 0.04
+    center: true
+    hash-type: number
+    navigation-mode: linear
+    controls: true
+    progress: true
+    pdf-separate-fragments: false
