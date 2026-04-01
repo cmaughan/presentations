@@ -1,0 +1,72 @@
+name: Build and Deploy Presentations
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Build all presentations
+        run: |
+          for dir in */; do
+            if [ -f "$dir/_quarto.yml" ] || [ -f "$dir/index.qmd" ]; then
+              echo "Building $dir"
+              quarto render "$dir"
+            fi
+          done
+
+      - name: Prepare site
+        run: |
+          mkdir -p _site
+          for dir in */; do
+            name="${dir%/}"
+            if [ -d "$dir/_output" ]; then
+              cp -r "$dir/_output" "_site/$name"
+            fi
+          done
+          # Generate index page
+          cat > _site/index.html <<'HTMLEOF'
+          <!DOCTYPE html>
+          <html><head><meta charset="utf-8"><title>Presentations</title>
+          <style>
+            body { font-family: system-ui; background: #0d1117; color: #e6edf3; max-width: 600px; margin: 4em auto; }
+            a { color: #58a6ff; }
+            h1 { border-bottom: 1px solid #30363d; padding-bottom: 0.3em; }
+            li { margin: 0.5em 0; }
+          </style></head>
+          <body><h1>Presentations</h1><ul>
+          HTMLEOF
+          for dir in _site/*/; do
+            name="$(basename "$dir")"
+            echo "<li><a href=\"$name/\">$name</a></li>" >> _site/index.html
+          done
+          echo "</ul></body></html>" >> _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
