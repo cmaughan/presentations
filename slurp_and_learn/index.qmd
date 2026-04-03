@@ -3,25 +3,76 @@ title: "Going Agentic"
 subtitle: "What I've Learned So Far"
 author: "Chris Maughan"
 date: last-modified
+title-slide-attributes:
+  data-background-image: screenshots/megacity-connections.png
+  data-background-opacity: "0.25"
 ---
 
-## The Starting Point: ~/.config/nvim {background-color="#161b22"}
+## The Beginning (of the End?)
 
-Before Draxul, I needed a development environment.\
-This Neovim config was itself built and maintained by AI agents.
+Cast your mind back to February; the last time I wrote any code...
+
+- I'm in a meeting
+- "Chris, can you do this work.  It touches a bunch of things and is going to take you a week or two"
+
+["Codex: Can you implement this feature...?"]{.fragment .typewriter}
+
+## Next challenge...
+
+["See this product over here? Go into our source tree, figure out how they implemented that feature and update our product to do the same thing..."]{.typewriter}
+
+&nbsp;
+
+[...done]{.fragment .typewriter-ai}
+
+## My job changed
+
+- I've written less than 10 lines of code since
+- Several PRs per day
+- Can't keep up with the AI
+- Human reviewers are the bottleneck
+- Productivity curve: 3-5x
+
+## First side project:  ~/.config/nvim {background-color="#161b22"}
+
+- Commandline is king
+- No more IDE: lots of terminals
 
 ![Windows: Neovim + btop + tmux (psmux)](screenshots/nvim-config-pc.png){.slide-image width="85%"}
 
+## Mac
+![Mac: Zsh + tmux](screenshots/nvim-config-mac.png){.slide-image width="85%"}
 
-## The Config: Cross-Platform, Agent-Maintained
+## Prompts
+
+["Fix my vim config; startup is 2s"]{.typewriter}
+
+[...now starts in 140ms]{.fragment .typewriter-ai}
+
+["You're an ace developer laughing at my config.  What would you recommend I do to improve?"]{.fragment .typewriter}
+
+["Fix these plugins, install this, ..."]{.fragment .typewriter-ai}
+
+["Read my PC config and make this Mac look the same"]{.fragment .typewriter}
+
+["Machine now works the same..."]{.fragment .typewriter-ai}
+
+## Scripting vs Agent
+["You might want to make an install script to update your config instead of having me do it"]{.typewriter-ai}
+
+["Why would I need that when I've got you?"]{.fragment .typewriter}
+
+["Because I am expensive glue..."]{.fragment .typewriter-ai}
+
+## Cross-Platform, Agent-Maintained
 
 ::: {.columns}
 ::: {.column width="50%"}
 
 ### What it is
 
-- Cross-platform Neovim config (Mac + Windows)
-- 40+ plugins managed by lazy.nvim
+- Cross-platform config (Mac + Windows)
+- 40+ plugins in Vim 
 - Shell templates: zsh, PowerShell, Starship, tmux
 - One-command bootstrap: `install.sh` / `install.bat`
 
@@ -41,140 +92,68 @@ This Neovim config was itself built and maintained by AI agents.
 
 ## The Plugin Stack
 
-::: {.columns}
-::: {.column width="33%"}
+![40+ plugins across navigation, coding, workflow, and UI -- all agent-managed](screenshots/plugin-stack.svg){.slide-image width="95%"}
 
-### Navigation
+## Huge Productivity Boost
 
-- Telescope (fuzzy finder)
-- Harpoon (file bookmarks)
-- Mini Files (explorer)
-- Leap (motion)
-- Zoxide (smart `cd`)
+- Agents maintain my entire machine & development config 
+- `install.sh` and `doctor.sh` 
+- I can onboard a brand new machine in minutes
+- Cross-platform parity is maintained by agents
+- Typical prompt:
+- ["Go add quarto to my config at ~/.config/nvim"]{.typewriter}
 
-:::
-::: {.column width="33%"}
+> My Neovim config was the first spark of an idea... \
 
-### Coding
-
-- LSP: lua_ls, rust_analyzer, clangd
-- Treesitter (syntax, textobjects)
-- nvim-cmp + Copilot completions
-- conform.nvim + nvim-lint
-- DAP debugger (codelldb)
-
-:::
-::: {.column width="33%"}
-
-### Workflow
-
-- Gitsigns + Fugitive + Diffview
-- Which-key (discoverability)
-- Neotest (test runner)
-- Obsidian (notes vault)
-- Aerial (code outline)
-
-:::
-:::
-
-All installed, configured, and kept in sync by agents.
-
-
-## Why This Matters
-
-- The config **is** a CLAUDE.md-driven project -- agents read it, modify it, test it
-- `install.sh` and `doctor.sh` were written by agents to bootstrap new machines
-- The duplicate keymap guard was added *because* agents kept creating conflicts
-- Cross-platform parity is maintained by agents -- they test both paths
-
-> My Neovim config was the training ground for the agentic workflow\
-> that later built Draxul.
-
-
-## KeyViewer: A Side Project in an Afternoon {background-color="#161b22"}
+## KeyViewer: A Quick Side Project {background-color="#161b22"}
 
 Too many keybindings to remember? Build a viewer.
 
 ![KeyViewer -- all shortcuts at a glance](screenshots/keyviewer.png){.slide-image width="85%"}
 
 
-## KeyViewer: 3 Files, Pure Rust, 100% Agentic
-
-::: {.columns}
-::: {.column width="50%"}
+## KeyViewer: Rust, one shot
 
 ### What it is
 
-- One-shot overlay: launch `kv`, see all bindings, Escape to close
-- Parses a `keys.md` (compiled into the binary)
-- Dracula dark theme, 4-column grid layout
-- Cross-platform: Windows + macOS
+- One-shot overlay: launch `kv`, see all bindings
+- Parses a `keys.md` 
 
+["Read my `~/.tmux.conf` and `keymaps.lua` and generate a `keys.md`"]{.typewriter}
+
+## Whole Machine Organisation
+
+::: {.columns}
+::: {.column width="30%"}
+- PARA system
+- A root and branch cleanout of all my machines
+- Organisation of my personal information into Drobox/Vault
+
+["Look through my machine, tell me what is old/broken/legacy"]{.fragment .typewriter}
+
+["Nuke 3, 4, 6..."]{.fragment .typewriter}
+
+["Organise all my documents here like this..."]{.fragment .typewriter}
 :::
-::: {.column width="50%"}
 
-### How it was built
-
-- 3 source files, ~440 lines of Rust
-- `eframe`/`egui` for immediate-mode GUI
-- Entire project was a single agentic session
-- [github.com/cmaughan/keyviewer](https://github.com/cmaughan/keyviewer)
-
+::: {.column width="70%"}
+![PARA/Dropbox](screenshots/dropbox-para){.slide-image width="85%"}
 :::
 :::
 
-> "Read my `~/.tmux.conf` and `keymaps.lua` and generate a `keys.md`."
->
-> That's the whole prompt. The agent wrote the parser, the renderer, and the keybinding file.
+## Obrain: A Second Brain 
 
-
-## Obrain: A Second Brain {background-color="#161b22"}
-
-Post a thought to Slack. AI enriches it. It lands in my Obsidian vault.\
-No manual filing. No context switching. Just capture.
-
-```
-Slack message → AI Enrichment → Obsidian vault
-   (me)          (Claude API)     (organized)
-```
+- Post a thought to Slack
+- AI enriches it. 
+- It lands in my Obsidian vault
+- Mac Mini Desktop, synced to Dropbox
 
 ~3,300 lines of Python. Runs as a macOS daemon. Entirely agent-written.
 
 
 ## Obrain: The Pipeline
 
-::: {.columns}
-::: {.column width="33%"}
-
-### 1. Capture
-
-- Polls a Slack channel every 30s
-- Text, images, PDFs, audio, tweets
-- Links fetched and content extracted
-- Audio transcribed locally (Whisper)
-
-:::
-::: {.column width="33%"}
-
-### 2. Enrich
-
-- Claude classifies each thought
-- Title, summary, type, topics, folder
-- Event detection (dates, venues)
-- Haiku default, `<high>` for Opus
-
-:::
-::: {.column width="33%"}
-
-### 3. File
-
-- Routed to the right vault folder
-- Tagged with frontmatter metadata
-- Linked to Maps of Content
-- Summary posted back to Slack thread
-
-:::
-:::
+![Slack to Obsidian: capture, enrich with AI, file into vault](screenshots/obrain-pipeline.svg){.slide-image width="90%"}
 
 
 ## Obrain: Beyond Capture
@@ -187,76 +166,75 @@ Slack message → AI Enrichment → Obsidian vault
 - Daily at 06:00 via launchd
 - Calendar events, stock data, news feeds
 - Personalized to my interests
-- Sleep-aware: fires on next wake
 
 :::
 ::: {.column width="50%"}
 
 ### Vault Query
 
-- Prefix a Slack message with `?`
-- Claude searches my vault with tool use
-- Iterative exploration, not keyword search
-- Notes become a queryable knowledge base
+- Prefix a Slack with `?`
+- Claude searches my vault 
+- My whole vault: an agent query 
 
 :::
 :::
 
 > The best second brain is one you never have to think about.
 
+---
 
-## Obrain: Why It Matters
+## A bigger project
 
-- An **agentic system built by agents** -- meta-recursion
-- Daemon design (sleep-aware, lockfile, orchestration) came from agent sessions
-- Vault query uses Claude's **tool use API** -- searches like a colleague
-- Morning brief aggregates 6 news feeds, market data, and calendar -- zero manual code
+![Draxul rendering](screenshots/draxul-hero.png){.slide-image}
 
-> I just post to Slack and it handles the rest.
 
+## Live Coding
+... 3D + Editor...
+
+![Live Coding](screenshots/live-coding.jpg)
+
+## Live Coding
+A previous effort
+
+![Zep](screenshots/live-code-zep.png)
+
+## A replacement for nvim-qt 
+![Neovim embedded UI architecture](screenshots/nvim-rpc-diagram.svg)
 
 ---
 
-## {.section-divider background-color="#161b22"}
+## Review System
 
-::: {style="text-align: center; padding-top: 2em;"}
-## What I Built With It
-:::
+![Three agents review independently, then synthesize into consensus + work items](screenshots/review-system.svg){.slide-image width="90%"}
 
+## Review prompt
+[...Look at the separation of modules and the general layout. Look for bad code smells, or things that will make it harder for multiple agents to work on the codebase. Do a thorough review. Look for testing holes, and for code that is not clean or easy to maintain. Look for opportunities to separate concerns and make things modular....]{.typewriter}
+
+## Markdown Kanban
+
+![Work items as a three-column kanban: icebox, active, complete](screenshots/kanban-system.svg){.slide-image width="90%"}
+
+## Human in the Loop
+
+![Human arbiter assigns work items to agents, reviews plans, then approves parallel builds](screenshots/human-arbiter.svg){.slide-image width="90%"}
+
+## A full featured neovim GUI! 
+![Draxul rendering](screenshots/neovim.png){.slide-image}
 
 # Draxul {background-color="#0d1117"}
 
-A GPU-accelerated Neovim GUI + 3D code-city visualizer,\
-**100% agentically coded** across Claude, Codex, and Gemini.
-
-::: {.columns}
-::: {.column width="33%"}
-::: {.stat-box}
-[3]{.number}
-[weeks]{.label}
-:::
-:::
-::: {.column width="33%"}
-::: {.stat-box}
-[125+]{.number}
-[learnings]{.label}
-:::
-:::
-::: {.column width="33%"}
-::: {.stat-box}
-[0]{.number}
-[human-written lines]{.label}
-:::
-:::
-:::
-
-::: {.notes}
-Draxul is a Neovim GUI frontend and 3D code visualizer. Every line of code was written by AI agents over roughly three weeks.
-:::
-
-
+- **Dark Factory development** across Claude, Codex, and Gemini
+- 3 Weeks of part-time work
+- A GPU-accelerated Terminal, cross platform (Ghostty-like)
+- A 3D city-as-code visualizer
+- Metal & Vulkan, Mac, PC (Linux...)
+- A high end game engine: 
+    - AA
+    - HDR Pipeline
+    - Point and CSM shadows
+    - Ambient Occlusion
+    - Programmer art ;)
 ## What Is Draxul?
-
 ::: {.columns}
 ::: {.column width="50%"}
 - Spawns `nvim --embed`, communicates via msgpack-RPC
@@ -273,22 +251,7 @@ Draxul is a Neovim GUI frontend and 3D code visualizer. Every line of code was w
 Hero shot: MegaCity 3D code-city with tooltip inspection panel alongside the Neovim editor.
 :::
 
-
-## Architecture at a Glance
-
-```
-                draxul-types (header-only)
-               /      |       |       \
-      window   renderer   font    grid
-        |         |        |       |
-        └────┬────┘        └───┬───┘
-             |                 |
-          draxul-nvim ---------┘
-             |
-    draxul-app-support
-             |
-            app (executable)
-```
+## Draxul design goals
 
 Small focused libraries wired together by a thin app layer.
 
@@ -634,8 +597,9 @@ and handing over the log is faster than agent-generated reproduction.
 6. **Validation infrastructure early** -- smoke tests, render snapshots, `do.py`
 :::
 
+# Tips
 
-## {background-color="#0d1117"}
+## You're in trouble:
 
 ::: {style="text-align: center; font-size: 2em; padding-top: 3em;"}
 [Yes, that's a great idea...]{.typewriter}
@@ -644,17 +608,74 @@ and handing over the log is faster than agent-generated reproduction.
 ```{=html}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+  // Store original text; only clear non-fragment typewriters
+  var twSel = '.typewriter, .typewriter-ai';
+  document.querySelectorAll(twSel).forEach(function(el) {
+    el.dataset.text = el.textContent;
+    if (!el.classList.contains('fragment')) {
+      el.textContent = '';
+    }
+  });
+
+  function typeText(el) {
+    var text = el.dataset.text || el.textContent;
+    el.dataset.text = text;
+    el.textContent = '';
+    el.classList.add('typing');
+    var i = 0;
+    var interval = setInterval(function() {
+      el.textContent = text.slice(0, ++i);
+      if (i >= text.length) {
+        clearInterval(interval);
+        el.classList.remove('typing');
+        el.style.borderRightColor = 'transparent';
+      }
+    }, 15);
+  }
+
+  function isTypewriter(el) {
+    return el.classList.contains('typewriter') || el.classList.contains('typewriter-ai');
+  }
+
+  function typeNonFragments(slide) {
+    slide.querySelectorAll('.typewriter:not(.fragment), .typewriter-ai:not(.fragment)').forEach(typeText);
+  }
+
+  typeNonFragments(Reveal.getCurrentSlide());
+
   Reveal.on('slidechanged', function(event) {
-    event.currentSlide.querySelectorAll('.typewriter').forEach(function(el) {
-      el.style.animation = 'none';
-      el.offsetHeight; // force reflow
-      el.style.animation = '';
+    typeNonFragments(event.currentSlide);
+  });
+
+  Reveal.on('fragmentshown', function(event) {
+    event.fragments.forEach(function(frag) {
+      if (isTypewriter(frag)) {
+        typeText(frag);
+      }
     });
   });
 });
 </script>
 ```
 
+## Learning 1
+
+Today's agents aren't yesterday's agents
+
+- Forget CoPilot
+- Codex 5.4 (/effort default/xtreme?)
+- Claude Opus (effort auto/max/high?)
+- Gemini
+
+## Learning 2
+
+- If you can think it, AI can do it. 
+- A common refrain: "Have you asked Codex?"
+
+## Learning 3
+
+- Context is everything.
+- /init to onboard an Agent
 
 ## Thank You {background-color="#0d1117"}
 

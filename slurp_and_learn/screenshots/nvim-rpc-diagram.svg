@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" font-family="'Inter', 'Helvetica Neue', sans-serif">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#0d1117"/>
+
+  <!-- Draxul box -->
+  <rect x="60" y="30" width="680" height="180" rx="12" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="400" y="58" text-anchor="middle" fill="#58a6ff" font-size="18" font-weight="700">Draxul (GUI Process)</text>
+
+  <!-- GPU Renderer -->
+  <rect x="100" y="80" width="220" height="70" rx="8" fill="#0d1117" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="210" y="112" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="600">GPU Renderer</text>
+  <text x="210" y="134" text-anchor="middle" fill="#8b949e" font-size="13">Metal / Vulkan</text>
+
+  <!-- UI Event Handler -->
+  <rect x="420" y="80" width="280" height="70" rx="8" fill="#0d1117" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="560" y="112" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="600">UI Event Handler</text>
+  <text x="560" y="134" text-anchor="middle" fill="#8b949e" font-size="13">grid draws, highlights, cursor</text>
+
+  <!-- Arrow: handler → renderer -->
+  <line x1="420" y1="115" x2="326" y2="115" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- msgpack-RPC connection -->
+  <line x1="400" y1="210" x2="400" y2="290" stroke="#f0883e" stroke-width="3" stroke-dasharray="8,4"/>
+  <rect x="300" y="230" width="200" height="40" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="400" y="255" text-anchor="middle" fill="#f0883e" font-size="14" font-weight="600">msgpack-RPC</text>
+
+  <!-- Labels on connection -->
+  <text x="280" y="245" text-anchor="end" fill="#7ee787" font-size="12">keys, mouse, resize ▼</text>
+  <text x="520" y="255" text-anchor="start" fill="#58a6ff" font-size="12">▲ grid_line, flush</text>
+
+  <!-- stdin/stdout label -->
+  <text x="400" y="283" text-anchor="middle" fill="#8b949e" font-size="11">stdin / stdout</text>
+
+  <!-- Neovim box -->
+  <rect x="60" y="290" width="680" height="180" rx="12" fill="#161b22" stroke="#f0883e" stroke-width="2"/>
+  <text x="400" y="318" text-anchor="middle" fill="#f0883e" font-size="18" font-weight="700">nvim --embed (headless)</text>
+
+  <!-- Buffer Engine -->
+  <rect x="100" y="340" width="220" height="70" rx="8" fill="#0d1117" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="210" y="372" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="600">Buffer Engine</text>
+  <text x="210" y="394" text-anchor="middle" fill="#8b949e" font-size="13">editing, LSP, treesitter</text>
+
+  <!-- UI Protocol -->
+  <rect x="420" y="340" width="280" height="70" rx="8" fill="#0d1117" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="560" y="372" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="600">UI Protocol Events</text>
+  <text x="560" y="394" text-anchor="middle" fill="#8b949e" font-size="13">hl_attr_define, grid_clear</text>
+
+  <!-- Arrow: buffer → protocol -->
+  <line x1="320" y1="375" x2="414" y2="375" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+</svg>

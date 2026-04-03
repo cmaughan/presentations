@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="'Inter', 'Helvetica Neue', sans-serif">
+  <rect width="900" height="420" fill="#0d1117"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7ee787"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f0883e"/>
+    </marker>
+  </defs>
+
+  <!-- Stage 1: Slack input -->
+  <rect x="30" y="120" width="150" height="100" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <!-- Slack icon (hash symbol) -->
+  <text x="105" y="165" text-anchor="middle" fill="#58a6ff" font-size="28" font-weight="700">#</text>
+  <text x="105" y="190" text-anchor="middle" fill="#58a6ff" font-size="14" font-weight="600">Slack</text>
+  <text x="105" y="208" text-anchor="middle" fill="#8b949e" font-size="11">post a thought</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="180" y1="170" x2="230" y2="170" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 2: Capture -->
+  <rect x="230" y="100" width="160" height="140" rx="10" fill="#161b22" stroke="#f0883e" stroke-width="2"/>
+  <text x="310" y="130" text-anchor="middle" fill="#f0883e" font-size="15" font-weight="700">1. Capture</text>
+  <line x1="250" y1="140" x2="370" y2="140" stroke="#484f58" stroke-width="1"/>
+  <text x="310" y="162" text-anchor="middle" fill="#c9d1d9" font-size="12">Poll Slack channel</text>
+  <text x="310" y="182" text-anchor="middle" fill="#c9d1d9" font-size="12">Extract message text</text>
+  <text x="310" y="202" text-anchor="middle" fill="#c9d1d9" font-size="12">Detect URLs, images</text>
+  <text x="310" y="222" text-anchor="middle" fill="#8b949e" font-size="10">Python daemon (launchd)</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="390" y1="170" x2="440" y2="170" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 3: Enrich -->
+  <rect x="440" y="100" width="160" height="140" rx="10" fill="#161b22" stroke="#f0883e" stroke-width="2"/>
+  <text x="520" y="130" text-anchor="middle" fill="#f0883e" font-size="15" font-weight="700">2. Enrich</text>
+  <line x1="460" y1="140" x2="580" y2="140" stroke="#484f58" stroke-width="1"/>
+  <text x="520" y="162" text-anchor="middle" fill="#c9d1d9" font-size="12">Classify topic</text>
+  <text x="520" y="182" text-anchor="middle" fill="#c9d1d9" font-size="12">Generate tags</text>
+
+  <!-- high tag highlight -->
+  <rect x="465" y="192" width="110" height="22" rx="4" fill="#0d1117" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="520" y="208" text-anchor="middle" fill="#d2a8ff" font-size="11">&lt;high&gt; = Opus</text>
+
+  <text x="520" y="232" text-anchor="middle" fill="#8b949e" font-size="10">Haiku / Opus routing</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="600" y1="170" x2="650" y2="170" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stage 4: File -->
+  <rect x="650" y="100" width="160" height="140" rx="10" fill="#161b22" stroke="#7ee787" stroke-width="2"/>
+  <text x="730" y="130" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="700">3. File</text>
+  <line x1="670" y1="140" x2="790" y2="140" stroke="#484f58" stroke-width="1"/>
+  <text x="730" y="162" text-anchor="middle" fill="#c9d1d9" font-size="12">Create markdown note</text>
+  <text x="730" y="182" text-anchor="middle" fill="#c9d1d9" font-size="12">Apply PARA category</text>
+  <text x="730" y="202" text-anchor="middle" fill="#c9d1d9" font-size="12">Add frontmatter tags</text>
+  <text x="730" y="222" text-anchor="middle" fill="#8b949e" font-size="10">Obsidian vault format</text>
+
+  <!-- Output arrows -->
+  <!-- Down to Obsidian -->
+  <line x1="730" y1="240" x2="730" y2="300" stroke="#7ee787" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Obsidian vault -->
+  <rect x="630" y="300" width="200" height="65" rx="8" fill="#0d1117" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="730" y="325" text-anchor="middle" fill="#7ee787" font-size="14" font-weight="600">Obsidian Vault</text>
+  <text x="730" y="345" text-anchor="middle" fill="#8b949e" font-size="11">~/Dropbox/Vault/</text>
+  <text x="730" y="358" text-anchor="middle" fill="#484f58" font-size="10">synced across machines</text>
+
+  <!-- Summary back to Slack -->
+  <line x1="650" y1="332" x2="180" y2="332" stroke="#58a6ff" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+
+  <rect x="30" y="305" width="150" height="55" rx="8" fill="#0d1117" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="105" y="328" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600"># Summary</text>
+  <text x="105" y="348" text-anchor="middle" fill="#8b949e" font-size="11">confirmation + tags</text>
+
+  <!-- Bottom annotation -->
+  <text x="450" y="405" text-anchor="middle" fill="#8b949e" font-size="12">~3,300 lines of Python -- runs as a macOS daemon -- entirely agent-written</text>
+</svg>

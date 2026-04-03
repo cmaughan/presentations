@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Inter', 'Helvetica Neue', sans-serif">
+  <rect width="900" height="520" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" fill="#c9d1d9" font-size="11">All installed, configured, and kept in sync by agents</text>
+
+  <!-- ═══ Row 1: Shell & Config layer ═══ -->
+  <text x="30" y="62" fill="#484f58" font-size="10" font-weight="600">SHELL &amp; CONFIG</text>
+
+  <rect x="30" y="70" width="110" height="40" rx="5" fill="#161b22" stroke="#8b949e" stroke-width="1"/>
+  <text x="85" y="95" text-anchor="middle" fill="#8b949e" font-size="12">zsh</text>
+
+  <rect x="150" y="70" width="110" height="40" rx="5" fill="#161b22" stroke="#8b949e" stroke-width="1"/>
+  <text x="205" y="95" text-anchor="middle" fill="#8b949e" font-size="12">PowerShell</text>
+
+  <rect x="270" y="70" width="110" height="40" rx="5" fill="#161b22" stroke="#8b949e" stroke-width="1"/>
+  <text x="325" y="95" text-anchor="middle" fill="#8b949e" font-size="12">Starship</text>
+
+  <rect x="390" y="70" width="110" height="40" rx="5" fill="#161b22" stroke="#8b949e" stroke-width="1"/>
+  <text x="445" y="95" text-anchor="middle" fill="#8b949e" font-size="12">tmux</text>
+
+  <rect x="510" y="70" width="150" height="40" rx="5" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="585" y="95" text-anchor="middle" fill="#7ee787" font-size="12">install.sh / .bat</text>
+
+  <rect x="670" y="70" width="110" height="40" rx="5" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="725" y="95" text-anchor="middle" fill="#7ee787" font-size="12">doctor.sh</text>
+
+  <rect x="790" y="70" width="80" height="40" rx="5" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="830" y="95" text-anchor="middle" fill="#f0883e" font-size="12">CLAUDE.md</text>
+
+  <!-- ═══ Row 2: Navigation ═══ -->
+  <text x="30" y="142" fill="#58a6ff" font-size="10" font-weight="600">NAVIGATION</text>
+
+  <rect x="30" y="150" width="130" height="50" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="95" y="172" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">Telescope</text>
+  <text x="95" y="189" text-anchor="middle" fill="#8b949e" font-size="10">fuzzy finder</text>
+
+  <rect x="170" y="150" width="130" height="50" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="235" y="172" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">Harpoon</text>
+  <text x="235" y="189" text-anchor="middle" fill="#8b949e" font-size="10">file bookmarks</text>
+
+  <rect x="310" y="150" width="130" height="50" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="375" y="172" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">Mini Files</text>
+  <text x="375" y="189" text-anchor="middle" fill="#8b949e" font-size="10">file explorer</text>
+
+  <rect x="450" y="150" width="130" height="50" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="515" y="172" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">Leap</text>
+  <text x="515" y="189" text-anchor="middle" fill="#8b949e" font-size="10">motion</text>
+
+  <rect x="590" y="150" width="130" height="50" rx="6" fill="#161b22" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="655" y="172" text-anchor="middle" fill="#58a6ff" font-size="13" font-weight="600">Zoxide</text>
+  <text x="655" y="189" text-anchor="middle" fill="#8b949e" font-size="10">smart cd</text>
+
+  <!-- ═══ Row 3: Coding / LSP ═══ -->
+  <text x="30" y="232" fill="#7ee787" font-size="10" font-weight="600">CODING &amp; LSP</text>
+
+  <rect x="30" y="240" width="130" height="50" rx="6" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="95" y="262" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="600">Treesitter</text>
+  <text x="95" y="279" text-anchor="middle" fill="#8b949e" font-size="10">syntax + textobjects</text>
+
+  <rect x="170" y="240" width="130" height="50" rx="6" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="235" y="262" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="600">nvim-cmp</text>
+  <text x="235" y="279" text-anchor="middle" fill="#8b949e" font-size="10">completions</text>
+
+  <rect x="310" y="240" width="130" height="50" rx="6" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="375" y="262" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="600">Copilot</text>
+  <text x="375" y="279" text-anchor="middle" fill="#8b949e" font-size="10">AI completions</text>
+
+  <rect x="450" y="240" width="130" height="50" rx="6" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="515" y="262" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="600">conform.nvim</text>
+  <text x="515" y="279" text-anchor="middle" fill="#8b949e" font-size="10">formatting</text>
+
+  <rect x="590" y="240" width="130" height="50" rx="6" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="655" y="262" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="600">nvim-lint</text>
+  <text x="655" y="279" text-anchor="middle" fill="#8b949e" font-size="10">linting</text>
+
+  <rect x="730" y="240" width="140" height="50" rx="6" fill="#161b22" stroke="#7ee787" stroke-width="1.5"/>
+  <text x="800" y="262" text-anchor="middle" fill="#7ee787" font-size="13" font-weight="600">DAP / codelldb</text>
+  <text x="800" y="279" text-anchor="middle" fill="#8b949e" font-size="10">debugger</text>
+
+  <!-- LSP servers sub-row -->
+  <text x="30" y="312" fill="#484f58" font-size="10">LSP SERVERS (Mason)</text>
+
+  <rect x="30" y="318" width="100" height="32" rx="4" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+  <text x="80" y="339" text-anchor="middle" fill="#8b949e" font-size="11">lua_ls</text>
+
+  <rect x="140" y="318" width="100" height="32" rx="4" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+  <text x="190" y="339" text-anchor="middle" fill="#8b949e" font-size="11">rust_analyzer</text>
+
+  <rect x="250" y="318" width="100" height="32" rx="4" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+  <text x="300" y="339" text-anchor="middle" fill="#8b949e" font-size="11">clangd</text>
+
+  <rect x="360" y="318" width="100" height="32" rx="4" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+  <text x="410" y="339" text-anchor="middle" fill="#8b949e" font-size="11">pyright</text>
+
+  <rect x="470" y="318" width="100" height="32" rx="4" fill="#0d1117" stroke="#484f58" stroke-width="1"/>
+  <text x="520" y="339" text-anchor="middle" fill="#8b949e" font-size="11">ts_ls</text>
+
+  <!-- ═══ Row 4: Workflow & Git ═══ -->
+  <text x="30" y="382" fill="#f0883e" font-size="10" font-weight="600">WORKFLOW &amp; GIT</text>
+
+  <rect x="30" y="390" width="120" height="50" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="90" y="412" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="600">Gitsigns</text>
+  <text x="90" y="429" text-anchor="middle" fill="#8b949e" font-size="10">inline blame</text>
+
+  <rect x="160" y="390" width="120" height="50" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="220" y="412" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="600">Fugitive</text>
+  <text x="220" y="429" text-anchor="middle" fill="#8b949e" font-size="10">git porcelain</text>
+
+  <rect x="290" y="390" width="120" height="50" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="350" y="412" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="600">Diffview</text>
+  <text x="350" y="429" text-anchor="middle" fill="#8b949e" font-size="10">side-by-side diff</text>
+
+  <rect x="420" y="390" width="120" height="50" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="480" y="412" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="600">Which-key</text>
+  <text x="480" y="429" text-anchor="middle" fill="#8b949e" font-size="10">discoverability</text>
+
+  <rect x="550" y="390" width="120" height="50" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="610" y="412" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="600">Neotest</text>
+  <text x="610" y="429" text-anchor="middle" fill="#8b949e" font-size="10">test runner</text>
+
+  <rect x="680" y="390" width="120" height="50" rx="6" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="740" y="412" text-anchor="middle" fill="#f0883e" font-size="13" font-weight="600">Obsidian</text>
+  <text x="740" y="429" text-anchor="middle" fill="#8b949e" font-size="10">notes vault</text>
+
+  <!-- ═══ Row 5: UI ═══ -->
+  <text x="30" y="472" fill="#d2a8ff" font-size="10" font-weight="600">UI &amp; APPEARANCE</text>
+
+  <rect x="30" y="478" width="110" height="32" rx="5" fill="#161b22" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="85" y="499" text-anchor="middle" fill="#d2a8ff" font-size="12">Catppuccin</text>
+
+  <rect x="150" y="478" width="110" height="32" rx="5" fill="#161b22" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="205" y="499" text-anchor="middle" fill="#d2a8ff" font-size="12">Lualine</text>
+
+  <rect x="270" y="478" width="110" height="32" rx="5" fill="#161b22" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="325" y="499" text-anchor="middle" fill="#d2a8ff" font-size="12">Aerial</text>
+
+  <rect x="390" y="478" width="110" height="32" rx="5" fill="#161b22" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="445" y="499" text-anchor="middle" fill="#d2a8ff" font-size="12">Noice</text>
+
+  <rect x="510" y="478" width="110" height="32" rx="5" fill="#161b22" stroke="#d2a8ff" stroke-width="1"/>
+  <text x="565" y="499" text-anchor="middle" fill="#d2a8ff" font-size="12">Indent-blank</text>
+
+  <!-- Keymaps badge -->
+  <rect x="700" y="470" width="170" height="42" rx="6" fill="#161b22" stroke="#c9d1d9" stroke-width="2"/>
+  <text x="785" y="490" text-anchor="middle" fill="#c9d1d9" font-size="12" font-weight="600">keymaps.lua</text>
+  <text x="785" y="505" text-anchor="middle" fill="#8b949e" font-size="10">all bindings centralized</text>
+</svg>

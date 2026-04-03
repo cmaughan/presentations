@@ -2,6 +2,7 @@
 """Build helper for presentations repo."""
 from __future__ import annotations
 
+import os
 import pathlib
 import subprocess
 import sys
@@ -110,7 +111,17 @@ def main() -> int:
         rc = build(pres)
         if rc != 0:
             return rc
-        return run(["quarto", "preview", str(pres / "index.qmd")], pres)
+        devnull = open(os.devnull, "w")
+        proc = subprocess.Popen(
+            ["quarto", "preview", str(pres / "index.qmd")],
+            cwd=pres,
+            stdout=devnull,
+            stderr=devnull,
+            stdin=devnull,
+            start_new_session=True,
+        )
+        print(f"  Preview started (pid {proc.pid}), background, output suppressed.")
+        return 0
 
     if command == "slides-pdf":
         targets = resolve_target(root, presentations, name)

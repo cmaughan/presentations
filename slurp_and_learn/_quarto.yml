@@ -10,9 +10,9 @@ format:
     code-line-numbers: true
     highlight-style: monokai
     footer: "Agentic Development -- Building Draxul"
-    width: 1920
-    height: 1080
-    margin: 0.04
+    width: 1050
+    height: 700
+    margin: 0.1
     center: true
     hash-type: number
     navigation-mode: linear
