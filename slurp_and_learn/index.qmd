@@ -62,7 +62,7 @@ Way back in February, 2026... In a meeting at work...
 [Machine now works the same...]{.fragment .typewriter-ai}
 
 ## Scripting vs Agent
-["You might want to make an install script to update your config instead of having me do it"]{.typewriter-ai}
+[You might want to make an install script to update your config instead of having me do it]{.typewriter-ai}
 
 ["Why would I need that when I've got you?"]{.fragment .typewriter}
 
