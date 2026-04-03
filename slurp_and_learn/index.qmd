@@ -4,8 +4,8 @@ subtitle: "What I've Learned So Far"
 author: "Chris Maughan"
 date: last-modified
 title-slide-attributes:
-  data-background-image: screenshots/megacity-connections.png
-  data-background-opacity: "0.25"
+  data-background-image: screenshots/hero.png
+  data-background-opacity: "0.35"
 ---
 
 ## The Beginning (of the End?)
