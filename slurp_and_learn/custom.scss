@@ -97,6 +97,16 @@ $code-block-border-color: #30363d;
   gap: 2em;
 }
 
+.reveal .columns.tight {
+  gap: 0.3em;
+}
+
+.reveal .columns.tight .slide-image {
+  max-height: 70vh;
+  border: none;
+  box-shadow: none;
+}
+
 .reveal .column {
   flex: 1;
 }
@@ -119,6 +129,8 @@ $code-block-border-color: #30363d;
   border: 1px solid #30363d;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  max-height: 55vh;
+  object-fit: contain;
 }
 
 .reveal pre {

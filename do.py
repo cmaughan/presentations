@@ -101,27 +101,15 @@ def main() -> int:
     if command == "slides-preview":
         targets = resolve_target(root, presentations, name)
         if len(targets) != 1:
-            if len(targets) == 1:
-                pass
-            else:
-                print("Preview requires a single presentation name.")
-                print(f"Available: {', '.join(p.name for p in presentations)}")
-                return 1
+            print("Preview requires a single presentation name.")
+            print(f"Available: {', '.join(p.name for p in presentations)}")
+            return 1
         pres = targets[0]
-        rc = build(pres)
-        if rc != 0:
-            return rc
-        devnull = open(os.devnull, "w")
-        proc = subprocess.Popen(
-            ["quarto", "preview", str(pres / "index.qmd")],
-            cwd=pres,
-            stdout=devnull,
-            stderr=devnull,
-            stdin=devnull,
-            start_new_session=True,
-        )
-        print(f"  Preview started (pid {proc.pid}), background, output suppressed.")
-        return 0
+        # Kill any lingering quarto preview processes to avoid port conflicts
+        subprocess.run(["pkill", "-f", "quarto preview"], check=False,
+                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        print(f"  Starting preview for {pres.name} (Ctrl+C to stop)...")
+        return run(["quarto", "preview", str(pres / "index.qmd")], pres)
 
     if command == "slides-pdf":
         targets = resolve_target(root, presentations, name)
