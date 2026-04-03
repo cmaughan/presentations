@@ -12,10 +12,15 @@ title-slide-attributes:
 
 Cast your mind back to February; the last time I wrote any code...
 
-- I'm in a meeting
+- In a meeting:
 - "Chris, can you do this work.  It touches a bunch of things and is going to take you a week or two"
+- Sure...
 
 ["Codex: Can you implement this feature...?"]{.fragment .typewriter}
+
+[50 mins later...]{.fragment}
+
+["...done"]{.fragment .typewriter-ai}
 
 ## Next challenge...
 
@@ -395,7 +400,14 @@ By this point I was more interested in the orchestration problem than the app I 
 LCOV coverage imported from CI lights up function layers.
 Covered = hot, uncovered = base color
 
-# Tips
+# We are all 100x developers
+
+- 3 part time weeks == 3 full time years
+- As new tools, orchestration software and better agents arrive, this trend will increase
+- Dark Factory is inevitable for many software shops
+- Test the product not the contents
+
+# Various Learnings
 
 ## You are in trouble if...
 
@@ -403,7 +415,7 @@ Covered = hot, uncovered = base color
 [Yes, that's a great idea...]{.typewriter}
 :::
 
-## Today's agents are not yesterday's... 
+## Today's agents are not yesterday's...
 
 - Forget CoPilot
 - Codex 5.4 (/effort default/xtreme?)
@@ -419,11 +431,71 @@ Covered = hot, uncovered = base color
 
 - Prime the context window
 - /init 
-- Throw _everything_ into markdowns
+- Skills can help
+- Sub folder agent files
+
+## Markdown everything
+
+- Plans
+- Prompts
+- Kanban/Work
+- Documentation
+- Diagrams
+- Skills
+- Agents.md, Claude.md, Gemini.md
+- Learnings.md
+- Notes.md
+- This-thing-I-decided-not-to-do.md
+
+## Build tools first
+
+- Help the agent 'see'; whatever that means for you
+- Nail down the build, test cycle
+- Validate everything you can automatically
+- CI/Github is no longer hard
+
 
 ## Context window
 
-- I don't worry much about context window compaction
+::: {.columns}
+::: {.column width="70%"}
+
+- Don't worry much about context window compaction
+- This is now very good
+- Clear it for new tasks
+
+:::
+::: {.column width="30%"}
+
+![](screenshots/memento.jpeg){.slide-image}
+
+:::
+:::
+
+## The Agent is your best teacher
+
+- It will explain the code to you
+- This is the best way to find code smells
+- Talk to it and you'll often catch it out
+- Some coding decisions are pragmatic instead of correct
+- Watch it work; you often see these go past
+
+## Source management
+
+- I rarely look
+- I want the 'big picture'
+- Never go back; never revert
+
+## Human effort level == Task effort level
+
+- Easy jobs: "Go do it..."
+- Medium jobs: "What would you do here...?  Fine, do it"
+- Hard jobs: "Plan this, write a work item, lets discuss, etc."
+
+## Build what you know
+
+- It is much easier
+- Hard to know if a thing is right if you never did it yourself
 
 ```{=html}
 <script>
@@ -486,6 +558,7 @@ document.addEventListener('DOMContentLoaded', function() {
 :::
 
 ::: {style="text-align: center; margin-top: 2em; color: #8b949e;"}
-Built with Claude Code, Codex, and Gemini\
-100% agentically coded
+Built with Claude Code, Codex, and Gemini
+
+(this presentation too...)
 :::
