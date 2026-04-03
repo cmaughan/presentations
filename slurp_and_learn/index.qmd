@@ -10,10 +10,9 @@ title-slide-attributes:
 
 ## The Beginning (of the End?)
 
-Cast your mind back to February; the last time I wrote any code...
+Way back in February, 2026... In a meeting at work...
 
-- In a meeting:
-- "Chris, can you do this work.  It touches a bunch of things and is going to take you a week or two"
+- "Chris, can you implement this.  It touches a bunch of things and is going to take you a week or two"
 - Sure...
 
 ["Codex: Can you implement this feature...?"]{.fragment .typewriter}
@@ -36,7 +35,7 @@ Cast your mind back to February; the last time I wrote any code...
 - Several PRs per day
 - Can't keep up with the AI
 - Human reviewers are the bottleneck
-- Productivity curve: 3-5x
+- Productivity: 3-5x
 
 ## First side project:  ~/.config/nvim {background-color="#161b22"}
 
@@ -121,8 +120,8 @@ Too many keybindings to remember? Build a viewer.
 
 ### What it is
 
-- One-shot overlay: launch `kv`, see all bindings
-- Parses a `keys.md` 
+- Screen-sized cheat sheet: launch `kv`, see all bindings
+- Parses `keys.md` 
 
 ["Read my `~/.tmux.conf` and `keymaps.lua` and generate a `keys.md`"]{.typewriter}
 
@@ -149,9 +148,9 @@ Too many keybindings to remember? Build a viewer.
 ## Obrain: A Second Brain 
 
 - Post a thought to Slack
-- AI enriches it. 
-- It lands in my Obsidian vault
-- Mac Mini Desktop, synced to Dropbox
+- AI enriches it
+- Lands in my Obsidian vault on my Mac Mini
+- Synced to Dropbox
 
 ~3,300 lines of Python. Runs as a macOS daemon. Entirely agent-written.
 
@@ -378,6 +377,7 @@ By this point I was more interested in the orchestration problem than the app I 
     - Point and CSM shadows
     - Ambient Occlusion
     - Programmer art ;)
+- VR??
 
 ## Multi-Host Split Panes
 
@@ -410,10 +410,10 @@ Covered = hot, uncovered = base color
 ## A Cost Note
 
 - Claude £100/Month
-- Codex £20/Month (with a monthly quota reset)
+- Codex £20/Month (with a promotional quota reset)
 - Gemini Free
 - So this whole project ~£100
-- Who knows how this will shake out?
+- Who knows how pricing will shake out?
 - The time to build is now
 
 # Various Learnings
