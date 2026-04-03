@@ -19,7 +19,7 @@ Way back in February, 2026... In a meeting at work...
 
 [50 mins later...]{.fragment}
 
-["...done"]{.fragment .typewriter-ai}
+[...done]{.fragment .typewriter-ai}
 
 ## Next challenge...
 
@@ -55,18 +55,18 @@ Way back in February, 2026... In a meeting at work...
 
 ["You're an ace developer laughing at my config.  What would you recommend I do to improve?"]{.fragment .typewriter}
 
-["Fix these plugins, install this, ..."]{.fragment .typewriter-ai}
+[I'll fix these plugins, install this, ...]{.fragment .typewriter-ai}
 
 ["Read my PC config and make this Mac look the same"]{.fragment .typewriter}
 
-["Machine now works the same..."]{.fragment .typewriter-ai}
+[Machine now works the same...]{.fragment .typewriter-ai}
 
 ## Scripting vs Agent
 ["You might want to make an install script to update your config instead of having me do it"]{.typewriter-ai}
 
 ["Why would I need that when I've got you?"]{.fragment .typewriter}
 
-["Because I am expensive glue..."]{.fragment .typewriter-ai}
+[Because I am expensive glue...]{.fragment .typewriter-ai}
 
 ## Cross-Platform, Agent-Maintained
 
@@ -241,9 +241,9 @@ The agentic workflow I used
 - **LLVM coverage** -- instrumented builds with lcov export
 - **Bless workflow** -- `do.py blessall` to accept new baselines
 
-["I can see there is a line through the icon here, that doesn't look right..."]{.fragment .typewriter-ai}
+[I can see there is a line through the icon here, that doesn't look right...]{.fragment .typewriter-ai}
 
-["The emoji blessed image has drifted by 1%; but that's OK; I just fixed rendering - I'll bless a new image"]{.fragment .typewriter-ai}
+[The emoji blessed image has drifted by 1%; but that's OK; I just fixed rendering - I'll bless a new image]{.fragment .typewriter-ai}
 
 ## GitHub CI Pipeline
 
