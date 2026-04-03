@@ -407,6 +407,15 @@ Covered = hot, uncovered = base color
 - Dark Factory is inevitable for many software shops
 - Test the product not the contents
 
+## A Cost Note
+
+- Claude £100/Month
+- Codex £20/Month (with a monthly quota reset)
+- Gemini Free
+- So this whole project ~£100
+- Who knows how this will shake out?
+- The time to build is now
+
 # Various Learnings
 
 ## You are in trouble if...
@@ -422,10 +431,22 @@ Covered = hot, uncovered = base color
 - Claude Opus (effort auto/max/high?)
 - Gemini (?)
 
+## Personal Opinion
+
+- Codex 5.4 is a better programmer (but only just)
+- Claude Opus is better at big picture stuff
+- Claude has a better personality
+- Gemini is good, but slow
+- The Codex app is very good indeed
+
 ## Don't wish for it, just ask
 
 - If you can think it, AI can do it. 
-- A common refrain: "Have you asked Codex?"
+- A common refrain: "Have you asked Codex?... doh!"
+
+## A Procedural Tree, point-shadows
+
+![Anything is possible...](screenshots/tree.png){.slide-image width="90%"}
 
 ## Onboard the agents
 
@@ -454,6 +475,18 @@ Covered = hot, uncovered = base color
 - Validate everything you can automatically
 - CI/Github is no longer hard
 
+## Python is your friend
+
+- Make a scripts folder
+- Fill it up
+- Never do anything twice
+- Tokens aren't cheap: Python scripts are free
+
+## Make Debug UI
+
+- Never ask the agent to change something
+- Make it a UI button/editor instead.
+- Bake the 'Debug Dashboard' in
 
 ## Context window
 
@@ -496,6 +529,8 @@ Covered = hot, uncovered = base color
 
 - It is much easier
 - Hard to know if a thing is right if you never did it yourself
+- My previous experience: 3D hardware engineer, live coding projects, text editors, ....
+- We still have value; we are orchestrators
 
 ```{=html}
 <script>
