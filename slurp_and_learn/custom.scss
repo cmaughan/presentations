@@ -128,3 +128,25 @@ $code-block-border-color: #30363d;
   font-size: 2em !important;
   text-shadow: 0 0 30px rgba(88, 166, 255, 0.4);
 }
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #58a6ff;
+  font-family: monospace;
+  width: 0;
+  animation:
+    typing 3s steps(28, end) 0.5s forwards,
+    blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 28ch; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #58a6ff; }
+}

@@ -635,6 +635,27 @@ and handing over the log is faster than agent-generated reproduction.
 :::
 
 
+## {background-color="#0d1117"}
+
+::: {style="text-align: center; font-size: 2em; padding-top: 3em;"}
+[Yes, that's a great idea...]{.typewriter}
+:::
+
+```{=html}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  Reveal.on('slidechanged', function(event) {
+    event.currentSlide.querySelectorAll('.typewriter').forEach(function(el) {
+      el.style.animation = 'none';
+      el.offsetHeight; // force reflow
+      el.style.animation = '';
+    });
+  });
+});
+</script>
+```
+
+
 ## Thank You {background-color="#0d1117"}
 
 ::: {style="text-align: center; font-size: 1.4em; margin-top: 1em;"}
