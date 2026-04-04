@@ -442,12 +442,6 @@ LCOV coverage imported from CI, Yellow = Covered
 
 # Various Learnings
 
-## You are in trouble if...
-
-::: {style="text-align: center; font-size: 2em; padding-top: 3em;"}
-[Yes, that's a great idea...]{.typewriter}
-:::
-
 ## Today's agents are not yesterday's...
 
 - Forget CoPilot
