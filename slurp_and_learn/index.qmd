@@ -510,7 +510,7 @@ LCOV coverage imported from CI, Yellow = Covered
 ::: {.columns}
 ::: {.column width="70%"}
 
-- Don't about compaction
+- Don't worry about compaction
 - Optimised by the AI companies
 - Clear it for new tasks
 - I rarely manage it
