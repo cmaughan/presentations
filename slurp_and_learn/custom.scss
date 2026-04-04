@@ -131,6 +131,8 @@ $code-block-border-color: #30363d;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   max-height: 55vh;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 .reveal pre {

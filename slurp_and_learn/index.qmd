@@ -19,7 +19,7 @@ Way back in February, 2026... In a meeting at work...
 
 [50 mins later...]{.fragment}
 
-[...done]{.fragment .typewriter-ai}
+["...done"]{.fragment .typewriter-ai}
 
 ## Next challenge...
 
@@ -27,7 +27,7 @@ Way back in February, 2026... In a meeting at work...
 
 &nbsp;
 
-[...done]{.fragment .typewriter-ai}
+["...done"]{.fragment .typewriter-ai}
 
 ## My job changed
 
@@ -51,22 +51,22 @@ Way back in February, 2026... In a meeting at work...
 
 ["Fix my vim config; startup is 2s"]{.typewriter}
 
-[...now starts in 140ms]{.fragment .typewriter-ai}
+["...now starts in 140ms"]{.fragment .typewriter-ai}
 
 ["You're an ace developer laughing at my config.  What would you recommend I do to improve?"]{.fragment .typewriter}
 
-[I'll fix these plugins, install this, ...]{.fragment .typewriter-ai}
+["I'll fix these plugins, install this, ..."]{.fragment .typewriter-ai}
 
 ["Read my PC config and make this Mac look the same"]{.fragment .typewriter}
 
-[Machine now works the same...]{.fragment .typewriter-ai}
+["Machine now works the same..."]{.fragment .typewriter-ai}
 
 ## Scripting vs Agent
-[You might want to make an install script to update your config instead of having me do it]{.typewriter-ai}
+["You might want to make an install script to update your config instead of having me do it"]{.typewriter-ai}
 
 ["Why would I need that when I've got you?"]{.fragment .typewriter}
 
-[Because I am expensive glue...]{.fragment .typewriter-ai}
+["Because I am expensive glue..."]{.fragment .typewriter-ai}
 
 ## Cross-Platform, Agent-Maintained
 
@@ -148,12 +148,12 @@ Too many keybindings to remember? Build a viewer.
 ## Obrain: A Second Brain 
 
 - Post a thought to Slack
+    - (Your own Slack Instance is free)
 - AI enriches it
 - Lands in my Obsidian vault on my Mac Mini
 - Synced to Dropbox
 
 ~3,300 lines of Python. Runs as a macOS daemon. Entirely agent-written.
-
 
 ## Obrain: The Pipeline
 
@@ -188,9 +188,9 @@ Too many keybindings to remember? Build a viewer.
 ## Obrain: Daily Brief
 ![Morning daily brief](screenshots/obrain-daily.png){.slide-image}
 
-## A bigger project
+## Anything is possible...
 
-![Draxul](screenshots/draxul-hero.png){.slide-image}
+What to build?
 
 ## Initial Motivation
 ... 3D + Editor...
@@ -199,30 +199,15 @@ Too many keybindings to remember? Build a viewer.
 
 ## Live Coding: Zep & VkLive
 
-![Zep](screenshots/live-code-zep.png){.slide-image width="90%"}
+![](screenshots/live-code-zep.png){.slide-image width="100%"}
 
-## A replacement for nvim-qt 
-![Neovim embedded UI architecture](screenshots/nvim-rpc-diagram.svg)
+A multi-year text editor project, embedding a vim and notepad-like editor in a 3D view
 
-## The working version
-
-::: {.columns}
-::: {.column width="50%"}
-
-![Neovim](screenshots/neovim.png){.slide-image}
-
-:::
-::: {.column width="50%"}
-
-![Mac Shells](screenshots/mac-shells.png){.slide-image}
-
-:::
-:::
 ## {.section-divider background-color="#161b22"}
 
 ::: {style="text-align: center; padding-top: 2em;"}
 <h2>Dark Factory Development</h2>
-The agentic workflow I used
+My agentic workflow so far...
 :::
 
 ## Guiding Principles
@@ -231,19 +216,17 @@ The agentic workflow I used
 - Keep the Agent busy
 - Drain the swamp
     - No tech debt
-- Understand what I'm building
 
 ## Testing Infrastructure
 
--  Unit tests-- parsers, keybindings, config
+-  **Unit tests** - a natural by-product
 - **Render snapshot tests** -- pixel-level diff against golden references
-- **Smoke tests** -- full app lifecycle via `--smoke-test`
-- **LLVM coverage** -- instrumented builds with lcov export
-- **Bless workflow** -- `do.py blessall` to accept new baselines
+- **LLVM coverage**, **Analysis**, **Memory**, ?
+- **Smoke tests**, **Integration**, Blessed outputs
 
-[I can see there is a line through the icon here, that doesn't look right...]{.fragment .typewriter-ai}
+["I can see there is a line through the emoji here, that doesn't look right..."]{.fragment .typewriter-ai}
 
-[The emoji blessed image has drifted by 1%; but that's OK; I just fixed rendering - I'll bless a new image]{.fragment .typewriter-ai}
+["The blessed image has drifted by 1%; but that's OK; I just changed rendering - I'll bless a new image"]{.fragment .typewriter-ai}
 
 ## GitHub CI Pipeline
 
@@ -319,8 +302,8 @@ plans/reviews/
 ![Three agents review independently, then synthesize into consensus + work items](screenshots/review-system.svg){.slide-image width="90%"}
 
 
-## Review prompt
-[...Look at the separation of modules and the general layout. Look for bad code smells, or things that will make it harder for multiple agents to work on the codebase. Do a thorough review. Look for testing holes, and for code that is not clean or easy to maintain. Look for opportunities to separate concerns and make things modular....]{.typewriter}
+## Review prompt - stored
+[...Look at the separation of modules and the general layout. Look for bad code smells, or things that will make it harder for multiple agents to work on the codebase. Do a thorough review. Look for testing holes, and for code that is not clean or easy to maintain. Look for opportunities to separate concerns and make things modular...]{.typewriter}
 
 ## Markdown Kanban
 
@@ -348,57 +331,96 @@ Agent(isolation: "worktree", prompt: "Add chord keybindings...")
 - The integrating agent merges all diffs with full context
 - Even overlapping changes can be reconciled intelligently
 
+## {.section-divider background-color="#161b22"}
+
+::: {style="text-align: center; padding-top: 2em;"}
+<h2>The Project - Draxul 🩸</h2>
+(I'm crap at names - but crap names have available domains)
+:::
+
+## At first - a replacement for nvim-qt
+![Neovim embedded UI architecture](screenshots/nvim-rpc-diagram.svg)
+
+## SDL3 + GPU Rendering
+![SDL3 window with Vulkan and Metal backends](screenshots/sdl3-render-backends.svg)
+
+## The working version
+
+![Neovim](screenshots/neovim.png){.slide-image}
+
+## Getting Ambitious
+
+::: {.columns}
+::: {.column width="40%"}
+- ConPTY, PTY
+- Windows, Mac, Linux
+- Powershell, Cmd, Bash, WSL, ZSH
+- Ghostty/tmux/iTerm/Win Terminal
+- Splits and Tabs
+- Review/Fix/Refactor/Feature
+
+:::
+::: {.column width="60%"}
+![Mac ZSH, NeoVim](screenshots/mac-shells.png){.slide-image}
+:::
+:::
+
 ## Managing Complexity
 
 By this point I was more interested in the orchestration problem than the app I was building...
 
-## Mega City Code: A human code metaphor
-
-![](screenshots/megacity-connections.png){.slide-image width="90%"}
-
-> An old idea who's time may have come
-
-## Mega City Code: Tooltip Inspection
-
-![](screenshots/tooltip-debug.png){.slide-image width="90%"}
-
-## Mega City Code: Live Coverage
+## Mega City Code : A Complexity Metaphor
 
 ![](screenshots/full-city.png){.slide-image width="90%"}
 
-# Draxul {background-color="#0d1117"}
+> An old idea who's time may have come
+> https://wettel.github.io/download/Wettel08b-wasdett.pdf
 
-- An extra 1-2 weeks to add the city
-- A 3D city-as-code visualizer
+## Mega City Code
+- An extra 1-2 weeks to add the city(!)
 - Metal & Vulkan, Mac, PC (Linux...)
-- A high end game engine:
-    - AA
-    - HDR Pipeline
+- Treesitter, SQLite DB
+- A high-end game engine:
+    - HDR pipe, AA, Tone Mapped
     - Point and CSM shadows
     - Ambient Occlusion
-    - Programmer art ;)
-- VR??
+    - Forward+ (ish)
+    - A* path finding
+    - Programmer/Procedural/Free art ;)
+- VR one day?
+
+## ImGui
+
+- Tweakables 
+- Hook up every parameter to UI, config
+- Visualize everything
+- Debug Scenes, performance checks, etc.
+- Essential for graphics
+
+## ImGui {background-color="#0d1117"}
+![](screenshots/imgui.png){.slide-image width="95%"}
+
+## App Connections
+
+![](screenshots/megacity-connections.png){.slide-image width="90%"}
+
+## Live Perf
+
+![](screenshots/draxul-hero.png){.slide-image}
+
+## Tooltip Traces
+
+![](screenshots/tooltip-debug.png){.slide-image width="90%"}
 
 ## Multi-Host Split Panes
 
-::: {.columns}
-::: {.column width="50%"}
-![Split panes: MegaCity + terminal + editor](screenshots/split-panes.png){.slide-image}
-:::
-::: {.column width="50%"}
-- Neovim, Bash, Zsh, PowerShell hosts
-- PTY-based terminal emulation
-- Side-by-side 3D city + code editing
-:::
-:::
+![](screenshots/split-panes.png){.slide-image}
 
+## Coverage Overlay
 
-## Test Coverage Overlay
+![](screenshots/coverage-overlay.png){.slide-image width="90%"}
 
-![Coverage-lit code city](screenshots/coverage-overlay.png){.slide-image width="90%"}
-
-LCOV coverage imported from CI lights up function layers.
-Covered = hot, uncovered = base color
+LCOV coverage imported from CI, Yellow = Covered
 
 # We are all 100x developers
 
@@ -406,12 +428,14 @@ Covered = hot, uncovered = base color
 - As new tools, orchestration software and better agents arrive, this trend will increase
 - Dark Factory is inevitable for many software shops
 - Test the product not the contents
+- Build it, throw it away, do something new (that's Monday...)
 
-## A Cost Note
+## Real Costs (not existential ones...)
 
 - Claude £100/Month
 - Codex £20/Month (with a promotional quota reset)
-- Gemini Free
+- Gemini Free (code reviews, a bit of dev)
+- A Mac Mini (not necessary)
 - So this whole project ~£100
 - Who knows how pricing will shake out?
 - The time to build is now
@@ -437,23 +461,25 @@ Covered = hot, uncovered = base color
 - Claude Opus is better at big picture stuff
 - Claude has a better personality
 - Gemini is good, but slow
-- The Codex app is very good indeed
+- The Codex app is very good
+    - OpenAI are cranking right now
 
 ## Don't wish for it, just ask
 
 - If you can think it, AI can do it. 
 - A common refrain: "Have you asked Codex?... doh!"
 
-## A Procedural Tree, point-shadows
+## Anything is possible 
 
-![Anything is possible...](screenshots/tree.png){.slide-image width="90%"}
+![](screenshots/tree.png){.slide-image width="90%"}
 
-## Onboard the agents
+## Onboard the Agents
 
 - Prime the context window
 - /init 
 - Skills can help
 - Sub folder agent files
+- Markdown...
 
 ## Markdown everything
 
@@ -462,46 +488,44 @@ Covered = hot, uncovered = base color
 - Kanban/Work
 - Documentation
 - Diagrams
-- Skills
+- Skills are just markdown files...
 - Agents.md, Claude.md, Gemini.md
 - Learnings.md
-- Notes.md
-- This-thing-I-decided-not-to-do.md
+- This-thing-I-worked/decided/created/thought.md
+- Agent: reconcile these files...
 
 ## Build tools first
 
 - Help the agent 'see'; whatever that means for you
 - Nail down the build, test cycle
 - Validate everything you can automatically
+- Never ask the agent to change something
+- Make it a UI button/editor instead.
+- Bake the 'Debug Dashboard' in
 - CI/Github is no longer hard
 
 ## Python is your friend
 
 - Make a scripts folder
-- Fill it up
 - Never do anything twice
 - Tokens aren't cheap: Python scripts are free
-
-## Make Debug UI
-
-- Never ask the agent to change something
-- Make it a UI button/editor instead.
-- Bake the 'Debug Dashboard' in
+- I have a central 'do.py' that can do anything
 
 ## Context window
 
 ::: {.columns}
 ::: {.column width="70%"}
 
-- Don't worry much about context window compaction
-- This is now very good
+- Don't about compaction
+- Optimised by the AI companies
 - Clear it for new tasks
+- I rarely manage it
+- Bigger not necessarily better
 
 :::
 ::: {.column width="30%"}
 
 ![](screenshots/memento.jpeg){.slide-image}
-
 :::
 :::
 
@@ -512,11 +536,13 @@ Covered = hot, uncovered = base color
 - Talk to it and you'll often catch it out
 - Some coding decisions are pragmatic instead of correct
 - Watch it work; you often see these go past
+- It's a fun game: "How does this _really_ work?"
 
-## Source management
+## Code Management
 
-- I rarely look
+- I rarely look at code
 - I want the 'big picture'
+- I look at outcomes, inputs, tests
 - Never go back; never revert
 
 ## Human effort level == Task effort level
@@ -529,8 +555,8 @@ Covered = hot, uncovered = base color
 
 - It is much easier
 - Hard to know if a thing is right if you never did it yourself
-- My previous experience: 3D hardware engineer, live coding projects, text editors, ....
-- We still have value; we are orchestrators
+- My previous experience: 3D hardware engineer, live coding projects, text editors, neovim, treesitter, sqlite3 
+- We still have value; we are orchestrators now
 
 ```{=html}
 <script>
