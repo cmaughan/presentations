@@ -1,3 +1,4 @@
 _output/
 index_files/
 .quarto/
+.DS_Store
