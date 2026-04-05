@@ -128,7 +128,7 @@ Too many keybindings to remember? Build a viewer.
 ## Whole Machine Organisation
 
 ::: {.columns}
-::: {.column width="30%"}
+::: {.column width="50%"}
 - PARA system
 - A root and branch cleanout of all my machines
 - Organisation of my personal information into Drobox/Vault
@@ -140,8 +140,8 @@ Too many keybindings to remember? Build a viewer.
 ["Organise all my documents here like this..."]{.fragment .typewriter}
 :::
 
-::: {.column width="70%"}
-![PARA/Dropbox](screenshots/dropbox-para.png){.slide-image width="85%"}
+::: {.column width="50%"}
+![](screenshots/dropbox-para.png){.slide-image width="85%"}
 :::
 :::
 
@@ -351,7 +351,7 @@ Agent(isolation: "worktree", prompt: "Add chord keybindings...")
 ## Getting Ambitious
 
 ::: {.columns}
-::: {.column width="40%"}
+::: {.column width="55%"}
 - ConPTY, PTY
 - Windows, Mac, Linux
 - Powershell, Cmd, Bash, WSL, ZSH
@@ -360,7 +360,7 @@ Agent(isolation: "worktree", prompt: "Add chord keybindings...")
 - Review/Fix/Refactor/Feature
 
 :::
-::: {.column width="60%"}
+::: {.column width="45%"}
 ![Mac ZSH, NeoVim](screenshots/mac-shells.png){.slide-image}
 :::
 :::
@@ -508,20 +508,21 @@ LCOV coverage imported from CI, Yellow = Covered
 ## Context window
 
 ::: {.columns}
-::: {.column width="70%"}
+::: {.column width="50%"}
+![](screenshots/memento.jpeg){.slide-image}
+:::
+::: {.column width="50%"}
+![](screenshots/compact.png){.slide-image}
+:::
+:::
+
+## Context window
 
 - Don't worry about compaction
 - Optimised by the AI companies
 - Clear it for new tasks
 - I rarely manage it
 - Bigger not necessarily better
-
-:::
-::: {.column width="30%"}
-
-![](screenshots/memento.jpeg){.slide-image}
-:::
-:::
 
 ## The Agent is your best teacher
 
@@ -544,6 +545,44 @@ LCOV coverage imported from CI, Yellow = Covered
 - Easy jobs: "Go do it..."
 - Medium jobs: "What would you do here...?  Fine, do it"
 - Hard jobs: "Plan this, write a work item, lets discuss, etc."
+
+## Challenges
+
+- Easy to get lost
+    - Different machines, agents, branches
+    - Untested big features?!
+- The agent is pragmatic
+    - _You_ set the direction
+    - It will lie by omission about what's done
+
+## Specific Challenges
+
+- The renderer was not 'optimal'
+    - Single buffered
+    - One big draw batch
+    - Too much state
+- The hierarchy of the windows was weird
+    - Agent did was was easy, not elegant
+- Agent can make a AAA game engine
+    - ...but has trouble drawning a button
+
+## Challenges
+
+::: {.columns}
+::: {.column width="60%"}
+- Token anxiety is a thing
+- Existential threat
+    - We are more aware
+- The 5 hour window is annoying
+    - 'Insert your credit card here'
+- Prioritise sleep/health
+- Claude mobile is the devil incarnate
+
+:::
+::: {.column width="40%"}
+![](screenshots/tokens1.png){.slide-image}
+:::
+:::
 
 ## Build what you know
 

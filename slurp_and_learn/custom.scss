@@ -108,7 +108,12 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .column {
-  flex: 1;
+  min-width: 0;
+}
+
+.reveal .column img {
+  max-width: 100%;
+  height: auto;
 }
 
 .reveal ul {
