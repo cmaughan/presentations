@@ -2,6 +2,7 @@
 title: "Going Agentic"
 subtitle: "What I've Learned So Far"
 author: "Chris Maughan"
+institute: "NVIDIA"
 date: last-modified
 title-slide-attributes:
   data-background-image: screenshots/hero.png
@@ -25,8 +26,6 @@ Way back in February, 2026... In a meeting at work...
 
 ["See this product over here? Go into our source tree, figure out how they implemented that feature and update our product to do the same thing..."]{.typewriter}
 
-&nbsp;
-
 ["...done"]{.fragment .typewriter-ai}
 
 ## My job changed
@@ -44,9 +43,6 @@ Way back in February, 2026... In a meeting at work...
 
 ![Windows: Neovim + btop + tmux (psmux)](screenshots/nvim-config-pc.png){.slide-image width="85%"}
 
-## Mac
-![Mac: Zsh + tmux](screenshots/nvim-config-mac.png){.slide-image width="85%"}
-
 ## Prompts
 
 ["Fix my vim config; startup is 2s"]{.typewriter}
@@ -60,6 +56,10 @@ Way back in February, 2026... In a meeting at work...
 ["Read my PC config and make this Mac look the same"]{.fragment .typewriter}
 
 ["Machine now works the same..."]{.fragment .typewriter-ai}
+
+## Mac
+![Mac: Zsh + tmux](screenshots/nvim-config-mac.png){.slide-image width="85%"}
+
 
 ## Scripting vs Agent
 ["You might want to make an install script to update your config instead of having me do it"]{.typewriter-ai}
@@ -554,6 +554,8 @@ LCOV coverage imported from CI, Yellow = Covered
 - The agent is pragmatic
     - _You_ set the direction
     - It will lie by omission about what's done
+- Agent only compiles/tests on the _host_ machine
+    - My 2 line change...
 
 ## Specific Challenges
 

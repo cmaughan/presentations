@@ -9,7 +9,6 @@ format:
     slide-number: true
     code-line-numbers: true
     highlight-style: monokai
-    footer: "Agentic Development -- Building Draxul"
     width: 1050
     height: 700
     margin: 0.1

@@ -106,8 +106,12 @@ def main() -> int:
             return 1
         pres = targets[0]
         # Kill any lingering quarto preview processes to avoid port conflicts
-        subprocess.run(["pkill", "-f", "quarto preview"], check=False,
-                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        if sys.platform == "win32":
+            subprocess.run(["taskkill", "/F", "/FI", "IMAGENAME eq quarto.exe"],
+                           check=False, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+        else:
+            subprocess.run(["pkill", "-f", "quarto preview"], check=False,
+                           stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         print(f"  Starting preview for {pres.name} (Ctrl+C to stop)...")
         return run(["quarto", "preview", str(pres / "index.qmd")], pres)
 
