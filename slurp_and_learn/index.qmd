@@ -564,9 +564,9 @@ LCOV coverage imported from CI, Yellow = Covered
     - One big draw batch
     - Too much state
 - The hierarchy of the windows was weird
-    - Agent did was was easy, not elegant
+    - Agent did what was easy, not elegant
 - Agent can make a AAA game engine
-    - ...but has trouble drawning a button
+    - ...but has trouble drawing a button
 
 ## Challenges
 
