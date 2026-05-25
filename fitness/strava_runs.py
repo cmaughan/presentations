@@ -387,6 +387,14 @@ def require_plotly_graph_objects():
     return go
 
 
+def require_plotly_offline():
+    try:
+        import plotly.offline as offline
+    except ImportError as exc:
+        raise RuntimeError("Install Plotly with `python -m pip install -r requirements.txt`.") from exc
+    return offline
+
+
 def yearly_average_points(rows):
     yearly_distances = defaultdict(list)
     for row in rows:
@@ -409,7 +417,7 @@ def interactive_chart_config():
     }
 
 
-def apply_interactive_layout(fig, title, yaxis_title, height=620):
+def apply_interactive_layout(fig, title, yaxis_title):
     fig.update_layout(
         template="plotly_dark",
         title={"text": title, "x": 0.02, "xanchor": "left"},
@@ -427,8 +435,8 @@ def apply_interactive_layout(fig, title, yaxis_title, height=620):
             "yanchor": "top",
         },
         hovermode="closest",
-        height=height,
-        margin={"l": 74, "r": 42, "t": 76, "b": 66},
+        autosize=True,
+        margin={"l": 58, "r": 32, "t": 54, "b": 46},
         xaxis={
             "title": "Date",
             "gridcolor": "rgba(139, 148, 158, 0.30)",
@@ -446,13 +454,30 @@ def apply_interactive_layout(fig, title, yaxis_title, height=620):
 
 def write_interactive_html(fig, path):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    fig.write_html(
-        path,
+    offline = require_plotly_offline()
+    chart_html = fig.to_html(
         include_plotlyjs="directory",
-        full_html=True,
+        full_html=False,
         config=interactive_chart_config(),
         post_script=STRAVA_CLICK_SCRIPT,
+        default_width="100%",
+        default_height="100%",
     )
+    html = (
+        "<html>\n"
+        "<head>\n"
+        '<meta charset="utf-8" />\n'
+        "<style>\n"
+        "html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background: #0d1117; }\n"
+        "body > div { width: 100%; height: 100%; }\n"
+        ".plotly-graph-div { width: 100% !important; height: 100% !important; }\n"
+        "</style>\n"
+        "</head>\n"
+        f"<body>\n{chart_html}\n</body>\n"
+        "</html>\n"
+    )
+    Path(path).write_text(html, encoding="utf-8")
+    (Path(path).parent / "plotly.min.js").write_text(offline.get_plotlyjs(), encoding="utf-8")
 
 
 def plot_interactive_distance_over_time(
@@ -552,10 +577,9 @@ def plot_interactive_combined_distance_over_time(activities, path, unit_label="k
         fig,
         "Strava Swim, Bike, and Run Distance Over Time",
         f"{SPORT_LABELS['swim']} ({unit_label})",
-        height=660,
     )
     fig.update_layout(
-        margin={"l": 74, "r": 108, "t": 76, "b": 66},
+        margin={"l": 58, "r": 92, "t": 54, "b": 46},
         xaxis={"domain": [0.0, 0.88], "title": "Date", "gridcolor": "rgba(139, 148, 158, 0.30)"},
         yaxis={
             "title": {"text": f"{SPORT_LABELS['swim']} ({unit_label})", "font": {"color": SPORT_COLORS["swim"]}},

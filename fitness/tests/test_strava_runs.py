@@ -321,6 +321,10 @@ class OutputTests(unittest.TestCase):
         self.assertIn("plotly.min.js", content)
         self.assertNotIn("https://cdn.plot.ly", content)
         self.assertTrue(bundled_plotly_exists)
+        self.assertIn("html, body", content)
+        self.assertIn("overflow: hidden", content)
+        self.assertIn("height:100%; width:100%;", content)
+        self.assertNotIn("height:620px", content)
 
     def test_writes_sport_charts_for_each_group_with_data(self):
         with tempfile.TemporaryDirectory() as temp_dir:

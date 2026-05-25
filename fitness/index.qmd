@@ -4,7 +4,7 @@ pagetitle: "Fitness"
 
 ## Swim
 
-<iframe class="fitness-chart" src="screenshots/swim_distance_over_years.html" title="Swim distance over time"></iframe>
+<iframe class="fitness-chart" src="screenshots/swim_distance_over_years.html" title="Swim distance over time" scrolling="no"></iframe>
 
 ::: {.fitness-note}
 Each point is one swim activity, measured in kilometers.
@@ -12,7 +12,7 @@ Each point is one swim activity, measured in kilometers.
 
 ## Bike
 
-<iframe class="fitness-chart" src="screenshots/bike_distance_over_years.html" title="Bike distance over time"></iframe>
+<iframe class="fitness-chart" src="screenshots/bike_distance_over_years.html" title="Bike distance over time" scrolling="no"></iframe>
 
 ::: {.fitness-note}
 Human-powered rides only; e-bike activity types are excluded.
@@ -20,7 +20,7 @@ Human-powered rides only; e-bike activity types are excluded.
 
 ## Run
 
-<iframe class="fitness-chart" src="screenshots/run_distance_over_years.html" title="Run distance over time"></iframe>
+<iframe class="fitness-chart" src="screenshots/run_distance_over_years.html" title="Run distance over time" scrolling="no"></iframe>
 
 ::: {.fitness-note}
 Runs, trail runs, and virtual runs, measured in kilometers.
@@ -28,7 +28,7 @@ Runs, trail runs, and virtual runs, measured in kilometers.
 
 ## Combined
 
-<iframe class="fitness-chart wide" src="screenshots/combined_distance_over_years.html" title="Swim, bike, and run distance over time"></iframe>
+<iframe class="fitness-chart wide" src="screenshots/combined_distance_over_years.html" title="Swim, bike, and run distance over time" scrolling="no"></iframe>
 
 ::: {.fitness-note}
 Three Y axes let swim, bike, and run activity distances scale independently.
