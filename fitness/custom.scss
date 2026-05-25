@@ -44,6 +44,8 @@ $code-block-border-color: #30363d;
   border: 1px solid #30363d;
   border-radius: 8px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  width: 98%;
+  height: 72vh;
   max-width: 98%;
   max-height: 72vh;
   object-fit: contain;
@@ -53,6 +55,7 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .fitness-chart.wide {
+  height: 66vh;
   max-height: 66vh;
 }
 

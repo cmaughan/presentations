@@ -272,6 +272,52 @@ class OutputTests(unittest.TestCase):
         self.assertEqual(paths["run"], Path("chart_run.png"))
         self.assertEqual(paths["combined"], Path("chart_combined.png"))
 
+    def test_interactive_plot_output_paths_use_html_suffix(self):
+        directory_paths = strava_runs.interactive_plot_output_paths("charts")
+        self.assertEqual(directory_paths["swim"], Path("charts") / "swim_distance_over_years.html")
+        self.assertEqual(directory_paths["bike"], Path("charts") / "bike_distance_over_years.html")
+        self.assertEqual(directory_paths["run"], Path("charts") / "run_distance_over_years.html")
+        self.assertEqual(directory_paths["combined"], Path("charts") / "combined_distance_over_years.html")
+
+        prefix_paths = strava_runs.interactive_plot_output_paths("chart.png")
+        self.assertEqual(prefix_paths["swim"], Path("chart_swim.html"))
+        self.assertEqual(prefix_paths["bike"], Path("chart_bike.html"))
+        self.assertEqual(prefix_paths["run"], Path("chart_run.html"))
+        self.assertEqual(prefix_paths["combined"], Path("chart_combined.html"))
+
+    def test_interactive_distance_chart_embeds_hover_titles_and_strava_click_urls(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "run.html"
+            activities = [
+                {
+                    "sport": "run",
+                    "id": 12345,
+                    "date": "2024-01-03",
+                    "name": "Lunch Run",
+                    "distance_kilometers": 10.0,
+                },
+                {
+                    "sport": "run",
+                    "id": 67890,
+                    "date": "2024-01-10",
+                    "name": "Evening Run",
+                    "distance_kilometers": 5.0,
+                },
+            ]
+            strava_runs.plot_interactive_distance_over_time(
+                activities,
+                path,
+                title="Run",
+                activity_label="Runs",
+                color="#d62728",
+            )
+            content = path.read_text(encoding="utf-8")
+
+        self.assertIn("Lunch Run", content)
+        self.assertIn("12345", content)
+        self.assertIn("plotly_click", content)
+        self.assertIn("https://www.strava.com/activities/", content)
+
     def test_writes_sport_charts_for_each_group_with_data(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             output_dir = Path(temp_dir)
@@ -357,3 +403,7 @@ class OutputTests(unittest.TestCase):
             self.assertTrue((output_dir / "bike_distance_over_years.png").exists())
             self.assertTrue((output_dir / "run_distance_over_years.png").exists())
             self.assertTrue((output_dir / "combined_distance_over_years.png").exists())
+            self.assertTrue((output_dir / "swim_distance_over_years.html").exists())
+            self.assertTrue((output_dir / "bike_distance_over_years.html").exists())
+            self.assertTrue((output_dir / "run_distance_over_years.html").exists())
+            self.assertTrue((output_dir / "combined_distance_over_years.html").exists())

@@ -139,6 +139,20 @@ def prepare_plot_rows(runs):
     return sorted(rows, key=lambda row: row[0])
 
 
+def prepare_interactive_plot_rows(activities):
+    rows = [
+        {
+            "date": date.fromisoformat(activity["date"]),
+            "distance": activity["distance_kilometers"],
+            "name": activity.get("name", ""),
+            "id": activity.get("id"),
+        }
+        for activity in activities
+        if activity.get("date")
+    ]
+    return sorted(rows, key=lambda row: row["date"])
+
+
 def build_runs(activities):
     return [normalize_run(activity) for activity in filter_runs(activities)]
 
@@ -349,6 +363,231 @@ def plot_run_distances(runs, path, unit_label="kilometers"):
     plot_distance_over_time(runs, path, title="Run", unit_label=unit_label, activity_label="Runs")
 
 
+STRAVA_CLICK_SCRIPT = """
+const chart = document.getElementById('{plot_id}');
+chart.on('plotly_click', function(event) {
+  if (!event.points || !event.points.length) {
+    return;
+  }
+  const customdata = event.points[0].customdata;
+  const activityId = Array.isArray(customdata) ? customdata[1] : null;
+  if (!activityId) {
+    return;
+  }
+  window.open(`https://www.strava.com/activities/${activityId}`, '_blank', 'noopener');
+});
+"""
+
+
+def require_plotly_graph_objects():
+    try:
+        import plotly.graph_objects as go
+    except ImportError as exc:
+        raise RuntimeError("Install Plotly with `python -m pip install -r requirements.txt`.") from exc
+    return go
+
+
+def yearly_average_points(rows):
+    yearly_distances = defaultdict(list)
+    for row in rows:
+        yearly_distances[row["date"].year].append(row["distance"])
+    years = sorted(yearly_distances)
+    return [
+        (
+            date(year, 7, 1),
+            sum(yearly_distances[year]) / len(yearly_distances[year]),
+        )
+        for year in years
+    ]
+
+
+def interactive_chart_config():
+    return {
+        "displaylogo": False,
+        "responsive": True,
+        "modeBarButtonsToRemove": ["lasso2d", "select2d"],
+    }
+
+
+def apply_interactive_layout(fig, title, yaxis_title, height=620):
+    fig.update_layout(
+        template="plotly_dark",
+        title={"text": title, "x": 0.02, "xanchor": "left"},
+        paper_bgcolor=CHART_COLORS["figure_background"],
+        plot_bgcolor=CHART_COLORS["axes_background"],
+        font={"color": CHART_COLORS["text"], "family": "Inter, Helvetica Neue, sans-serif"},
+        legend={
+            "bgcolor": CHART_COLORS["legend_background"],
+            "bordercolor": CHART_COLORS["legend_edge"],
+            "borderwidth": 1,
+            "orientation": "h",
+            "x": 0.02,
+            "y": 0.99,
+            "xanchor": "left",
+            "yanchor": "top",
+        },
+        hovermode="closest",
+        height=height,
+        margin={"l": 74, "r": 42, "t": 76, "b": 66},
+        xaxis={
+            "title": "Date",
+            "gridcolor": "rgba(139, 148, 158, 0.30)",
+            "linecolor": CHART_COLORS["spine"],
+            "zeroline": False,
+        },
+        yaxis={
+            "title": yaxis_title,
+            "gridcolor": "rgba(139, 148, 158, 0.30)",
+            "linecolor": CHART_COLORS["spine"],
+            "zeroline": False,
+        },
+    )
+
+
+def write_interactive_html(fig, path):
+    Path(path).parent.mkdir(parents=True, exist_ok=True)
+    fig.write_html(
+        path,
+        include_plotlyjs="cdn",
+        full_html=True,
+        config=interactive_chart_config(),
+        post_script=STRAVA_CLICK_SCRIPT,
+    )
+
+
+def plot_interactive_distance_over_time(
+    activities,
+    path,
+    title,
+    unit_label="kilometers",
+    activity_label=None,
+    color=None,
+):
+    rows = prepare_interactive_plot_rows(activities)
+    if not rows:
+        raise ValueError(f"No {title.lower()} rows available to plot.")
+
+    go = require_plotly_graph_objects()
+    marker_color = color or CHART_COLORS["text"]
+    fig = go.Figure()
+    fig.add_trace(
+        go.Scatter(
+            x=[row["date"].isoformat() for row in rows],
+            y=[row["distance"] for row in rows],
+            customdata=[[row["name"], row["id"]] for row in rows],
+            mode="markers",
+            name=activity_label or title,
+            marker={"color": marker_color, "size": 8, "opacity": 0.72},
+            hovertemplate=(
+                "<b>%{customdata[0]}</b>"
+                "<br>%{x|%Y-%m-%d}"
+                f"<br>%{{y:.2f}} {unit_label}"
+                "<extra></extra>"
+            ),
+        )
+    )
+
+    average_points = yearly_average_points(rows)
+    if len(average_points) > 1:
+        fig.add_trace(
+            go.Scatter(
+                x=[point[0].isoformat() for point in average_points],
+                y=[point[1] for point in average_points],
+                mode="lines",
+                name="Yearly average",
+                line={"color": CHART_COLORS["yearly_average"], "width": 3},
+                hovertemplate=(
+                    "<b>Yearly average</b>"
+                    "<br>%{x|%Y}"
+                    f"<br>%{{y:.2f}} {unit_label}"
+                    "<extra></extra>"
+                ),
+            )
+        )
+
+    apply_interactive_layout(
+        fig,
+        f"Strava {title} Distance Over Time",
+        f"Distance ({unit_label})",
+    )
+    write_interactive_html(fig, path)
+
+
+def plot_interactive_combined_distance_over_time(activities, path, unit_label="kilometers"):
+    go = require_plotly_graph_objects()
+    fig = go.Figure()
+    plotted = False
+
+    for index, spec in enumerate(combined_axis_specs()):
+        sport = spec["sport"]
+        sport_activities = activities_for_sport(activities, sport)
+        if not sport_activities:
+            continue
+
+        rows = prepare_interactive_plot_rows(sport_activities)
+        yaxis_name = "y" if index == 0 else f"y{index + 1}"
+        fig.add_trace(
+            go.Scatter(
+                x=[row["date"].isoformat() for row in rows],
+                y=[row["distance"] for row in rows],
+                yaxis=yaxis_name,
+                customdata=[[row["name"], row["id"]] for row in rows],
+                mode="markers",
+                name=activity_label_for_sport(sport),
+                marker={"color": SPORT_COLORS[sport], "size": 8, "opacity": 0.72},
+                hovertemplate=(
+                    f"<b>{SPORT_TITLES[sport]}</b>: %{{customdata[0]}}"
+                    "<br>%{x|%Y-%m-%d}"
+                    f"<br>%{{y:.2f}} {unit_label}"
+                    "<extra></extra>"
+                ),
+            )
+        )
+        plotted = True
+
+    if not plotted:
+        raise ValueError("No swim, bike, or run rows available to plot.")
+
+    apply_interactive_layout(
+        fig,
+        "Strava Swim, Bike, and Run Distance Over Time",
+        f"{SPORT_LABELS['swim']} ({unit_label})",
+        height=660,
+    )
+    fig.update_layout(
+        margin={"l": 74, "r": 108, "t": 76, "b": 66},
+        xaxis={"domain": [0.0, 0.88], "title": "Date", "gridcolor": "rgba(139, 148, 158, 0.30)"},
+        yaxis={
+            "title": {"text": f"{SPORT_LABELS['swim']} ({unit_label})", "font": {"color": SPORT_COLORS["swim"]}},
+            "tickfont": {"color": SPORT_COLORS["swim"]},
+            "gridcolor": "rgba(139, 148, 158, 0.30)",
+            "linecolor": SPORT_COLORS["swim"],
+            "zeroline": False,
+        },
+        yaxis2={
+            "title": {"text": f"{SPORT_LABELS['bike']} ({unit_label})", "font": {"color": SPORT_COLORS["bike"]}},
+            "tickfont": {"color": SPORT_COLORS["bike"]},
+            "overlaying": "y",
+            "side": "right",
+            "showgrid": False,
+            "linecolor": SPORT_COLORS["bike"],
+            "zeroline": False,
+        },
+        yaxis3={
+            "title": {"text": f"{SPORT_LABELS['run']} ({unit_label})", "font": {"color": SPORT_COLORS["run"]}},
+            "tickfont": {"color": SPORT_COLORS["run"]},
+            "overlaying": "y",
+            "side": "right",
+            "anchor": "free",
+            "position": 0.95,
+            "showgrid": False,
+            "linecolor": SPORT_COLORS["run"],
+            "zeroline": False,
+        },
+    )
+    write_interactive_html(fig, path)
+
+
 def plot_combined_distance_over_time(activities, path, unit_label="kilometers"):
     import matplotlib
 
@@ -442,6 +681,13 @@ def plot_output_paths(output_plot):
     }
 
 
+def interactive_plot_output_paths(output_plot):
+    return {
+        sport: path.with_suffix(".html")
+        for sport, path in plot_output_paths(output_plot).items()
+    }
+
+
 def activities_for_sport(activities, sport):
     return [activity for activity in activities if activity["sport"] == sport]
 
@@ -491,6 +737,27 @@ def write_sport_charts(activities, output_paths):
         )
         written[sport] = Path(output_path)
     plot_combined_distance_over_time(activities, output_paths["combined"], unit_label="kilometers")
+    written["combined"] = Path(output_paths["combined"])
+    return written
+
+
+def write_sport_interactive_charts(activities, output_paths):
+    written = {}
+    for sport in SPORT_GROUPS:
+        sport_activities = activities_for_sport(activities, sport)
+        if not sport_activities:
+            continue
+        output_path = output_paths[sport]
+        plot_interactive_distance_over_time(
+            sport_activities,
+            output_path,
+            title=SPORT_TITLES[sport],
+            unit_label="kilometers",
+            activity_label=activity_label_for_sport(sport),
+            color=SPORT_COLORS[sport],
+        )
+        written[sport] = Path(output_path)
+    plot_interactive_combined_distance_over_time(activities, output_paths["combined"], unit_label="kilometers")
     written["combined"] = Path(output_paths["combined"])
     return written
 
@@ -597,14 +864,22 @@ def run_report(args):
 
     write_activities_csv(activities, args.output_csv)
     written_charts = write_sport_charts(activities, plot_output_paths(args.output_plot))
+    written_interactive_charts = write_sport_interactive_charts(
+        activities,
+        interactive_plot_output_paths(args.output_plot),
+    )
     print(f"Wrote {len(activities)} swim/bike/run activities to {args.output_csv}")
     for sport in SPORT_GROUPS:
         if sport in written_charts:
             print(f"Wrote {SPORT_TITLES[sport].lower()} chart to {written_charts[sport]}")
         else:
             print(f"No {SPORT_TITLES[sport].lower()} activities found; skipped chart.")
+        if sport in written_interactive_charts:
+            print(f"Wrote interactive {SPORT_TITLES[sport].lower()} chart to {written_interactive_charts[sport]}")
     if "combined" in written_charts:
         print(f"Wrote combined chart to {written_charts['combined']}")
+    if "combined" in written_interactive_charts:
+        print(f"Wrote interactive combined chart to {written_interactive_charts['combined']}")
     return 0
 
 
