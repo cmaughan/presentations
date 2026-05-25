@@ -36,6 +36,16 @@ SPORT_COLORS = {
     "bike": "#2ca02c",
     "run": "#d62728",
 }
+CHART_COLORS = {
+    "figure_background": "#0d1117",
+    "axes_background": "#161b22",
+    "text": "#e6edf3",
+    "grid": "#8b949e",
+    "spine": "#8b949e",
+    "legend_background": "#161b22",
+    "legend_edge": "#30363d",
+    "yearly_average": "#f2cc60",
+}
 DEFAULT_PLOT_FILES = {
     "swim": "swim_distance_over_years.png",
     "bike": "bike_distance_over_years.png",
@@ -262,6 +272,31 @@ def write_activities_csv(activities, path):
             })
 
 
+def style_axis_for_dark_theme(axis, y_color=None, color_active_spine=None, show_facecolor=True):
+    if show_facecolor:
+        axis.set_facecolor(CHART_COLORS["axes_background"])
+    axis.title.set_color(CHART_COLORS["text"])
+    axis.xaxis.label.set_color(CHART_COLORS["text"])
+    axis.yaxis.label.set_color(y_color or CHART_COLORS["text"])
+    axis.tick_params(axis="x", colors=CHART_COLORS["text"])
+    axis.tick_params(axis="y", colors=y_color or CHART_COLORS["text"])
+    for spine in axis.spines.values():
+        spine.set_color(CHART_COLORS["spine"])
+    if color_active_spine:
+        axis.spines[color_active_spine].set_color(y_color or CHART_COLORS["spine"])
+
+
+def style_legend_for_dark_theme(legend):
+    if legend is None:
+        return
+    frame = legend.get_frame()
+    frame.set_facecolor(CHART_COLORS["legend_background"])
+    frame.set_edgecolor(CHART_COLORS["legend_edge"])
+    frame.set_alpha(0.95)
+    for text in legend.get_texts():
+        text.set_color(CHART_COLORS["text"])
+
+
 def plot_distance_over_time(activities, path, title, unit_label="kilometers", activity_label=None, color=None):
     rows = prepare_plot_rows(activities)
     if not rows:
@@ -283,19 +318,30 @@ def plot_distance_over_time(activities, path, title, unit_label="kilometers", ac
         for year in sorted(yearly_distances)
     ]
 
-    fig, ax = plt.subplots(figsize=single_sport_figure_size())
+    fig, ax = plt.subplots(
+        figsize=single_sport_figure_size(),
+        facecolor=CHART_COLORS["figure_background"],
+    )
     ax.scatter(dates, distances, s=18, alpha=0.65, label=activity_label or title, color=color)
     if len(yearly_averages) > 1:
-        ax.plot(yearly_average_dates, yearly_averages, color="#d62728", linewidth=2, label="Yearly average")
+        ax.plot(
+            yearly_average_dates,
+            yearly_averages,
+            color=CHART_COLORS["yearly_average"],
+            linewidth=2,
+            label="Yearly average",
+        )
     ax.set_title(f"Strava {title} Distance Over Time")
     ax.set_xlabel("Date")
     ax.set_ylabel(f"Distance ({unit_label})")
-    ax.grid(True, alpha=0.25)
-    ax.legend()
+    ax.grid(True, color=CHART_COLORS["grid"], alpha=0.30)
+    legend = ax.legend()
+    style_axis_for_dark_theme(ax)
+    style_legend_for_dark_theme(legend)
     fig.autofmt_xdate()
     fig.tight_layout()
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, dpi=150)
+    fig.savefig(path, dpi=150, facecolor=fig.get_facecolor())
     plt.close(fig)
 
 
@@ -309,7 +355,10 @@ def plot_combined_distance_over_time(activities, path, unit_label="kilometers"):
     matplotlib.use("Agg", force=True)
     import matplotlib.pyplot as plt
 
-    fig, base_ax = plt.subplots(figsize=combined_figure_size())
+    fig, base_ax = plt.subplots(
+        figsize=combined_figure_size(),
+        facecolor=CHART_COLORS["figure_background"],
+    )
     axes = {}
     plotted = False
     handles = []
@@ -330,9 +379,13 @@ def plot_combined_distance_over_time(activities, path, unit_label="kilometers"):
             axis.yaxis.tick_left()
         if spec["offset"] is not None:
             axis.spines["right"].set_position(("axes", spec["offset"]))
-        axis.spines[spec["side"]].set_color(SPORT_COLORS[sport])
-        axis.tick_params(axis="y", colors=SPORT_COLORS[sport])
         axis.set_ylabel(f"{SPORT_LABELS[sport]} ({unit_label})", color=SPORT_COLORS[sport])
+        style_axis_for_dark_theme(
+            axis,
+            y_color=SPORT_COLORS[sport],
+            color_active_spine=spec["side"],
+            show_facecolor=(axis is base_ax),
+        )
 
         rows = prepare_plot_rows(sport_activities)
         dates = [row[0] for row in rows]
@@ -354,8 +407,10 @@ def plot_combined_distance_over_time(activities, path, unit_label="kilometers"):
 
     base_ax.set_title("Strava Swim, Bike, and Run Distance Over Time")
     base_ax.set_xlabel("Date")
-    base_ax.grid(True, alpha=0.25)
-    base_ax.legend(handles, labels)
+    base_ax.grid(True, color=CHART_COLORS["grid"], alpha=0.30)
+    legend = base_ax.legend(handles, labels)
+    style_axis_for_dark_theme(base_ax, y_color=SPORT_COLORS["swim"], color_active_spine="left")
+    style_legend_for_dark_theme(legend)
     fig.autofmt_xdate()
     fig.subplots_adjust(
         left=combined_subplot_left_margin(),
@@ -364,7 +419,7 @@ def plot_combined_distance_over_time(activities, path, unit_label="kilometers"):
         bottom=0.12,
     )
     Path(path).parent.mkdir(parents=True, exist_ok=True)
-    fig.savefig(path, dpi=150, bbox_inches="tight", pad_inches=0.1)
+    fig.savefig(path, dpi=150, bbox_inches="tight", pad_inches=0.1, facecolor=fig.get_facecolor())
     plt.close(fig)
 
 

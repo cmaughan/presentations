@@ -165,6 +165,13 @@ class ApiBehaviorTests(unittest.TestCase):
 
 
 class OutputTests(unittest.TestCase):
+    def assert_png_corner_is_dark(self, path):
+        import matplotlib.image as mpimg
+
+        image = mpimg.imread(path)
+        corner_rgb = image[5, 5, :3]
+        self.assertLess(float(corner_rgb.mean()), 0.25)
+
     def test_writes_distance_sorted_csv(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             path = Path(temp_dir) / "activities.csv"
@@ -233,6 +240,7 @@ class OutputTests(unittest.TestCase):
             strava_runs.plot_distance_over_time(runs, path, title="Run")
             self.assertTrue(path.exists())
             self.assertGreater(path.stat().st_size, 0)
+            self.assert_png_corner_is_dark(path)
 
     def test_default_plot_output_paths_include_three_sports(self):
         paths = strava_runs.plot_output_paths(None)
@@ -289,6 +297,7 @@ class OutputTests(unittest.TestCase):
             strava_runs.plot_combined_distance_over_time(activities, path)
             self.assertTrue(path.exists())
             self.assertGreater(path.stat().st_size, 0)
+            self.assert_png_corner_is_dark(path)
 
     def test_combined_axis_specs_use_three_sport_specific_axes(self):
         specs = strava_runs.combined_axis_specs()
