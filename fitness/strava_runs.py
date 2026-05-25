@@ -415,7 +415,7 @@ def combined_axis_specs():
     return [
         {"sport": "swim", "side": "left", "offset": None},
         {"sport": "bike", "side": "right", "offset": None},
-        {"sport": "run", "side": "right", "offset": 1.025},
+        {"sport": "run", "side": "right", "offset": 1.030},
     ]
 
 

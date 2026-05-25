@@ -296,7 +296,7 @@ class OutputTests(unittest.TestCase):
         self.assertEqual([spec["side"] for spec in specs], ["left", "right", "right"])
         self.assertIsNone(specs[0]["offset"])
         self.assertIsNone(specs[1]["offset"])
-        self.assertEqual(specs[2]["offset"], 1.025)
+        self.assertEqual(specs[2]["offset"], 1.030)
         self.assertEqual(strava_runs.combined_subplot_left_margin(), 0.055)
         self.assertEqual(strava_runs.combined_subplot_right_margin(), 0.935)
 
