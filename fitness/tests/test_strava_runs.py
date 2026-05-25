@@ -325,6 +325,7 @@ class OutputTests(unittest.TestCase):
         self.assertIn("overflow: hidden", content)
         self.assertIn("height:100%; width:100%;", content)
         self.assertNotIn("height:620px", content)
+        self.assertIn('"showlegend":false', content)
 
     def test_writes_sport_charts_for_each_group_with_data(self):
         with tempfile.TemporaryDirectory() as temp_dir:
