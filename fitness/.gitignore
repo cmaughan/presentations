@@ -1,2 +1,9 @@
 /.quarto/
 **/*.quarto_ipynb
+.env
+.strava_tokens.json
+activities_by_distance.csv
+runs_by_distance.csv
+__pycache__/
+.pytest_cache/
+*.pyc
