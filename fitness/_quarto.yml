@@ -1,6 +1,8 @@
 project:
   type: default
   output-dir: _output
+  resources:
+    - screenshots/plotly.min.js
 
 format:
   revealjs:

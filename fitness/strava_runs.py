@@ -448,7 +448,7 @@ def write_interactive_html(fig, path):
     Path(path).parent.mkdir(parents=True, exist_ok=True)
     fig.write_html(
         path,
-        include_plotlyjs="cdn",
+        include_plotlyjs="directory",
         full_html=True,
         config=interactive_chart_config(),
         post_script=STRAVA_CLICK_SCRIPT,

@@ -312,11 +312,15 @@ class OutputTests(unittest.TestCase):
                 color="#d62728",
             )
             content = path.read_text(encoding="utf-8")
+            bundled_plotly_exists = (path.parent / "plotly.min.js").exists()
 
         self.assertIn("Lunch Run", content)
         self.assertIn("12345", content)
         self.assertIn("plotly_click", content)
         self.assertIn("https://www.strava.com/activities/", content)
+        self.assertIn("plotly.min.js", content)
+        self.assertNotIn("https://cdn.plot.ly", content)
+        self.assertTrue(bundled_plotly_exists)
 
     def test_writes_sport_charts_for_each_group_with_data(self):
         with tempfile.TemporaryDirectory() as temp_dir:
