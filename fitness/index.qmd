@@ -1,0 +1,35 @@
+---
+pagetitle: "Fitness"
+---
+
+## Swim
+
+![Swim distance over time](screenshots/swim_distance_over_years.png){.fitness-chart}
+
+::: {.fitness-note}
+Each point is one swim activity, measured in kilometers.
+:::
+
+## Bike
+
+![Bike distance over time](screenshots/bike_distance_over_years.png){.fitness-chart}
+
+::: {.fitness-note}
+Human-powered rides only; e-bike activity types are excluded.
+:::
+
+## Run
+
+![Run distance over time](screenshots/run_distance_over_years.png){.fitness-chart}
+
+::: {.fitness-note}
+Runs, trail runs, and virtual runs, measured in kilometers.
+:::
+
+## Combined
+
+![Swim, bike, and run distance over time](screenshots/combined_distance_over_years.png){.fitness-chart .wide}
+
+::: {.fitness-note}
+Three Y axes let swim, bike, and run activity distances scale independently.
+:::
