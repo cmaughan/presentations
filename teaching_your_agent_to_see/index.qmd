@@ -8,6 +8,7 @@ date: last-modified
 ## Pointless Prompting
 
 ## Debug Dumps
+Layout example
 
 ## Image Grabs
 
@@ -16,3 +17,27 @@ date: last-modified
 ## Audio Comparisons
 
 ## Iterative Goals
+
+## Quick Prototypes 
+
+## Quick Deployments
+
+## Consistent tooling
+
+## Small attack surfaces
+
+## Insane build speeds
+
+## Everything Markdown
+
+## Presentation Fun
+
+## Code Inspection
+
+## 75/25 Rule
+75% of your time is refactor
+
+## Dog Food
+
+## Scriptify
+
