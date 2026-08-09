@@ -5,6 +5,7 @@ If you see improvements in what you've just done, or have ideas for ways it can 
 ## Project Shape
 
 - This repo contains Quarto RevealJS presentations. Each deck lives in its own directory with `index.qmd`, `_quarto.yml`, optional `custom.scss`, and local assets such as `screenshots/`.
+- Treat these decks as Quarto presentations, not PowerPoint projects. Edit the Quarto source files directly and do not use PPT/PPTX-specific tooling unless explicitly requested.
 - Generated deck output goes under each deck's `_output/` directory and is ignored by git. Do not commit `_output/`, `.quarto/`, or `index_files/`.
 - Use `do.py` from the repo root for common deck tasks:
   - `python do.py slides` builds all decks.

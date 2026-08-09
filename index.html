@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Presentations</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d1117;
+      --panel: #161b22;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --rule: #30363d;
+      --accent: #58a6ff;
+      --accent-2: #7ee787;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    main {
+      width: min(760px, calc(100vw - 48px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-size: clamp(2.25rem, 6vw, 4rem);
+      line-height: 1;
+    }
+
+    p {
+      margin: 0 0 32px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    ul {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      display: block;
+      padding: 18px 20px;
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      background: var(--panel);
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      border-color: var(--accent);
+      outline: none;
+    }
+
+    .deck-title {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .deck-path {
+      color: var(--accent-2);
+      font-family: Consolas, "SFMono-Regular", monospace;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Presentations</h1>
+    <p>Open a locally rendered Quarto RevealJS deck.</p>
+
+    <ul>
+      <li>
+        <a href="teaching_your_agent_to_see/_output/index.html">
+          <span class="deck-title">Teaching your Agent To See</span>
+          <span class="deck-path">teaching_your_agent_to_see/_output/index.html</span>
+        </a>
+      </li>
+      <li>
+        <a href="slurp_and_learn/_output/index.html">
+          <span class="deck-title">Going Agentic</span>
+          <span class="deck-path">slurp_and_learn/_output/index.html</span>
+        </a>
+      </li>
+      <li>
+        <a href="fitness/_output/index.html">
+          <span class="deck-title">Fitness</span>
+          <span class="deck-path">fitness/_output/index.html</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
