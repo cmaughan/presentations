@@ -134,6 +134,14 @@ date: last-modified
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
+## The 3-5x developer
+
+- You're using Cursor, Codex, or Claude
+- You might have an `AGENTS.md`
+- Tried a skill or two: `/superpowers`, `/grill-me`, etc.
+- Used `/review` or CodeRabbit, GitHub, Copilot
+- The coding is the quick bit
+
 ## The 10x developer
 
 ~~~{=html}
