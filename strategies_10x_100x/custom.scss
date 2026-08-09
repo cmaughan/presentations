@@ -121,6 +121,11 @@ $code-block-border-color: #30363d;
   padding-left: 0;
 }
 
+.reveal ul ul {
+  list-style-type: none;
+  padding-left: 1.2em;
+}
+
 .reveal ul li::before {
   content: ">";
   color: #7ee787;
@@ -204,6 +209,45 @@ $code-block-border-color: #30363d;
   text-align: right;
 }
 
+.reveal .ai-key {
+  position: absolute;
+  bottom: -1.3em;
+  left: 0.6em;
+  display: flex;
+  gap: 0.9em;
+  align-items: center;
+  margin: 0;
+  color: #8b949e;
+  font-size: 0.8em;
+  letter-spacing: 0.02em;
+}
+
+.reveal .ai-key .key-item {
+  display: inline-flex;
+  gap: 0.35em;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.reveal .ai-key .key-swatch {
+  display: inline-block;
+  width: 0.72em;
+  height: 0.72em;
+  border-radius: 50%;
+}
+
+.reveal .ai-key .no-ai {
+  background: #7ee787;
+}
+
+.reveal .ai-key .some-ai {
+  background: #f0883e;
+}
+
+.reveal .ai-key .all-ai {
+  background: #f85149;
+}
+
 .reveal .lifecycle-diagram .cycle-track {
   fill: none;
   stroke: #30363d;
@@ -217,7 +261,7 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .lifecycle-diagram .cycle-node rect {
-  fill: #161b22;
+  fill: #7ee787;
   stroke: #7ee787;
   stroke-width: 2;
   filter:
@@ -226,6 +270,7 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .lifecycle-diagram .cycle-node.ai-assisted rect {
+  fill: #f0883e;
   stroke: #f0883e;
   filter:
     drop-shadow(0 7px 12px rgba(0, 0, 0, 0.32))
@@ -233,6 +278,7 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .lifecycle-diagram .cycle-node.ai-driven rect {
+  fill: #f85149;
   stroke: #f85149;
   filter:
     drop-shadow(0 7px 12px rgba(0, 0, 0, 0.32))
@@ -240,7 +286,7 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .lifecycle-diagram .cycle-node text {
-  fill: #e6edf3;
+  fill: #0d1117;
   font-family: 'Inter', 'Helvetica Neue', sans-serif;
   font-size: 19px;
   font-weight: 600;
@@ -248,13 +294,13 @@ $code-block-border-color: #30363d;
 }
 
 .reveal .lifecycle-diagram .cycle-node .ai-note {
-  fill: #f0a45d;
+  fill: #321b08;
   font-size: 15px;
   font-weight: 500;
 }
 
 .reveal .lifecycle-diagram .cycle-node.ai-driven .ai-note {
-  fill: #ff7b72;
+  fill: #2a0b09;
 }
 
 .reveal .lifecycle-diagram .cycle-core circle {
