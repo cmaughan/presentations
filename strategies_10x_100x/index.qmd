@@ -234,6 +234,26 @@ date: last-modified
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
+## Every Box Becomes a Skill
+
+<div class="pipeline">
+  <span class="step">Jira</span><span class="arrow">→</span>
+  <span class="step">Planning</span><span class="arrow">→</span>
+  <span class="step">Coding</span><span class="arrow">→</span>
+  <span class="step">Testing</span>
+</div>
+
+<div class="pipeline">
+  <span class="step">Review</span><span class="arrow">→</span>
+  <span class="step">Commit</span><span class="arrow">→</span>
+  <span class="step">Deploy</span><span class="arrow">→</span>
+  <span class="step">Docs</span>
+</div>
+
+<p class="plain-note">Each skill owns one capability, its tools, and its checks. The orchestrator carries evidence to the next step.</p>
+
+<p class="big-idea"><span class="accent">Automate every step.</span><br>Skills make the automation reusable.</p>
+
 ## Skills: The Basic Structure
 
 ```text
@@ -256,6 +276,10 @@ my-skill/
 - Failures stay local instead of derailing the whole workflow
 
 <p class="big-idea"><span class="accent">Markdown routes.</span> Python works.<br>The orchestrator conducts.</p>
+
+## Skills save Tokens
+
+![](screenshots/token-cost.png){.slide-image fig-alt="Token usage and cost showing approximately 286 million tokens and 191 dollars"}
 
 ## The Whole Loop Becomes a Skill Tree
 
@@ -352,19 +376,6 @@ plans/
 - You still read code and check between steps
 - A failure stops the workflow before it grows
 - Every correction improves the next run
-
-## Automate the Hand-offs
-
-<div class="pipeline">
-  <span class="step">Ticket</span><span class="arrow">→</span>
-  <span class="step">Plan</span><span class="arrow">→</span>
-  <span class="step">Code</span><span class="arrow">→</span>
-  <span class="step">Test</span><span class="arrow">→</span>
-  <span class="step">Review</span><span class="arrow">→</span>
-  <span class="step">Deploy</span>
-</div>
-
-<p class="big-idea">At 3–5x, AI helps inside a box.<br>At 10x, <span class="accent">the boxes connect.</span></p>
 
 ## Small Slices, Frequent Checks
 
