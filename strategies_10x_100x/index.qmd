@@ -67,12 +67,11 @@ date: last-modified
 
 ## The 1x Developer
 
-- The best bit is the coding
-  - Most of your week (if you're lucky)
-- You do the annoying bits, like Jira
-- And the really annoying planning
-- Expert at VSCode, Git, Vim, whatever
-- You've cut and pasted GPT outputs
+- Planning
+- Mostly coding
+- Annoying bits, like Jira
+- Scripting and Tools: VSCode, Git, etc
+- Cut and paste GPT?
 
 ## The 3-5x developer {.compact-title}
 
@@ -136,11 +135,13 @@ date: last-modified
 
 ## The 3-5x developer
 
-- You're using Cursor, Codex, or Claude
+- Planning with AI help
+- Coding is mostly Cursor, Codex, or Claude
+    - From the most to least expensive task
 - You might have an `AGENTS.md`
 - Tried a skill or two: `/superpowers`, `/grill-me`, etc.
 - Used `/review` or CodeRabbit, GitHub, Copilot
-- The coding is the quick bit
+- Most corporate devs are here right now
 
 ## The 3-5x Trap
 
