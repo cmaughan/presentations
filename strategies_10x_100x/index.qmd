@@ -143,6 +143,17 @@ date: last-modified
 - Used `/review` or CodeRabbit, GitHub, Copilot
 - Most corporate devs are here right now
 
+## `AGENTS.md` Makes Context Persistent
+
+- Explains how this repository actually works
+- Names the build, test, and review commands
+- Records boundaries, conventions, and the definition of done
+- Gives every agent the same starting point
+- Turns repeated corrections into permanent guidance
+- Changes with the code—and can be reviewed with it
+
+<p class="big-idea">Stop re-prompting the rules.<br><span class="accent">Version them.</span></p>
+
 ## The 3-5x Trap
 
 <p class="big-idea">The code got faster.<br><span class="accent-orange">The rest of the job did not.</span></p>
@@ -222,6 +233,116 @@ date: last-modified
 <p class="loop-caption">(insert your loop here....)</p>
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
+
+## Skills: The Basic Structure
+
+```text
+my-skill/
+├── SKILL.md
+├── scripts/
+│   └── do_the_work.py
+├── references/
+└── assets/
+```
+
+<p class="plain-note"><code>SKILL.md</code> explains when to use the skill. The supporting files make the work repeatable.</p>
+
+## Skills: Keep Them Thin
+
+- A little Markdown defines the trigger, inputs, and boundaries
+- Small Python tools do the repeatable work
+- Each tool is easy to run, test, and repair
+- An orchestrator skill selects and sequences the thin skills
+- Failures stay local instead of derailing the whole workflow
+
+<p class="big-idea"><span class="accent">Markdown routes.</span> Python works.<br>The orchestrator conducts.</p>
+
+## The Whole Loop Becomes a Skill Tree
+
+```text
+project/
+├── plans/
+│   └── manifesto.md
+└── .agents/
+    └── skills/
+        └── orchestrator.md
+            ├── jira/
+            ├── coding/
+            ├── slack/
+            ├── perforce/       # source control
+            ├── swarm/          # reviews
+            └── preflight/
+```
+
+<p class="plain-note"><code>orchestrator.md</code> chooses the workflow and delegates each step to a child skill.</p>
+
+## A Preflight Skill Clears the Runway
+
+- Start the MCPs and local services the workflow needs
+- Check credentials, ports, and required configuration
+- Probe every dependency before real work begins
+- Report what is ready, degraded, or blocked
+- Stop early when the environment cannot support the run
+
+<p class="big-idea">No agent starts work<br><span class="accent-orange">until the runway is clear.</span></p>
+
+## The Orchestrator Selects the Workflow
+
+:::: {.columns}
+
+::: {.column width="42%"}
+
+```text
+workflows/
+├── automated-reviewer.md
+├── bug-feature-implementation.md
+├── submit-workflow.md
+└── coder.md
+```
+
+:::
+
+::: {.column width="58%"}
+
+- **Automated reviewer** checks behavior and evidence
+- **Bug/feature implementation** moves one slice through the loop
+- **Submit workflow** commits, pushes, and watches the checks
+- **Coder** handles a focused implementation step
+
+:::
+
+::::
+
+<p class="big-idea"><span class="accent">The orchestrator chooses the path.</span><br>Thin skills execute the steps.</p>
+
+## `plans/` Gives Intent a Home
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```text
+plans/
+├── manifesto.md
+├── feature-plan.md
+├── architecture.md
+└── decisions.md
+```
+
+:::
+
+::: {.column width="60%"}
+
+- Plans are Markdown: easy to read, diff, and update
+- Each captures intent, slices, constraints, and checks
+- Other documents keep decisions close to the work
+- `manifesto.md` holds the soul of what you are building
+
+:::
+
+::::
+
+<p class="big-idea">Plans explain the next move.<br><span class="accent-orange">The manifesto protects the direction.</span></p>
 
 ## The 10x Developer
 
@@ -552,3 +673,21 @@ date: last-modified
 :::
 
 ::::
+
+## The 10x developer
+
+- AI participates across the whole delivery loop
+- You specify outcomes and acceptance criteria before code
+- Agents work on small vertical slices
+- You review behavior and evidence, not just diffs
+- Every correction becomes a test, tool, or instruction
+- Verification is now the bottleneck
+
+## The 100x developer
+
+- You manage a delivery system, not an editor
+- Kanban becomes an executable queue
+- Agents code, review, commit, and deploy
+- Humans own intent, taste, risk, and exceptions
+- The system is observable, reversible, and self-checking
+- Your job is improving the loop
