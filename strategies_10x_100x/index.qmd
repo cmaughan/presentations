@@ -72,13 +72,31 @@ date: last-modified
 - Annoying bits, like Jira
 - Scripting and Tools: VSCode, Git, etc
 
+## Copy/Paste AI
+
+![](screenshots/copypaste.png){.slide-image fig-alt="How to Copy and Paste from ChatGPT"}
+
 ## Basic Tooling
 
 <div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
 
-## Copy/Paste AI
+## Small Wins Matter
 
-![](screenshots/copypaste.png){.slide-image fig-alt="How to Copy and Paste from ChatGPT"}
+:::: {.columns .tight}
+
+::: {.column width="32%"}
+
+- Fixing your workflow is a prompt away. It will always pay you back.
+
+:::
+
+::: {.column width="68%"}
+
+![](screenshots/vim-speedup.png){.slide-image fig-alt="A Codex result showing substantial Neovim startup improvements"}
+
+:::
+
+::::
 
 ## The 3-5x developer {.compact-title}
 
@@ -164,16 +182,6 @@ date: last-modified
 - Changes with the code—and can be reviewed with it
 
 <p class="big-idea">Stop re-prompting the rules.<br><span class="accent">Version them.</span></p>
-
-## The Jump to 10x
-
-<div class="card-grid three">
-  <div class="idea-card green"><strong>3–5x</strong>AI helps with individual tasks.<br><br><span class="dim">You drive.</span></div>
-  <div class="idea-card orange"><strong>10x</strong>Automation moves small slices through the whole loop.<br><br><span class="dim">You check the steps.</span></div>
-  <div class="idea-card red"><strong>100x</strong>The system handles routine checking too.<br><br><span class="dim">You watch outcomes.</span></div>
-</div>
-
-<p class="plain-note">The practical jump is from the first box to the second.</p>
 
 ## The 10x developer
 
@@ -667,24 +675,6 @@ plans/
 </div>
 
 <p class="plain-note">Do not jump to the top. Promote workflows that keep proving themselves.</p>
-
-## Small Wins Matter
-
-:::: {.columns .tight}
-
-::: {.column width="32%"}
-
-- Fixing your workflow is a prompt away. It will always pay you back.
-
-:::
-
-::: {.column width="68%"}
-
-![](screenshots/vim-speedup.png){.slide-image fig-alt="A Codex result showing substantial Neovim startup improvements"}
-
-:::
-
-::::
 
 ## The 10x developer
 
