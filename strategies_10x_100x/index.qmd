@@ -2,7 +2,7 @@
 title: "Strategies for 10x and 100x developers"
 author: "Chris Maughan"
 institute: "NVIDIA"
-date: last-modified
+date: 2026-08-12
 ---
 
 ## The 1x Developer (Circa 2025)

@@ -3,7 +3,7 @@ title: "Going Agentic"
 subtitle: "What I've Learned So Far"
 author: "Chris Maughan"
 institute: "NVIDIA"
-date: last-modified
+date: 2026-05-07
 title-slide-attributes:
   data-background-image: screenshots/hero.png
   data-background-opacity: "0.35"
