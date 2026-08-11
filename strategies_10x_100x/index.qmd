@@ -142,6 +142,26 @@ date: last-modified
 - Used `/review` or CodeRabbit, GitHub, Copilot
 - The coding is the quick bit
 
+## The 3-5x Trap
+
+<p class="big-idea">The code got faster.<br><span class="accent-orange">The rest of the job did not.</span></p>
+
+<div class="card-grid three">
+  <div class="idea-card orange"><strong>Manual hand-offs</strong>You copy plans, results, and context between tools.</div>
+  <div class="idea-card orange"><strong>Manual checking</strong>You inspect every result because the workflow cannot prove it worked.</div>
+  <div class="idea-card orange"><strong>You are the glue</strong>The AI stops whenever you stop pushing it.</div>
+</div>
+
+## The Jump to 10x
+
+<div class="card-grid three">
+  <div class="idea-card green"><strong>3–5x</strong>AI helps with individual tasks.<br><br><span class="dim">You drive.</span></div>
+  <div class="idea-card orange"><strong>10x</strong>Automation moves small slices through the whole loop.<br><br><span class="dim">You check the steps.</span></div>
+  <div class="idea-card red"><strong>100x</strong>The system handles routine checking too.<br><br><span class="dim">You watch outcomes.</span></div>
+</div>
+
+<p class="plain-note">The practical jump is from the first box to the second.</p>
+
 ## The 10x developer
 
 ~~~{=html}
@@ -201,6 +221,216 @@ date: last-modified
 <p class="loop-caption">(insert your loop here....)</p>
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
+
+## The 10x Developer
+
+- Automation is spread across the whole loop
+- Work moves as small, complete slices
+- Every step leaves something you can inspect
+- You still read code and check between steps
+- A failure stops the workflow before it grows
+- Every correction improves the next run
+
+## Automate the Hand-offs
+
+<div class="pipeline">
+  <span class="step">Ticket</span><span class="arrow">→</span>
+  <span class="step">Plan</span><span class="arrow">→</span>
+  <span class="step">Code</span><span class="arrow">→</span>
+  <span class="step">Test</span><span class="arrow">→</span>
+  <span class="step">Review</span><span class="arrow">→</span>
+  <span class="step">Deploy</span>
+</div>
+
+<p class="big-idea">At 3–5x, AI helps inside a box.<br>At 10x, <span class="accent">the boxes connect.</span></p>
+
+## Small Slices, Frequent Checks
+
+<div class="checkpoint-strip">
+  <div class="checkpoint"><strong>Plan</strong>One visible outcome<span class="check">✓ Check intent</span></div>
+  <div class="checkpoint"><strong>Build</strong>One small diff<span class="check">✓ Read the code</span></div>
+  <div class="checkpoint"><strong>Prove</strong>Tests and evidence<span class="check">✓ Check behavior</span></div>
+  <div class="checkpoint"><strong>Ship</strong>A safe deployment<span class="check">✓ Check reality</span></div>
+</div>
+
+<p class="plain-note">Small enough to understand. Complete enough to matter.</p>
+
+## The Agent Needs Eyes
+
+<div class="card-grid four">
+  <div class="idea-card green"><strong>Logs</strong>What happened?</div>
+  <div class="idea-card green"><strong>Screenshots</strong>What changed?</div>
+  <div class="idea-card green"><strong>Tests</strong>Does it still work?</div>
+  <div class="idea-card green"><strong>Preview</strong>Does it work for real?</div>
+</div>
+
+<p class="big-idea">If the agent cannot see the result,<br><span class="accent-orange">you have to check it manually.</span></p>
+
+## The 10x Playbook {.section-divider}
+
+<p class="big-idea">Make the work <span class="accent">visible</span>,<br>the steps <span class="accent-orange">small</span>,<br>and the result <span class="accent">provable</span>.</p>
+
+## Prompts Don't Compound
+
+- A prompt buys one answer
+- A test prevents the same failure forever
+- A script makes the result repeatable
+- A skill makes the workflow reusable
+
+<p class="big-idea"><span class="accent-orange">Chat history is not infrastructure.</span></p>
+
+## Debug Dumps
+
+- One command captures errors, logs, settings, and state
+- The agent reads the dump instead of asking you twenty questions
+- Fix, rerun, compare
+
+<p class="big-idea">Ask the program.<br><span class="accent">Not the tired human.</span></p>
+
+## Image Grabs
+
+- Capture the screen at known points
+- Attach the image to the task automatically
+- Let the agent inspect the real result
+
+<p class="plain-note">“It looks wrong” becomes evidence instead of a conversation.</p>
+
+## Image Diffs
+
+- Keep a trusted “before”
+- Render the new version
+- Highlight only the changed pixels
+- Stop if something unexpected moved
+
+<p class="big-idea"><span class="accent">Show the difference.</span> Skip the guessing.</p>
+
+## Audio Comparisons
+
+- Render the reference and the new output
+- Compare volume, timing, silence, and shape
+- Make failures visible as a waveform
+
+<p class="big-idea">Some bugs have to be <span class="accent-orange">heard.</span></p>
+
+## Client/Server Round Trip
+
+- Start the real client and server
+- Send a real request
+- Capture both sides of the conversation
+- Fail if either side disagrees
+
+<p class="plain-note">A unit test can pass while the product is still broken.</p>
+
+## Lean Correctness Specs
+
+- Use Lean to specify the correctness of the result.
+
+## Iterative Goals
+
+- Give the agent one clear finish line
+- Let it work, test, and correct itself
+- Keep the goal alive across many steps
+- Stop only on evidence—or a real blocker
+
+## Vertical Slices
+
+- One small behavior, end to end
+- UI, logic, test, and deployment together
+- Useful enough to try
+- Small enough to understand and revert
+
+<p class="big-idea">Do not build three layers.<br><span class="accent">Build one working thing.</span></p>
+
+## Incremental Steps for the Human
+
+- Each step leaves a readable diff
+- Each step leaves test evidence
+- Each step leaves a short summary
+- You can interrupt without losing the plot
+
+## Quick Prototypes
+
+- Ugly but runnable beats perfect but imaginary
+- Test the risky idea first
+- Throw it away without regret
+
+<p class="plain-note">The prototype answers a question. It is not a promise.</p>
+
+## Quick Deployments
+
+- Give every slice a temporary home
+- Run the smoke test there
+- Share the real thing, not a screenshot of localhost
+- Make rollback boring
+
+## Consistent tooling
+
+- The same command works for you, CI, and the agent
+- Setup is written down and repeatable
+- No hidden IDE magic
+- No wiki scavenger hunt
+
+## Small attack surfaces
+
+- Give the agent the smallest useful task
+- Limit files, tools, permissions, and scope
+- Prefer reversible changes
+- Fewer ways to be wrong means faster trust
+
+## Insane build speeds
+
+- Slow feedback creates large, risky guesses
+- Fast feedback lets the agent correct itself
+- Seconds invite experiments
+- Minutes invite waiting
+
+<p class="big-idea">Build speed is not comfort.<br><span class="accent">It is control.</span></p>
+
+## Everything Markdown
+
+- Plans
+- Goals
+- Decisions
+- Handoffs
+- Evidence
+
+<p class="plain-note">Readable by people. Readable by agents. Easy to diff.</p>
+
+## Presentation Fun
+
+## Code Inspection
+
+- Ask for a map, not a guided tour
+- Find entry points, data flow, rules, and sharp edges
+- Write the map down
+- Review the map before changing the code
+
+## 75/25 Rule
+
+- 25%: solve today's problem
+- 75%: remove the friction that made it hard
+- Add the missing test
+- Improve the tool
+- Capture the instruction
+
+<p class="big-idea">Ship the fix.<br><span class="accent">Then improve the factory.</span></p>
+
+## Dog Food
+
+- Use the workflow on real work
+- Notice every manual rescue
+- Put that friction into the backlog
+- Run it again until the rescue disappears
+
+## Scriptify
+
+- If you explain it twice, make it a command
+- Clear inputs
+- Clear output
+- Useful exit codes
+- Safe to rerun
+
+<p class="big-idea">A script is a tiny tool<br>that never forgets the steps.</p>
 
 ## The 100x developer {.compact-title}
 
@@ -262,50 +492,62 @@ date: last-modified
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
-## Pointless Prompting
+## The 100x Developer
 
-## Debug Dumps
-Layout example
+- Most code is no longer read line by line by a human
+- Routine checks happen without asking for approval
+- Agents review, test, commit, and deploy
+- Humans watch outcomes, risk, and exceptions
+- Failures arrive with evidence—not a mystery
+- The job becomes improving the system
 
-## Image Grabs
+## The Big Shift
 
-## Image Diffs
+<div class="ownership-shift">
+  <div class="side before"><strong class="highlight-orange">10x: inspect the work</strong><br><br>Read the diff<br>Check each step<br>Approve the move</div>
+  <div class="middle">→</div>
+  <div class="side after"><strong style="color:#ff7b72">100x: inspect the outcome</strong><br><br>Watch the result<br>Review exceptions<br>Improve the rules</div>
+</div>
 
-## Audio Comparisons
+<p class="big-idea">Less reading. Less routine checking.<br><span class="accent">More attention where it matters.</span></p>
 
-## Client/Server Round Trip
+## Less Checking ≠ Less Safety
 
-- Use 2 clients to validate server/client round trip.
+<div class="card-grid four">
+  <div class="idea-card orange"><strong>Tests</strong>Run automatically</div>
+  <div class="idea-card orange"><strong>Limits</strong>Stop risky changes</div>
+  <div class="idea-card red"><strong>Review</strong>Agents challenge agents</div>
+  <div class="idea-card red"><strong>Escalation</strong>Humans see exceptions</div>
+</div>
 
-## Lean Correctness Specs
+<p class="big-idea">Human checking falls.<br><span class="accent-orange">Total checking rises.</span></p>
 
-- Use Lean to specify the correctness of the result.
+## Autonomy Is Earned
 
-## Iterative Goals
+<div class="trust-ladder">
+  <div class="trust-step">Suggest</div>
+  <div class="trust-step">Draft</div>
+  <div class="trust-step">Act, then ask</div>
+  <div class="trust-step">Act and report</div>
+  <div class="trust-step">Handle exceptions</div>
+</div>
 
-## Vertical Slices
+<p class="plain-note">Do not jump to the top. Promote workflows that keep proving themselves.</p>
 
-## Incremental Steps for the Human
+## Small Wins Matter
 
-## Quick Prototypes
+:::: {.columns .tight}
 
-## Quick Deployments
+::: {.column width="32%"}
 
-## Consistent tooling
+- Fixing your workflow is a prompt away. It will always pay you back.
 
-## Small attack surfaces
+:::
 
-## Insane build speeds
+::: {.column width="68%"}
 
-## Everything Markdown
+![](screenshots/vim-speedup.png){.slide-image fig-alt="A Codex result showing substantial Neovim startup improvements"}
 
-## Presentation Fun
+:::
 
-## Code Inspection
-
-## 75/25 Rule
-75% of your time is refactor
-
-## Dog Food
-
-## Scriptify
+::::
