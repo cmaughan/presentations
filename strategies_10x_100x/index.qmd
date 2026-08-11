@@ -71,7 +71,14 @@ date: last-modified
 - Mostly coding
 - Annoying bits, like Jira
 - Scripting and Tools: VSCode, Git, etc
-- Cut and paste GPT?
+
+## Basic Tooling
+
+<div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
+
+## Copy/Paste AI
+
+![](screenshots/copypaste.png){.slide-image fig-alt="How to Copy and Paste from ChatGPT"}
 
 ## The 3-5x developer {.compact-title}
 
@@ -133,6 +140,10 @@ date: last-modified
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
+## The 3-5x Trap
+
+<p class="big-idea">The code got faster.<br><span class="accent-orange">The rest of the job did not.</span></p>
+
 ## The 3-5x developer
 
 - Planning with AI help
@@ -153,16 +164,6 @@ date: last-modified
 - Changes with the code—and can be reviewed with it
 
 <p class="big-idea">Stop re-prompting the rules.<br><span class="accent">Version them.</span></p>
-
-## The 3-5x Trap
-
-<p class="big-idea">The code got faster.<br><span class="accent-orange">The rest of the job did not.</span></p>
-
-<div class="card-grid three">
-  <div class="idea-card orange"><strong>Manual hand-offs</strong>You copy plans, results, and context between tools.</div>
-  <div class="idea-card orange"><strong>Manual checking</strong>You inspect every result because the workflow cannot prove it worked.</div>
-  <div class="idea-card orange"><strong>You are the glue</strong>The AI stops whenever you stop pushing it.</div>
-</div>
 
 ## The Jump to 10x
 
