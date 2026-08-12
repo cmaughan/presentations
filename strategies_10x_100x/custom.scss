@@ -788,3 +788,94 @@ $code-block-border-color: #30363d;
 .reveal .trust-step:nth-child(3) { height: 65%; }
 .reveal .trust-step:nth-child(4) { height: 84%; background: #f85149; }
 .reveal .trust-step:nth-child(5) { height: 100%; background: #f85149; }
+
+.reveal .motivational-image-slide {
+  height: 100%;
+}
+
+.reveal .motivational-image-slide h2 {
+  display: none;
+}
+
+.reveal .motivational-image-slide .quarto-figure,
+.reveal .motivational-image-slide figure {
+  height: 100%;
+  margin: 0;
+}
+
+.reveal .motivational-image-slide p {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.reveal .motivational-image-slide .motivation-shot {
+  display: block;
+  width: 96%;
+  height: 82vh;
+  max-width: none;
+  max-height: none;
+  margin: 0 auto;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+}
+
+.reveal .motivational-image-slide .motivation-shot.portrait {
+  width: auto;
+  max-width: 94%;
+}
+
+.reveal .motivational-image-slide .ios-showcase {
+  display: flex;
+  width: 96%;
+  height: 82vh;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 2.4%;
+}
+
+.reveal .motivational-image-slide .ios-showcase img {
+  width: auto;
+  height: 100%;
+  max-width: 30.5%;
+  max-height: none;
+  margin: 0;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+}
+
+.reveal .motivational-image-slide .motivation-video {
+  display: block;
+  width: auto;
+  height: 82vh;
+  max-width: 96%;
+  max-height: none;
+  margin: 0 auto;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 12px 42px rgba(0, 0, 0, 0.45);
+}
+
+.reveal .motivational-image-slide .motivation-video.landscape-video {
+  width: 96%;
+  height: auto;
+  max-height: 82vh;
+}
+
+.reveal .thanks-slide h2 {
+  margin: 0;
+  padding: 0;
+  border-bottom: none !important;
+  color: #58a6ff;
+  font-size: 2.6em;
+  text-align: center;
+  text-transform: none;
+}

@@ -323,16 +323,14 @@ my-skill/
 
 ## Orchestration: It's just a skill
 
-- Uses the thin skills to do the work
-- Organises various workflows
-- Developer, Reviewer and Submitter
+- Delegates to thin skills to do the work
+- A recipe book of behaviors/autonomous
+- I made: Developer, Reviewer and Submitter
 
 ## Skill Hierarchy
 
 ```text
 project/
-├── plans/
-│   └── manifesto.md
 └── .agents/
     └── skills/
         └── orchestrator.md
@@ -425,9 +423,9 @@ project/
 - Post to Slack thread
 - Mark bug complete
 
-## The 10x Developer Summary
+## The 10x Developer Target
 
-- Automation is spread across the whole loop
+- Automation is spread throughout
 - You still read code
 - Your day job is planning, reviewing and testing
 - The agent is your intern, doing all the boring bits
@@ -492,21 +490,20 @@ project/
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
-## The 100x Developer
-
-- Most code is no longer read by a human
-- Agents work on the whole problem (autonomously?)
-- Parallel workflows, multiple agents
-- Agents help plan and decide on features
-- The code is a black box
-- The inputs and outputs are checked by humans and agents
-- The agents are also checking the contents
-
 ## Dark Factory?
 
 ![](screenshots/solar){.slide-image fig-alt="Solar Eclipse"}
 
 <p class="slide-attribution">Attribution: European Space Agency</p>
+
+## The 100x Developer
+
+- Most code is no longer read by a human
+- Agents work on the whole problem (autonomously?)
+- Parallel workflows, multiple agents
+- The code is a black box (agents can test)
+- The inputs and outputs are checked by humans and agents
+- You are an Architect, an Orchestrator, a Detective
 
 ## The Crypto Trilemma (??)
 
@@ -536,9 +533,7 @@ project/
 </svg>
 ```
 
-<p class="trilemma-caption">Push one corner, and the others push back.</p>
-
-## The AI Trilemma
+## The AI Dev's Trilemma
 
 ```{=html}
 <svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The AI delivery trilemma: speed, architecture, and features.">
@@ -566,7 +561,35 @@ project/
 </svg>
 ```
 
-<p class="trilemma-caption">Push one corner, and the others push back.</p>
+## Consistent Tooling
+
+![](screenshots/do.png){.slide-image fig-alt="Tool friction"}
+
+## `plans/`
+
+:::: {.columns}
+
+::: {.column width="40%"}
+
+```text
+plans/
+├── manifesto.md
+├── feature-plan.md
+├── architecture.md
+└── decisions.md
+```
+
+:::
+
+::: {.column width="70%"}
+
+- Plans are Markdown
+- `manifesto.md` is the soul
+- "Agent: write this into a plan file"
+
+:::
+
+::::
 
 ## Small Slices, Frequent Checks
 
@@ -589,10 +612,6 @@ project/
 </div>
 
 <p class="big-idea">If the agent cannot see the result,<br><span class="accent-orange">you have to check it manually.</span></p>
-
-## The 10x Playbook {.section-divider}
-
-<p class="big-idea">Make the work <span class="accent">visible</span>,<br>the steps <span class="accent-orange">small</span>,<br>and the result <span class="accent">provable</span>.</p>
 
 ## Prompts Don't Compound
 
@@ -680,20 +699,6 @@ project/
 
 <p class="plain-note">The prototype answers a question. It is not a promise.</p>
 
-## Quick Deployments
-
-- Give every slice a temporary home
-- Run the smoke test there
-- Share the real thing, not a screenshot of localhost
-- Make rollback boring
-
-## Consistent tooling
-
-- The same command works for you, CI, and the agent
-- Setup is written down and repeatable
-- No hidden IDE magic
-- No wiki scavenger hunt
-
 ## Small attack surfaces
 
 - Give the agent the smallest useful task
@@ -709,16 +714,6 @@ project/
 - Minutes invite waiting
 
 <p class="big-idea">Build speed is not comfort.<br><span class="accent">It is control.</span></p>
-
-## Everything Markdown
-
-- Plans
-- Goals
-- Decisions
-- Handoffs
-- Evidence
-
-<p class="plain-note">Readable by people. Readable by agents. Easy to diff.</p>
 
 ## Presentation Fun
 
@@ -756,72 +751,66 @@ project/
 
 <p class="big-idea">A script is a tiny tool<br>that never forgets the steps.</p>
 
-## `plans/`
+## Motivation
 
-:::: {.columns}
+## {.motivational-image-slide}
 
-::: {.column width="40%"}
+![](screenshots/dashboard.png){.motivation-shot fig-alt="A dense terminal dashboard showing maps, orbital radar, secure communications, and live system status"}
 
-```text
-plans/
-├── manifesto.md
-├── feature-plan.md
-├── architecture.md
-└── decisions.md
+## {.motivational-image-slide}
+
+![](screenshots/kanban.png){.motivation-shot fig-alt="A terminal-based Kanban board with work moving from the icebox through pending to done"}
+
+## {.motivational-image-slide}
+
+![](screenshots/megacity.png){.motivation-shot fig-alt="A code analysis tool visualizing a software project as a three-dimensional city"}
+
+## {.motivational-image-slide}
+
+![](screenshots/music.png){.motivation-shot fig-alt="A music-learning application combining sheet music, note feedback, and a piano keyboard"}
+
+## {.motivational-image-slide}
+
+![](screenshots/rezonality.png){.motivation-shot fig-alt="A custom graphics editor showing scene code beside a rendered robot"}
+
+## {.motivational-image-slide}
+
+![](screenshots/satview.png){.motivation-shot fig-alt="A satellite visualization of Earth surrounded by orbital objects and constellation boundaries"}
+
+## {.motivational-image-slide}
+
+<div class="ios-showcase" aria-label="Three iOS applications: a fasting tracker, a timing puzzle game, and a 3D sculpting tool">
+  <img src="screenshots/geekfast.png" alt="A mobile fasting and workout history screen showing a completed thirty-hour fast">
+  <img src="screenshots/iosgame.png" alt="An iOS timing puzzle game with a grid of arrows, operators, numbers, and controls">
+  <img src="screenshots/sculpt.png" alt="An iOS sculpting application showing a wireframe character head and editing controls">
+</div>
+
+## {.motivational-image-slide}
+
+![](screenshots/rts2.png){.motivation-shot fig-alt="An early real-time strategy terrain experiment built from separate procedural land tiles"}
+
+## {.motivational-image-slide}
+
+![](screenshots/rts.png){.motivation-shot fig-alt="A developed real-time strategy terrain rendered as a continuous low-poly landscape"}
+
+## {.motivational-image-slide}
+
+![](screenshots/VFO.png){.motivation-shot .portrait fig-alt="A hand-built VFO electronics project with a display, controls, and 3D-printed parts"}
+
+## {.motivational-image-slide}
+
+```{=html}
+<video class="motivation-video" autoplay loop muted playsinline aria-label="Animated visualization of token use">
+  <source src="screenshots/tokenanim.mp4" type="video/mp4">
+</video>
 ```
 
-:::
+## {.motivational-image-slide}
 
-::: {.column width="60%"}
+```{=html}
+<video class="motivation-video landscape-video" autoplay loop muted playsinline aria-label="A software synthesizer in action">
+  <source src="screenshots/synth.mp4" type="video/mp4">
+</video>
+```
 
-- Plans are Markdown: easy to read, diff, and update
-- Each captures intent, slices, constraints, and checks
-- Other documents keep decisions close to the work
-- `manifesto.md` holds the soul of what you are building
-
-:::
-
-::::
-
-<p class="big-idea">Plans explain the next move.<br><span class="accent-orange">The manifesto protects the direction.</span></p>
-
-## Less Checking ≠ Less Safety
-
-<div class="card-grid four">
-  <div class="idea-card orange"><strong>Tests</strong>Run automatically</div>
-  <div class="idea-card orange"><strong>Limits</strong>Stop risky changes</div>
-  <div class="idea-card red"><strong>Review</strong>Agents challenge agents</div>
-  <div class="idea-card red"><strong>Escalation</strong>Humans see exceptions</div>
-</div>
-
-<p class="big-idea">Human checking falls.<br><span class="accent-orange">Total checking rises.</span></p>
-
-## Autonomy Is Earned
-
-<div class="trust-ladder">
-  <div class="trust-step">Suggest</div>
-  <div class="trust-step">Draft</div>
-  <div class="trust-step">Act, then ask</div>
-  <div class="trust-step">Act and report</div>
-  <div class="trust-step">Handle exceptions</div>
-</div>
-
-<p class="plain-note">Do not jump to the top. Promote workflows that keep proving themselves.</p>
-
-## The 10x developer
-
-- AI participates across the whole delivery loop
-- You specify outcomes and acceptance criteria before code
-- Agents work on small vertical slices
-- You review behavior and evidence, not just diffs
-- Every correction becomes a test, tool, or instruction
-- Verification is now the bottleneck
-
-## The 100x developer
-
-- You manage a delivery system, not an editor
-- Kanban becomes an executable queue
-- Agents code, review, commit, and deploy
-- Humans own intent, taste, risk, and exceptions
-- The system is observable, reversible, and self-checking
-- Your job is improving the loop
+## Thanks! {.thanks-slide}
