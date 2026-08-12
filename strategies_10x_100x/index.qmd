@@ -435,7 +435,7 @@ project/
 ## Validation: Image Grabs
 
 - Have a way to capture the UI
-- Show the agent how to do that 
+- Show the agent how to do that
 - Let the agent inspect the real result
 
 ## Validation: Image Diffs
@@ -453,8 +453,8 @@ project/
 
 ## Validation: JSON
 
-- Make a way to dump what's important to you 
-- Show the agent how to do that 
+- Make a way to dump what's important to you
+- Show the agent how to do that
 - Let the agent inspect the real result
 - Good technique for understanding shape, location, etc.
 
@@ -641,27 +641,43 @@ plans/
 
 ## Planning: Kanban
 
+![](screenshots/kanban.png){.slide-image fig-alt="Kanban"}
+
+## Planning: Kanban
+
 - Kanban: pending, done, ice-box
 - Goodbye Jira
 - Fast, Markdown, easy
 - "Go implement 3, 5, 6 with parallel agents"
-
-## Planning: Kanban
-
-![](screenshots/kanban.png){.slide-image fig-alt="Kanban"}
+- "Fix all the bugs in pending with parallel agents"
+- Agent updates the markdown too
 
 ## Code Inspection
 
-- Ask for a map, not a guided tour
-- Find entry points, data flow, rules, and sharp edges
-- Write the map down
-- Review the map before changing the code
+- Interrogate the agent daily (hourly?)
+- It lies by omission
+- It cheats
+- "How does this work?"
+- "Why is this slow?"
+- "How would you improve this?"
 
-## Vibe: Quick Prototypes
+## Vibe: Quick Prototypes and Features
 
-- Ugly but runnable beats perfect but imaginary
+- Vibe a solution, then plan it properly
 - Test the risky idea first
 - Throw it away without regret
+
+## Monolith (??)
+
+- Building everything in one executable
+- (My terminal emulator can view satellite data and play music...??)
+- Keeps the agent honest - more refactoring
+
+## Cross Platform
+
+- Always works on Mac and PC
+- And with Metal / Vulkan - 2 different GPU APIs!
+- Keeps the agent honest - less shortcuts
 
 ## Tooling speeds
 
@@ -669,46 +685,12 @@ plans/
 - Spend time and energy on optimizing your build
 - Agents are insanely good at this
 
-## 75/25 Rule
-
-- 25%: solve today's problem
-- 75%: remove the friction that made it hard
-- Add the missing test
-- Improve the tool
-- Capture the instruction
-
-<p class="big-idea">Ship the fix.<br><span class="accent">Then improve the factory.</span></p>
-
 ## Dog Food
 
-- Use the workflow on real work
-- Notice every manual rescue
-- Put that friction into the backlog
-- Run it again until the rescue disappears
-
-## Scriptify
-
-- If you explain it twice, make it a command
-- Clear inputs
-- Clear output
-- Useful exit codes
-- Safe to rerun
-
-<p class="big-idea">A script is a tiny tool<br>that never forgets the steps.</p>
-
-## New Stuff
-
-## Lean Correctness Specs
-
-- New idea: express the 'done' state as a mathematically proven result
-- Research field, but I've seen it used
-- https://lean-lang.org/
-
-## Goals
-
-- `/goal make all these audio samples match`
-- Great for long term, researchy or a iterative tasks
-- In my experience expensive and can wander off...
+- Use what you build
+- Be honest about what works
+- Fix it immediately
+- Work cross platform
 
 ## Motivation
 
