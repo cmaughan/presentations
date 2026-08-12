@@ -141,6 +141,20 @@ date: 2026-08-12
 
 <p class="big-idea">The code got faster.<br><span class="accent-orange">The rest of the job did not.</span></p>
 
+## The 3-5x developer
+
+- Planning with AI help
+- Coding is mostly Cursor, Codex, or Claude
+    - From the most to least expensive task
+- You might have an `AGENTS.md`
+- Tried a skill or two: `/superpowers`, `/grill-me`, etc.
+- Used `/review` or CodeRabbit, GitHub, Copilot
+- Most corporate devs are here right now
+
+## Basic Tooling
+
+<div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
+
 ## Small Wins Matter
 
 :::: {.columns .tight}
@@ -159,28 +173,12 @@ date: 2026-08-12
 
 ::::
 
-## The 3-5x developer
+## `AGENTS.md` : "How I want you to work" 
 
-- Planning with AI help
-- Coding is mostly Cursor, Codex, or Claude
-    - From the most to least expensive task
-- You might have an `AGENTS.md`
-- Tried a skill or two: `/superpowers`, `/grill-me`, etc.
-- Used `/review` or CodeRabbit, GitHub, Copilot
-- Most corporate devs are here right now
-
-## Basic Tooling
-
-<div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
-
-## `AGENTS.md` : "How I want you to work"
-
-- Explains where everything is and what it does
+- Explains where everything is and what it does 
 - Build, test, review commands
-- Records boundaries, conventions, and the definition of done
-- Gives every agent the same starting point
-- Turns repeated corrections into permanent guidance
-- Changes with the code—and can be reviewed with it
+- Every agent the same starting point
+- "Add to the agents file that I like camel case"
 
 <p class="big-idea">Stop re-prompting the rules.<br><span class="accent">Version them.</span></p>
 
