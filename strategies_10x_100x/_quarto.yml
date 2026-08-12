@@ -18,3 +18,4 @@ format:
     controls: true
     progress: true
     pdf-separate-fragments: false
+    include-after-body: preview-refresh.html

@@ -5,6 +5,13 @@ institute: "NVIDIA"
 date: 2026-08-12
 ---
 
+## {.quote-only-slide}
+
+<blockquote class="basho-quote">
+  <p>“To learn about pine trees, go to the pine tree;<br>to learn of the bamboo, study bamboo.”</p>
+  <footer>— Matsuo Bashō</footer>
+</blockquote>
+
 ## The 1x Developer (Circa 2025)
 
 ```{=html}
@@ -141,7 +148,7 @@ date: 2026-08-12
 
 <p class="big-idea">The coding got faster<br><span class="accent-orange">The rest of it didn't</span></p>
 
-## The 3x developer
+## The 3x Developer
 
 - Planning with AI help
 - Coding with Cursor, Codex, or Claude
@@ -155,7 +162,7 @@ date: 2026-08-12
 
 <div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
 
-## Small wins matter
+## Small Wins Matter
 
 :::: {.columns .tight}
 
@@ -186,7 +193,29 @@ date: 2026-08-12
 
 <p class="big-idea">Don't prompt the rules, record them</p>
 
-## The 10x developer
+## Skills : "Encode Process"
+
+<div class="skill-repos">
+  <a class="skill-repo" href="https://github.com/mattpocock/skills" target="_blank" rel="noopener noreferrer">
+    <span class="skill-repo-name">Matt Pocock — Skills for Real Engineers</span>
+    <span class="skill-repo-description">Small, practical and composable engineering skills.</span>
+    <code>github.com/mattpocock/skills</code>
+  </a>
+
+  <a class="skill-repo" href="https://github.com/obra/superpowers" target="_blank" rel="noopener noreferrer">
+    <span class="skill-repo-name">Superpowers</span>
+    <span class="skill-repo-description">A complete agentic development workflow built from reusable skills.</span>
+    <code>github.com/obra/superpowers</code>
+  </a>
+
+  <a class="skill-repo" href="https://github.com/VoltAgent/awesome-agent-skills" target="_blank" rel="noopener noreferrer">
+    <span class="skill-repo-name">Awesome Agent Skills</span>
+    <span class="skill-repo-description">A curated collection from development teams and the community.</span>
+    <code>github.com/VoltAgent/awesome-agent-skills</code>
+  </a>
+</div>
+
+## The 10x Developer
 
 ~~~{=html}
 <svg class="lifecycle-diagram" viewBox="0 0 960 510" role="img" aria-label="The 10x developer lifecycle: all responsibilities use some AI, including maintaining Jira, planning, coding, testing, group review, committing, deploying, and documentation.">
@@ -246,85 +275,60 @@ date: 2026-08-12
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
-## The Crypto Trilemma
+## Orchestration: Autonomous Reviewer
 
 ```{=html}
-<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The crypto trilemma: scalability, decentralization, and security.">
-  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+<svg class="reviewer-loop" viewBox="0 0 1000 430" role="img" aria-label="Autonomous reviewer loop. Read Review branches to Fix Obvious Problems or Human Help. Both paths continue to Post Slack and Swarm Update, then Queue Tests, which loops back to Read Review.">
+  <defs>
+    <marker id="review-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" />
+    </marker>
+    <marker id="review-human-arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L10,5 L0,10 Z" />
+    </marker>
+  </defs>
 
-  <g class="trilemma-node medium-label" transform="translate(480 92)">
-    <circle r="90" />
-    <text y="9">SCALABILITY</text>
+  <path class="review-flow-line" d="M260 105 H348" />
+  <path class="review-flow-line human-path" d="M150 140 V240 H348" />
+  <path class="review-flow-line" d="M590 105 H650 V142 H698" />
+  <path class="review-flow-line" d="M830 175 V335 H602" />
+  <path class="review-flow-line" d="M360 335 H16 V105 H28" />
+
+  <g class="review-flow-node" transform="translate(40 70)">
+    <rect width="220" height="70" rx="14" />
+    <text x="110" y="44">Read Review</text>
   </g>
 
-  <g class="trilemma-node long-label" transform="translate(165 400)">
-    <circle r="90" />
-    <text y="9">DECENTRALIZATION</text>
+  <g class="review-flow-node" transform="translate(360 70)">
+    <rect width="230" height="70" rx="14" />
+    <text x="115" y="30">Fix Obvious</text>
+    <text x="115" y="52">Problems</text>
   </g>
 
-  <g class="trilemma-node" transform="translate(795 400)">
-    <circle r="90" />
-    <text y="9">SECURITY</text>
+  <g class="review-flow-node human-help" transform="translate(360 205)">
+    <rect width="230" height="70" rx="14" />
+    <text x="115" y="44">Human Help</text>
   </g>
 
-  <g class="trilemma-core" transform="translate(480 300)">
-    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
-    <text class="core-message" y="24">You can't maximize all three</text>
+  <g class="review-flow-node" transform="translate(710 105)">
+    <rect width="240" height="70" rx="14" />
+    <text x="120" y="30">Post Slack &amp;</text>
+    <text x="120" y="52">Swarm Update</text>
+  </g>
+
+  <g class="review-flow-node" transform="translate(360 300)">
+    <rect width="230" height="70" rx="14" />
+    <text x="115" y="44">Queue Tests</text>
   </g>
 </svg>
 ```
 
-<p class="trilemma-caption">Push one corner, and the others push back.</p>
+<p class="big-idea"><span class="accent">Huge Time Saver</span></p>
 
-## The AI Trilemma
+## Orchestration: Autonomous Reviewer
 
-```{=html}
-<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The AI delivery trilemma: speed, architecture, and features.">
-  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
-
-  <g class="trilemma-node" transform="translate(480 92)">
-    <circle r="90" />
-    <text y="9">SPEED</text>
-  </g>
-
-  <g class="trilemma-node medium-label" transform="translate(165 400)">
-    <circle r="90" />
-    <text y="9">ARCHITECTURE</text>
-  </g>
-
-  <g class="trilemma-node" transform="translate(795 400)">
-    <circle r="90" />
-    <text y="9">FEATURES</text>
-  </g>
-
-  <g class="trilemma-core" transform="translate(480 300)">
-    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
-    <text class="core-message" y="24">You can't maximize all three</text>
-  </g>
-</svg>
-```
-
-<p class="trilemma-caption">Push one corner, and the others push back.</p>
-
-## Every Box Becomes a Skill
-
-<div class="pipeline">
-  <span class="step">Jira</span><span class="arrow">→</span>
-  <span class="step">Planning</span><span class="arrow">→</span>
-  <span class="step">Coding</span><span class="arrow">→</span>
-  <span class="step">Testing</span>
-</div>
-
-<div class="pipeline">
-  <span class="step">Review</span><span class="arrow">→</span>
-  <span class="step">Commit</span><span class="arrow">→</span>
-  <span class="step">Deploy</span><span class="arrow">→</span>
-  <span class="step">Docs</span>
-</div>
-
-<p class="plain-note">Each skill owns one capability, its tools, and its checks. The orchestrator carries evidence to the next step.</p>
-
-<p class="big-idea"><span class="accent">Automate every step.</span><br>Skills make the automation reusable.</p>
+- Read Jira
+- Respond or not (has memory)
 
 ## Skills: The Basic Structure
 
@@ -339,15 +343,28 @@ my-skill/
 
 <p class="plain-note"><code>SKILL.md</code> explains when to use the skill. The supporting files make the work repeatable.</p>
 
+## Warning {.skills-warning-slide}
+
+<div class="skills-warning">
+  <p>Skills are like little <span>code bombs</span></p>
+  <strong>Check provenence</strong>
+</div>
+
+## Warning {.skills-warning-slide}
+
+<div class="skills-warning">
+  <p>Skills are <span>restrictive</span></p>
+  <strong>They will change agent behavior</strong>
+</div>
+
 ## Skills: Keep Them Thin
 
-- A little Markdown defines the trigger, inputs, and boundaries
-- Small Python tools do the repeatable work
-- Each tool is easy to run, test, and repair
 - An orchestrator skill selects and sequences the thin skills
-- Failures stay local instead of derailing the whole workflow
-
-<p class="big-idea"><span class="accent">Markdown routes.</span> Python works.<br>The orchestrator conducts.</p>
+- Markdown tells the agent how to work
+- Small Python tools do the actual work
+- Each thin skill is easy to run, test, and repair
+- Explicit triggers: "Use $slack-skill to send `hi folks`"
+- Implicit triggers: "Send this message `hi folks`"
 
 ## Skills save Tokens
 
@@ -702,15 +719,65 @@ plans/
 - Failures arrive with evidence—not a mystery
 - The job becomes improving the system
 
-## The Big Shift
+## The Crypto Trilemma
 
-<div class="ownership-shift">
-  <div class="side before"><strong class="highlight-orange">10x: inspect the work</strong><br><br>Read the diff<br>Check each step<br>Approve the move</div>
-  <div class="middle">→</div>
-  <div class="side after"><strong style="color:#ff7b72">100x: inspect the outcome</strong><br><br>Watch the result<br>Review exceptions<br>Improve the rules</div>
-</div>
+```{=html}
+<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The crypto trilemma: scalability, decentralization, and security.">
+  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
 
-<p class="big-idea">Less reading. Less routine checking.<br><span class="accent">More attention where it matters.</span></p>
+  <g class="trilemma-node medium-label" transform="translate(480 92)">
+    <circle r="90" />
+    <text y="9">SCALABILITY</text>
+  </g>
+
+  <g class="trilemma-node long-label" transform="translate(165 400)">
+    <circle r="90" />
+    <text y="9">DECENTRALIZATION</text>
+  </g>
+
+  <g class="trilemma-node" transform="translate(795 400)">
+    <circle r="90" />
+    <text y="9">SECURITY</text>
+  </g>
+
+  <g class="trilemma-core" transform="translate(480 300)">
+    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
+    <text class="core-message" y="24">You can't maximize all three</text>
+  </g>
+</svg>
+```
+
+<p class="trilemma-caption">Push one corner, and the others push back.</p>
+
+## The AI Trilemma
+
+```{=html}
+<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The AI delivery trilemma: speed, architecture, and features.">
+  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+
+  <g class="trilemma-node" transform="translate(480 92)">
+    <circle r="90" />
+    <text y="9">SPEED</text>
+  </g>
+
+  <g class="trilemma-node medium-label" transform="translate(165 400)">
+    <circle r="90" />
+    <text y="9">ARCHITECTURE</text>
+  </g>
+
+  <g class="trilemma-node" transform="translate(795 400)">
+    <circle r="90" />
+    <text y="9">FEATURES</text>
+  </g>
+
+  <g class="trilemma-core" transform="translate(480 300)">
+    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
+    <text class="core-message" y="24">You can't maximize all three</text>
+  </g>
+</svg>
+```
+
+<p class="trilemma-caption">Push one corner, and the others push back.</p>
 
 ## Less Checking ≠ Less Safety
 

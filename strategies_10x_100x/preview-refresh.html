@@ -1,0 +1,37 @@
+<script>
+(() => {
+  if (window.location.hostname !== "127.0.0.1" && window.location.hostname !== "localhost") {
+    return;
+  }
+
+  let baseline = null;
+  let reloading = false;
+
+  const checkForUpdate = async () => {
+    try {
+      const response = await fetch(window.location.pathname + window.location.search, {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        return;
+      }
+
+      const current = await response.text();
+      if (baseline === null) {
+        baseline = current;
+      } else if (current !== baseline && !reloading) {
+        reloading = true;
+        window.location.reload();
+      }
+    } catch {
+      // Quarto may be briefly unavailable while rebuilding. Try again next time.
+    }
+  };
+
+  window.setTimeout(() => {
+    checkForUpdate();
+    window.setInterval(checkForUpdate, 1500);
+  }, 1000);
+})();
+</script>
