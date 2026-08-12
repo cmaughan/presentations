@@ -423,20 +423,16 @@ project/
 - Post to Slack thread
 - Mark bug complete
 
-## Improving the Code
+## Teach Your Agent To See
 
-## Debug Technique: Dumps
-
-- One command captures errors, logs, settings, and state
-- The agent reads the dump instead of asking you twenty questions
-- Fix, rerun, compare
-- Sometimes the agent will just fire up gdb...
+- Better coding outcome
 
 ## Validation: Image Grabs
 
 - Have a way to capture the UI
 - Show the agent how to do that
 - Let the agent inspect the real result
+- It isn't finished until it is right
 
 ## Validation: Image Diffs
 
@@ -445,18 +441,29 @@ project/
 - Highlight only the changed pixels
 - Stop if something unexpected moved
 - Smoke test step
+- It isn't finished until it is right
 
 ## Validation: Audio
 
 - Render the reference and the new output
 - Compare volume, timing, silence, frequency components...
+- `"/goal make them all sound the same"`
 
 ## Validation: JSON
 
 - Make a way to dump what's important to you
 - Show the agent how to do that
 - Let the agent inspect the real result
+- Diff against goldens too
 - Good technique for understanding shape, location, etc.
+
+## Debug Technique: Dumps
+
+- `"Instrument the app to dump XYZ, I'll run it, you debug it"`
+- The agent reads the dump instead of asking you twenty questions
+- Fix, rerun, compare
+- Very quick way to fix temporal bugs
+- Sometimes the agent will just fire up gdb...
 
 ## The 10x Developer Target
 
@@ -465,6 +472,7 @@ project/
 - Your day job is planning, reviewing and testing
 - The agent is your intern, doing all the boring bits
 - You've taught it how to understand the result
+- Never prompt twice for the same thing
 
 ## The 100x developer {.compact-title}
 
