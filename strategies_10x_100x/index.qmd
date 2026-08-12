@@ -635,14 +635,41 @@ plans/
 
 ::::
 
+## Auto Multi-Agent Code Reviews
+
+Three agents review the same codebase independently:
+
+```
+plans/reviews/
+├── review-latest.claude.md
+├── review-latest.gemini.md
+├── review-latest.gpt.md
+└── review-consensus.md       ← synthesized
+```
+
+- Each agent finds different classes of issues
+- The consensus step combines the results and files kanban issues
+
+## Review Flow
+
+![Three agents review independently, then synthesize into consensus + work items](screenshots/review-system.svg)
+
+## Review Skill
+
+- `"$review ...Look at the separation of modules and the general layout. Look for bad code smells, or things that will make it harder for multiple agents to work on the codebase. Do a thorough review. Look for testing holes, and for code that is not clean or easy to maintain. Look for opportunities to separate concerns and make things modular..."`
+
 ## Planning: Vertical Slices
 
+- After automated reviewer, or manual
+
+<br>
 <div class="checkpoint-strip">
   <div class="checkpoint"><strong>Plan</strong>Break a task into slices<span class="check">✓ Pass Criteria</span></div>
   <div class="checkpoint"><strong>Test</strong>One visible outcome<span class="check">✓ Does it work?</span></div>
   <div class="checkpoint"><strong>Refine</strong>Tweaks, Tangents<span class="check">✓ Don't accept debt?</span></div>
   <div class="checkpoint"><strong>Ship</strong>Commit it, move on<span class="check">✓ Done</span></div>
 </div>
+</br>
 
 ## Planning: Vertical Slices
 ![](screenshots/slices){.slide-image fig-alt="Kanban"}

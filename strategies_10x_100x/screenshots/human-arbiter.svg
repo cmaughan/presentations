@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Inter', 'Helvetica Neue', sans-serif">
+  <rect width="900" height="520" fill="#0d1117"/>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#58a6ff"/>
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7ee787"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f0883e"/>
+    </marker>
+  </defs>
+
+  <!-- Work items column (left) -->
+  <rect x="30" y="30" width="200" height="280" rx="8" fill="#161b22" stroke="#f0883e" stroke-width="1.5"/>
+  <text x="130" y="55" text-anchor="middle" fill="#f0883e" font-size="14" font-weight="700">work-items/</text>
+
+  <rect x="45" y="72" width="170" height="32" rx="4" fill="#0d1117" stroke="#f47067" stroke-width="1"/>
+  <text x="55" y="93" fill="#c9d1d9" font-size="11">00 rpc-shutdown</text>
+  <text x="200" y="93" text-anchor="end" fill="#f47067" font-size="9">bug</text>
+
+  <rect x="45" y="112" width="170" height="32" rx="4" fill="#0d1117" stroke="#f47067" stroke-width="1"/>
+  <text x="55" y="133" fill="#c9d1d9" font-size="11">01 mouse-drag</text>
+  <text x="200" y="133" text-anchor="end" fill="#f47067" font-size="9">bug</text>
+
+  <rect x="45" y="152" width="170" height="32" rx="4" fill="#0d1117" stroke="#58a6ff" stroke-width="1"/>
+  <text x="55" y="173" fill="#c9d1d9" font-size="11">02 render-refactor</text>
+  <text x="200" y="173" text-anchor="end" fill="#58a6ff" font-size="9">refactor</text>
+
+  <rect x="45" y="192" width="170" height="32" rx="4" fill="#0d1117" stroke="#7ee787" stroke-width="1"/>
+  <text x="55" y="213" fill="#c9d1d9" font-size="11">03 chord-keybinds</text>
+  <text x="200" y="213" text-anchor="end" fill="#7ee787" font-size="9">feature</text>
+
+  <rect x="45" y="232" width="170" height="32" rx="4" fill="#0d1117" stroke="#7ee787" stroke-width="1"/>
+  <text x="55" y="253" fill="#c9d1d9" font-size="11">04 split-pane-resize</text>
+  <text x="200" y="253" text-anchor="end" fill="#7ee787" font-size="9">feature</text>
+
+  <text x="130" y="290" text-anchor="middle" fill="#484f58" font-size="11">prioritized by review</text>
+
+  <!-- Arrows from work items to human -->
+  <line x1="230" y1="170" x2="320" y2="170" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Human arbiter (center) -->
+  <rect x="320" y="100" width="200" height="140" rx="12" fill="#161b22" stroke="#c9d1d9" stroke-width="2"/>
+
+  <!-- Person icon -->
+  <circle cx="420" cy="140" r="18" fill="none" stroke="#c9d1d9" stroke-width="2"/>
+  <text x="420" y="147" text-anchor="middle" fill="#c9d1d9" font-size="18">H</text>
+
+  <text x="420" y="178" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="700">Human Arbiter</text>
+  <text x="420" y="198" text-anchor="middle" fill="#8b949e" font-size="11">prioritize, assign, scope</text>
+  <text x="420" y="215" text-anchor="middle" fill="#8b949e" font-size="11">review plans before build</text>
+
+  <!-- Fan-out arrows from human to agents -->
+  <line x1="520" y1="130" x2="620" y2="80" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="520" y1="170" x2="620" y2="170" stroke="#7ee787" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="520" y1="210" x2="620" y2="260" stroke="#f0883e" stroke-width="2" marker-end="url(#arrow-orange)"/>
+
+  <!-- Agent boxes (right side) -->
+  <!-- Claude -->
+  <rect x="620" y="50" width="240" height="60" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+  <text x="645" y="75" fill="#58a6ff" font-size="14" font-weight="700">Claude</text>
+  <text x="645" y="95" fill="#8b949e" font-size="11">00 rpc-shutdown + 01 mouse-drag</text>
+
+  <!-- Codex -->
+  <rect x="620" y="140" width="240" height="60" rx="8" fill="#161b22" stroke="#7ee787" stroke-width="2"/>
+  <text x="645" y="165" fill="#7ee787" font-size="14" font-weight="700">Codex</text>
+  <text x="645" y="185" fill="#8b949e" font-size="11">02 render-refactor</text>
+
+  <!-- Gemini -->
+  <rect x="620" y="230" width="240" height="60" rx="8" fill="#161b22" stroke="#f0883e" stroke-width="2"/>
+  <text x="645" y="255" fill="#f0883e" font-size="14" font-weight="700">Gemini</text>
+  <text x="645" y="275" fill="#8b949e" font-size="11">03 chord-keybinds + 04 resize</text>
+
+  <!-- Phase labels -->
+  <!-- Plan phase arrows -->
+  <line x1="740" y1="110" x2="740" y2="340" stroke="#484f58" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="740" y="355" text-anchor="middle" fill="#484f58" font-size="10">PLAN</text>
+
+  <!-- Plan outputs -->
+  <rect x="620" y="370" width="240" height="45" rx="6" fill="#0d1117" stroke="#58a6ff" stroke-width="1"/>
+  <text x="640" y="392" fill="#58a6ff" font-size="11">plan-00.md  plan-01.md</text>
+  <text x="640" y="406" fill="#8b949e" font-size="10">approach + risk analysis</text>
+
+  <!-- Arrow back to human for plan review -->
+  <line x1="620" y1="392" x2="520" y2="350" stroke="#58a6ff" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow)"/>
+
+  <!-- Human reviews plans -->
+  <rect x="320" y="320" width="200" height="50" rx="8" fill="#161b22" stroke="#c9d1d9" stroke-width="1.5"/>
+  <text x="420" y="342" text-anchor="middle" fill="#c9d1d9" font-size="12" font-weight="600">Review plans</text>
+  <text x="420" y="358" text-anchor="middle" fill="#7ee787" font-size="11">approve / adjust</text>
+
+  <!-- Arrow from plan review to build -->
+  <line x1="420" y1="370" x2="420" y2="430" stroke="#7ee787" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- Build phase -->
+  <rect x="270" y="430" width="300" height="55" rx="8" fill="#161b22" stroke="#7ee787" stroke-width="2"/>
+  <text x="420" y="455" text-anchor="middle" fill="#7ee787" font-size="15" font-weight="700">Build (parallel worktrees)</text>
+  <text x="420" y="475" text-anchor="middle" fill="#8b949e" font-size="11">each agent executes approved plan in isolation</text>
+
+  <!-- Labels on left -->
+  <text x="20" y="390" fill="#484f58" font-size="10" transform="rotate(-90, 20, 390)">WORKFLOW</text>
+</svg>
