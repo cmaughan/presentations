@@ -173,10 +173,10 @@ date: 2026-08-12
 
 <div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
 
-## `AGENTS.md` Makes Context Persistent
+## `AGENTS.md` : "How I want you to work"
 
-- Explains how this repository actually works
-- Names the build, test, and review commands
+- Explains where everything is and what it does
+- Build, test, review commands
 - Records boundaries, conventions, and the definition of done
 - Gives every agent the same starting point
 - Turns repeated corrections into permanent guidance
