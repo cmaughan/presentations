@@ -1,0 +1,5 @@
+*.qmd text eol=crlf
+*.scss text eol=crlf
+*.yml text eol=crlf
+*.yaml text eol=crlf
+.gitattributes text eol=crlf

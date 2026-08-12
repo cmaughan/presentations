@@ -67,36 +67,15 @@ date: 2026-08-12
 
 ## The 1x Developer
 
-- Planning
-- Mostly coding
-- Annoying bits, like Jira
-- Scripting and Tools: VSCode, Git, etc
+- Most time coding
+- Annoying bits, like Jira & Planning
+- Lots of Scripting, Tools: VSCode, Git, etc
 
 ## Copy/Paste AI
 
 ![](screenshots/copypaste.png){.slide-image fig-alt="How to Copy and Paste from ChatGPT"}
 
-## Basic Tooling
-
-<div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
-
-## Small Wins Matter
-
-:::: {.columns .tight}
-
-::: {.column width="32%"}
-
-- Fixing your workflow is a prompt away. It will always pay you back.
-
-:::
-
-::: {.column width="68%"}
-
-![](screenshots/vim-speedup.png){.slide-image fig-alt="A Codex result showing substantial Neovim startup improvements"}
-
-:::
-
-::::
+<p class="slide-attribution">Attribution: Vecteezy.com</p>
 
 ## The 3-5x developer {.compact-title}
 
@@ -162,6 +141,24 @@ date: 2026-08-12
 
 <p class="big-idea">The code got faster.<br><span class="accent-orange">The rest of the job did not.</span></p>
 
+## Small Wins Matter
+
+:::: {.columns .tight}
+
+::: {.column width="32%"}
+
+- Fixing your workflow is a prompt away. It will always pay you back.
+
+:::
+
+::: {.column width="68%"}
+
+![](screenshots/vim-speedup.png){.slide-image fig-alt="A Codex result showing substantial Neovim startup improvements"}
+
+:::
+
+::::
+
 ## The 3-5x developer
 
 - Planning with AI help
@@ -171,6 +168,10 @@ date: 2026-08-12
 - Tried a skill or two: `/superpowers`, `/grill-me`, etc.
 - Used `/review` or CodeRabbit, GitHub, Copilot
 - Most corporate devs are here right now
+
+## Basic Tooling
+
+<div class="tooling-frame"><img src="screenshots/tools.png" alt="Development environment health check showing core command-line tools installed and ready"></div>
 
 ## `AGENTS.md` Makes Context Persistent
 
@@ -242,6 +243,66 @@ date: 2026-08-12
 <p class="loop-caption">(insert your loop here....)</p>
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
+
+## The Crypto Trilemma
+
+```{=html}
+<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The crypto trilemma: scalability, decentralization, and security.">
+  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+
+  <g class="trilemma-node medium-label" transform="translate(480 92)">
+    <circle r="90" />
+    <text y="9">SCALABILITY</text>
+  </g>
+
+  <g class="trilemma-node long-label" transform="translate(165 400)">
+    <circle r="90" />
+    <text y="9">DECENTRALIZATION</text>
+  </g>
+
+  <g class="trilemma-node" transform="translate(795 400)">
+    <circle r="90" />
+    <text y="9">SECURITY</text>
+  </g>
+
+  <g class="trilemma-core" transform="translate(480 300)">
+    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
+    <text class="core-message" y="24">You can't maximize all three</text>
+  </g>
+</svg>
+```
+
+<p class="trilemma-caption">Push one corner, and the others push back.</p>
+
+## The AI Trilemma
+
+```{=html}
+<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The AI delivery trilemma: speed, architecture, and features.">
+  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+
+  <g class="trilemma-node" transform="translate(480 92)">
+    <circle r="90" />
+    <text y="9">SPEED</text>
+  </g>
+
+  <g class="trilemma-node medium-label" transform="translate(165 400)">
+    <circle r="90" />
+    <text y="9">ARCHITECTURE</text>
+  </g>
+
+  <g class="trilemma-node" transform="translate(795 400)">
+    <circle r="90" />
+    <text y="9">FEATURES</text>
+  </g>
+
+  <g class="trilemma-core" transform="translate(480 300)">
+    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
+    <text class="core-message" y="24">You can't maximize all three</text>
+  </g>
+</svg>
+```
+
+<p class="trilemma-caption">Push one corner, and the others push back.</p>
 
 ## Every Box Becomes a Skill
 

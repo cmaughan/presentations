@@ -145,6 +145,81 @@ $code-block-border-color: #30363d;
   margin: 0 auto;
 }
 
+.reveal .slide-attribution {
+  position: absolute;
+  right: 0.35em;
+  bottom: 0.15em;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.42em;
+  line-height: 1;
+}
+
+.reveal .trilemma-diagram {
+  display: block;
+  width: 88%;
+  max-height: 52vh;
+  margin: -0.15em auto 0;
+  overflow: visible;
+}
+
+.reveal .trilemma-triangle {
+  fill: rgba(88, 166, 255, 0.045);
+  stroke: #58a6ff;
+  stroke-width: 8;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 14px rgba(88, 166, 255, 0.24));
+}
+
+.reveal .trilemma-node circle {
+  fill: #58a6ff;
+  stroke: #9acbff;
+  stroke-width: 6;
+}
+
+.reveal .trilemma-node text {
+  fill: #0d1117;
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-anchor: middle;
+}
+
+.reveal .trilemma-node.medium-label text {
+  font-size: 16px;
+}
+
+.reveal .trilemma-node.long-label text {
+  font-size: 13px;
+}
+
+.reveal .trilemma-core text {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  text-anchor: middle;
+}
+
+.reveal .trilemma-core .core-kicker {
+  fill: #8b949e;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.reveal .trilemma-core .core-message {
+  fill: #e6edf3;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.reveal .trilemma-caption {
+  margin: -0.15em 0 0;
+  color: #8b949e;
+  font-size: 0.62em;
+  font-style: italic;
+  text-align: center;
+}
+
 .reveal .tooling-frame {
   width: 92%;
   height: 54vh;
