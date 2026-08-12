@@ -78,7 +78,7 @@ date: 2026-08-12
 - Annoying bits, like Jira & Planning
 - Lots of Scripting, Tools: VSCode, Git, etc
 
-## 
+##
 
 ![](screenshots/copypaste.png){.slide-image fig-alt="How to Copy and Paste from ChatGPT"}
 
@@ -146,17 +146,17 @@ date: 2026-08-12
 
 ## The 3x Problem
 
-<p class="big-idea">The coding got faster<br><span class="accent-orange">The rest of it didn't</span></p>
+<p class="big-idea">The coding got faster<br><span class="accent-orange">The rest of it didn't (mostly...)</span></p>
 
 ## The 3x Developer
 
+- Most corporate devs are here right now (?)
 - Planning with AI help
 - Coding with Cursor, Codex, or Claude
     - From the most to least expensive task
 - An `AGENTS.md`
 - Tried a skill or two: `/superpowers`, `/grill-me`, etc.
 - Used `/review` or CodeRabbit, GitHub, Copilot
-- Most corporate devs are here right now
 
 ## Basic Tooling - An Easy Win
 
@@ -168,7 +168,7 @@ date: 2026-08-12
 
 ::: {.column width="42%"}
 
-- Fixing your workflow is a prompt away 
+- Fixing your workflow is a prompt away
 
 :::
 
@@ -180,9 +180,9 @@ date: 2026-08-12
 
 ::::
 
-## `AGENTS.md` : "Agentic Employee 101" 
+## `AGENTS.md` : "Agentic Employee 101"
 
-- Explains where everything is and what it does 
+- Explains where everything is and what it does
 - Build, test, review commands
 - Every agent the same starting point
 - Subdirectories too
@@ -275,6 +275,87 @@ date: 2026-08-12
 
 <div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
 
+## Skills: The Basic Structure
+
+```text
+my-skill/
+├── SKILL.md
+├── scripts/
+│   └── do_the_work.py
+├── references/
+└── assets/
+```
+
+<p class="plain-note"><code>SKILL.md</code> explains when to use the skill. The supporting files make the work repeatable.</p>
+
+## Warning {.skills-warning-slide}
+
+<div class="skills-warning">
+  <p>Skills are like little <span>code bombs</span></p>
+  <strong>Check provenence</strong>
+</div>
+
+## Warning {.skills-warning-slide}
+
+<div class="skills-warning">
+  <p>Skills are <span>restrictive</span></p>
+  <strong>They will change agent behavior</strong>
+</div>
+
+## Skills save Tokens
+
+![](screenshots/token-cost.png){.slide-image fig-alt="Token usage and cost showing approximately 286 million tokens and 191 dollars"}
+
+## Skills: Keep Them Thin
+
+- Small Python scripts do the actual work
+- Each thin skill is easy to run, test, and repair
+- Repeatable behavior
+- Python doesn't burn tokens...
+- Explicit triggers: "Use $slack-skill to send `hi folks`"
+- Implicit triggers: "Send this message `hi folks`"
+
+## Preflight Skill
+
+- Setup and Auth the MCPs and local services the workflow needs
+- Run at startup, and when something fails
+- Report status
+
+## Orchestration: It's just a skill
+
+- Uses the thin skills to do the work
+- Organises various workflows
+- Developer, Reviewer and Submitter
+
+## Skill Hierarchy
+
+```text
+project/
+├── plans/
+│   └── manifesto.md
+└── .agents/
+    └── skills/
+        └── orchestrator.md
+            ├── jira/
+            ├── coding/
+            ├── slack/
+            ├── perforce/       # source control
+            ├── swarm/          # reviews
+            └── preflight/
+```
+
+<p class="plain-note"><code>orchestrator.md</code> chooses the workflow and delegates each step to a child skill.</p>
+
+## Orchestration: Autonomous Developer
+
+- 10: Find a case to work on (auto or directed)
+- Take ownership in Jira, In Progress
+- Implement it
+- Run tests/checks
+- Send to Swarm for review
+- Open a slack thread with details
+- Goto 10
+
 ## Orchestration: Autonomous Reviewer
 
 ```{=html}
@@ -327,140 +408,165 @@ date: 2026-08-12
 
 ## Orchestration: Autonomous Reviewer
 
-- Read Jira
-- Respond or not (has memory)
+- 10: Read Swarm (review comments)
+- Make a judgement call
+- Auto fix, or defer to human
+- Fix bug / feature
+- Update the review
+- Update automated tests
+- Post to Swarm and the Slack thread
+- Goto 10
 
-## Skills: The Basic Structure
+## Orchestration: Submitter
 
-```text
-my-skill/
-├── SKILL.md
-├── scripts/
-│   └── do_the_work.py
-├── references/
-└── assets/
-```
+- Check the CL tests
+- Wait for test validation
+- Submit
+- Post to Slack thread
+- Mark bug complete
 
-<p class="plain-note"><code>SKILL.md</code> explains when to use the skill. The supporting files make the work repeatable.</p>
-
-## Warning {.skills-warning-slide}
-
-<div class="skills-warning">
-  <p>Skills are like little <span>code bombs</span></p>
-  <strong>Check provenence</strong>
-</div>
-
-## Warning {.skills-warning-slide}
-
-<div class="skills-warning">
-  <p>Skills are <span>restrictive</span></p>
-  <strong>They will change agent behavior</strong>
-</div>
-
-## Skills: Keep Them Thin
-
-- An orchestrator skill selects and sequences the thin skills
-- Markdown tells the agent how to work
-- Small Python tools do the actual work
-- Each thin skill is easy to run, test, and repair
-- Explicit triggers: "Use $slack-skill to send `hi folks`"
-- Implicit triggers: "Send this message `hi folks`"
-
-## Skills save Tokens
-
-![](screenshots/token-cost.png){.slide-image fig-alt="Token usage and cost showing approximately 286 million tokens and 191 dollars"}
-
-## Skill Hierarchy 
-
-```text
-project/
-├── plans/
-│   └── manifesto.md
-└── .agents/
-    └── skills/
-        └── orchestrator.md
-            ├── jira/
-            ├── coding/
-            ├── slack/
-            ├── perforce/       # source control
-            ├── swarm/          # reviews
-            └── preflight/
-```
-
-<p class="plain-note"><code>orchestrator.md</code> chooses the workflow and delegates each step to a child skill.</p>
-
-## Preflight Skill
-
-- Setup and Auth the MCPs and local services the workflow needs
-- Run at startup, and when something fails
-- Report status 
-
-## The Orchestrator Selects the Workflow
-
-:::: {.columns}
-
-::: {.column width="42%"}
-
-```text
-workflows/
-├── automated-reviewer.md
-├── bug-feature-implementation.md
-├── submit-workflow.md
-└── coder.md
-```
-
-:::
-
-::: {.column width="58%"}
-
-- **Automated reviewer** checks behavior and evidence
-- **Bug/feature implementation** moves one slice through the loop
-- **Submit workflow** commits, pushes, and watches the checks
-- **Coder** handles a focused implementation step
-
-:::
-
-::::
-
-<p class="big-idea"><span class="accent">The orchestrator chooses the path.</span><br>Thin skills execute the steps.</p>
-
-## `plans/` Gives Intent a Home
-
-:::: {.columns}
-
-::: {.column width="40%"}
-
-```text
-plans/
-├── manifesto.md
-├── feature-plan.md
-├── architecture.md
-└── decisions.md
-```
-
-:::
-
-::: {.column width="60%"}
-
-- Plans are Markdown: easy to read, diff, and update
-- Each captures intent, slices, constraints, and checks
-- Other documents keep decisions close to the work
-- `manifesto.md` holds the soul of what you are building
-
-:::
-
-::::
-
-<p class="big-idea">Plans explain the next move.<br><span class="accent-orange">The manifesto protects the direction.</span></p>
-
-## The 10x Developer
+## The 10x Developer Summary
 
 - Automation is spread across the whole loop
-- Work moves as small, complete slices
-- Every step leaves something you can inspect
-- You still read code and check between steps
-- A failure stops the workflow before it grows
-- Every correction improves the next run
+- You still read code
+- Your day job is planning, reviewing and testing
+- The agent is your intern, doing all the boring bits
+
+## The 100x developer {.compact-title}
+
+~~~{=html}
+<svg class="lifecycle-diagram" viewBox="0 0 960 510" role="img" aria-label="The 100x developer lifecycle: coding, group review, committing, and deploying are fully AI-driven; Kanban, planning, testing, and documentation use some AI.">
+  <ellipse class="cycle-track" cx="480" cy="255" rx="340" ry="205" />
+
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(610 66) rotate(14)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(794 177) rotate(55)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(794 333) rotate(125)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(610 444) rotate(166)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(350 444) rotate(-166)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(166 333) rotate(-125)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(166 177) rotate(-55)" />
+  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(350 66) rotate(-14)" />
+
+  <g class="cycle-core" transform="translate(480 255)">
+    <circle cx="0" cy="0" r="92" />
+    <text class="multiplier" x="0" y="-2">100×</text>
+    <text class="core-label" x="0" y="28">DEVELOPER LOOP</text>
+  </g>
+
+  <g class="cycle-node ai-assisted" transform="translate(380 17)">
+    <rect width="200" height="66" rx="14" />
+    <text x="100" y="41">Kanban</text>
+  </g>
+  <g class="cycle-node ai-assisted" transform="translate(630 85)">
+    <rect width="190" height="66" rx="14" />
+    <text x="95" y="41">Planning</text>
+  </g>
+  <g class="cycle-node ai-driven" transform="translate(720 222)">
+    <rect width="190" height="66" rx="14" />
+    <text x="95" y="41">Coding</text>
+  </g>
+  <g class="cycle-node ai-assisted" transform="translate(630 365)">
+    <rect width="190" height="66" rx="14" />
+    <text x="95" y="41">Testing</text>
+  </g>
+  <g class="cycle-node ai-driven" transform="translate(370 430)">
+    <rect width="220" height="66" rx="14" />
+    <text x="110" y="41">Group Review</text>
+  </g>
+  <g class="cycle-node ai-driven" transform="translate(150 365)">
+    <rect width="180" height="66" rx="14" />
+    <text x="90" y="41">Commit</text>
+  </g>
+  <g class="cycle-node ai-driven" transform="translate(50 222)">
+    <rect width="180" height="66" rx="14" />
+    <text x="90" y="41">Deploy</text>
+  </g>
+  <g class="cycle-node ai-assisted" transform="translate(130 85)">
+    <rect width="220" height="66" rx="14" />
+    <text x="110" y="41">Documentation</text>
+  </g>
+</svg>
+~~~
+
+<p class="loop-caption">(insert your loop here....)</p>
+
+<div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
+
+## The 100x Developer
+
+- Most code is no longer read by a human
+- Agents work on the whole problem (autonomously?)
+- Parallel workflows, multiple agents
+- Agents help plan and decide on features
+- The code is a black box
+- The inputs and outputs are checked by humans and agents
+- The agents are also checking the contents
+
+## Dark Factory?
+
+![](screenshots/solar){.slide-image fig-alt="Solar Eclipse"}
+
+<p class="slide-attribution">Attribution: European Space Agency</p>
+
+## The Crypto Trilemma (??)
+
+```{=html}
+<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The crypto trilemma: scalability, decentralization, and security.">
+  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+
+  <g class="trilemma-node medium-label" transform="translate(480 92)">
+    <circle r="90" />
+    <text y="9">SCALABILITY</text>
+  </g>
+
+  <g class="trilemma-node long-label" transform="translate(165 400)">
+    <circle r="90" />
+    <text y="9">DECENTRALIZATION</text>
+  </g>
+
+  <g class="trilemma-node" transform="translate(795 400)">
+    <circle r="90" />
+    <text y="9">SECURITY</text>
+  </g>
+
+  <g class="trilemma-core" transform="translate(480 300)">
+    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
+    <text class="core-message" y="24">You can't maximize all three</text>
+  </g>
+</svg>
+```
+
+<p class="trilemma-caption">Push one corner, and the others push back.</p>
+
+## The AI Trilemma
+
+```{=html}
+<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The AI delivery trilemma: speed, architecture, and features.">
+  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+
+  <g class="trilemma-node" transform="translate(480 92)">
+    <circle r="90" />
+    <text y="9">SPEED</text>
+  </g>
+
+  <g class="trilemma-node medium-label" transform="translate(165 400)">
+    <circle r="90" />
+    <text y="9">ARCHITECTURE</text>
+  </g>
+
+  <g class="trilemma-node" transform="translate(795 400)">
+    <circle r="90" />
+    <text y="9">FEATURES</text>
+  </g>
+
+  <g class="trilemma-core" transform="translate(480 300)">
+    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
+    <text class="core-message" y="24">You can't maximize all three</text>
+  </g>
+</svg>
+```
+
+<p class="trilemma-caption">Push one corner, and the others push back.</p>
 
 ## Small Slices, Frequent Checks
 
@@ -650,134 +756,34 @@ plans/
 
 <p class="big-idea">A script is a tiny tool<br>that never forgets the steps.</p>
 
-## The 100x developer {.compact-title}
+## `plans/`
 
-~~~{=html}
-<svg class="lifecycle-diagram" viewBox="0 0 960 510" role="img" aria-label="The 100x developer lifecycle: coding, group review, committing, and deploying are fully AI-driven; Kanban, planning, testing, and documentation use some AI.">
-  <ellipse class="cycle-track" cx="480" cy="255" rx="340" ry="205" />
+:::: {.columns}
 
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(610 66) rotate(14)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(794 177) rotate(55)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(794 333) rotate(125)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(610 444) rotate(166)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(350 444) rotate(-166)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(166 333) rotate(-125)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(166 177) rotate(-55)" />
-  <polygon class="cycle-arrow" points="-13,-8 11,0 -13,8" transform="translate(350 66) rotate(-14)" />
+::: {.column width="40%"}
 
-  <g class="cycle-core" transform="translate(480 255)">
-    <circle cx="0" cy="0" r="92" />
-    <text class="multiplier" x="0" y="-2">100×</text>
-    <text class="core-label" x="0" y="28">DEVELOPER LOOP</text>
-  </g>
-
-  <g class="cycle-node ai-assisted" transform="translate(380 17)">
-    <rect width="200" height="66" rx="14" />
-    <text x="100" y="41">Kanban</text>
-  </g>
-  <g class="cycle-node ai-assisted" transform="translate(630 85)">
-    <rect width="190" height="66" rx="14" />
-    <text x="95" y="41">Planning</text>
-  </g>
-  <g class="cycle-node ai-driven" transform="translate(720 222)">
-    <rect width="190" height="66" rx="14" />
-    <text x="95" y="41">Coding</text>
-  </g>
-  <g class="cycle-node ai-assisted" transform="translate(630 365)">
-    <rect width="190" height="66" rx="14" />
-    <text x="95" y="41">Testing</text>
-  </g>
-  <g class="cycle-node ai-driven" transform="translate(370 430)">
-    <rect width="220" height="66" rx="14" />
-    <text x="110" y="41">Group Review</text>
-  </g>
-  <g class="cycle-node ai-driven" transform="translate(150 365)">
-    <rect width="180" height="66" rx="14" />
-    <text x="90" y="41">Commit</text>
-  </g>
-  <g class="cycle-node ai-driven" transform="translate(50 222)">
-    <rect width="180" height="66" rx="14" />
-    <text x="90" y="41">Deploy</text>
-  </g>
-  <g class="cycle-node ai-assisted" transform="translate(130 85)">
-    <rect width="220" height="66" rx="14" />
-    <text x="110" y="41">Documentation</text>
-  </g>
-</svg>
-~~~
-
-<p class="loop-caption">(insert your loop here....)</p>
-
-<div class="ai-key" aria-label="Color key: green means no AI, orange means some AI, and red means all AI."><span class="key-item"><span class="key-swatch no-ai"></span>No AI</span><span class="key-item"><span class="key-swatch some-ai"></span>Some AI</span><span class="key-item"><span class="key-swatch all-ai"></span>All AI</span></div>
-
-## The 100x Developer
-
-- Most code is no longer read line by line by a human
-- Routine checks happen without asking for approval
-- Agents review, test, commit, and deploy
-- Humans watch outcomes, risk, and exceptions
-- Failures arrive with evidence—not a mystery
-- The job becomes improving the system
-
-## The Crypto Trilemma
-
-```{=html}
-<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The crypto trilemma: scalability, decentralization, and security.">
-  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
-
-  <g class="trilemma-node medium-label" transform="translate(480 92)">
-    <circle r="90" />
-    <text y="9">SCALABILITY</text>
-  </g>
-
-  <g class="trilemma-node long-label" transform="translate(165 400)">
-    <circle r="90" />
-    <text y="9">DECENTRALIZATION</text>
-  </g>
-
-  <g class="trilemma-node" transform="translate(795 400)">
-    <circle r="90" />
-    <text y="9">SECURITY</text>
-  </g>
-
-  <g class="trilemma-core" transform="translate(480 300)">
-    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
-    <text class="core-message" y="24">You can't maximize all three</text>
-  </g>
-</svg>
+```text
+plans/
+├── manifesto.md
+├── feature-plan.md
+├── architecture.md
+└── decisions.md
 ```
 
-<p class="trilemma-caption">Push one corner, and the others push back.</p>
+:::
 
-## The AI Trilemma
+::: {.column width="60%"}
 
-```{=html}
-<svg class="trilemma-diagram" viewBox="0 0 960 500" role="img" aria-label="The AI delivery trilemma: speed, architecture, and features.">
-  <path class="trilemma-triangle" d="M480 92 L165 400 L795 400 Z" />
+- Plans are Markdown: easy to read, diff, and update
+- Each captures intent, slices, constraints, and checks
+- Other documents keep decisions close to the work
+- `manifesto.md` holds the soul of what you are building
 
-  <g class="trilemma-node" transform="translate(480 92)">
-    <circle r="90" />
-    <text y="9">SPEED</text>
-  </g>
+:::
 
-  <g class="trilemma-node medium-label" transform="translate(165 400)">
-    <circle r="90" />
-    <text y="9">ARCHITECTURE</text>
-  </g>
+::::
 
-  <g class="trilemma-node" transform="translate(795 400)">
-    <circle r="90" />
-    <text y="9">FEATURES</text>
-  </g>
-
-  <g class="trilemma-core" transform="translate(480 300)">
-    <text class="core-kicker" y="-13">THE TRADE-OFF</text>
-    <text class="core-message" y="24">You can't maximize all three</text>
-  </g>
-</svg>
-```
-
-<p class="trilemma-caption">Push one corner, and the others push back.</p>
+<p class="big-idea">Plans explain the next move.<br><span class="accent-orange">The manifesto protects the direction.</span></p>
 
 ## Less Checking ≠ Less Safety
 
