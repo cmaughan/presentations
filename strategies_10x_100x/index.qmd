@@ -290,7 +290,7 @@ my-skill/
 
 ![](screenshots/token-cost.png){.slide-image fig-alt="Token usage and cost showing approximately 286 million tokens and 191 dollars"}
 
-## The Whole Loop Becomes a Skill Tree
+## Skill Hierarchy 
 
 ```text
 project/
@@ -309,15 +309,11 @@ project/
 
 <p class="plain-note"><code>orchestrator.md</code> chooses the workflow and delegates each step to a child skill.</p>
 
-## A Preflight Skill Clears the Runway
+## Preflight Skill
 
-- Start the MCPs and local services the workflow needs
-- Check credentials, ports, and required configuration
-- Probe every dependency before real work begins
-- Report what is ready, degraded, or blocked
-- Stop early when the environment cannot support the run
-
-<p class="big-idea">No agent starts work<br><span class="accent-orange">until the runway is clear.</span></p>
+- Setup and Auth the MCPs and local services the workflow needs
+- Run at startup, and when something fails
+- Report status 
 
 ## The Orchestrator Selects the Workflow
 
