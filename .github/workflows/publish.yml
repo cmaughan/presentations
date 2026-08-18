@@ -39,23 +39,9 @@ jobs:
               cp -r "$dir/_output" "_site/$name"
             fi
           done
-          # Generate index page
-          cat > _site/index.html <<'HTMLEOF'
-          <!DOCTYPE html>
-          <html><head><meta charset="utf-8"><title>Presentations</title>
-          <style>
-            body { font-family: system-ui; background: #0d1117; color: #e6edf3; max-width: 600px; margin: 4em auto; }
-            a { color: #58a6ff; }
-            h1 { border-bottom: 1px solid #30363d; padding-bottom: 0.3em; }
-            li { margin: 0.5em 0; }
-          </style></head>
-          <body><h1>Presentations</h1><ul>
-          HTMLEOF
-          for dir in _site/*/; do
-            name="$(basename "$dir")"
-            echo "<li><a href=\"$name/\">$name</a></li>" >> _site/index.html
-          done
-          echo "</ul></body></html>" >> _site/index.html
+          # Keep the public landing page curated. Building a new deck must not
+          # automatically expose it or replace the card grid with a directory list.
+          cp index.html _site/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:
